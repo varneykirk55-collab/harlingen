@@ -1,0 +1,42 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/landmarks/IwoJimaMemorial.glb" id="1"]
+[sub_resource type="BoxShape3D" id="Box_plinth"]
+size = Vector3(16.8, 3.28, 11.4)
+
+
+[node name="GeographicSites" type="Node3D"]
+
+[node name="Site0" type="Node3D" parent="."]
+position = Vector3(1281.675400, 10.722516, 1299.710900)
+metadata/geographic_source = "city:campus:tstc"
+
+[node name="MapLabel" type="Label3D" parent="Site0"]
+position = Vector3(0, 16, 0)
+billboard = 1
+visibility_range_end = 690.0
+pixel_size = 0.028
+font_size = 46
+outline_size = 10
+text = "Texas State Technical College – Harlingen"
+
+[node name="Site1" type="Node3D" parent="."]
+position = Vector3(1045.453516, 10.899929, 957.733421)
+metadata/geographic_source = "thc:iwo-jima"
+
+[node name="MapLabel" type="Label3D" parent="Site1"]
+position = Vector3(0, 14.8, 0)
+billboard = 1
+visibility_range_end = 690.0
+pixel_size = 0.028
+font_size = 46
+outline_size = 10
+text = "Iwo Jima Memorial"
+
+[node name="IwoJimaMemorial" parent="Site1" instance=ExtResource("1")]
+
+[node name="PedestalCollision" type="StaticBody3D" parent="Site1"]
+
+[node name="Shape" type="CollisionShape3D" parent="Site1/PedestalCollision"]
+position = Vector3(0, 1.41, 0)
+shape = SubResource("Box_plinth")

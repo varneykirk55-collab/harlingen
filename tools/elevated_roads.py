@@ -1,6 +1,7 @@
 """Upgrade mapped Harlingen expressways and the Ramsey crossings as streamed meshes."""
 from collections import defaultdict
 from dataclasses import dataclass
+import heapq
 import json
 import math
 import random
@@ -15,6 +16,7 @@ from build import Elevation, ROOT, TILE_SIZE, VEHICLE, parts, patch, read_featur
 from landmarks import Frame, Landmark
 from mesh import Mesh, PALETTE, cylinder, write_glb
 from vegetation import scrub
+from road_grade import ground_grade, is_bridge, smoothstep, surface_grade
 
 MAIN = '''
 1061023301 119748890 119748783 119749039 1105186743 143948211 97347898
@@ -77,7 +79,7 @@ MODE = {'flyover_concrete':'plaza_concrete', 'flyover_girder':'plaza_concrete',
 
 
 def grade(dem, point):
-    return float(dem(*point)) + .078
+    return float(ground_grade(dem, *point))
 
 
 def eased(x, keys, ground):
@@ -105,7 +107,7 @@ class Road:
     def lanes(self):
         return int(self.tags.get('lanes', '1'))
 
-    def height(self, station, p=None):
+    def legacy_height(self, station, p=None):
         if p is None:
             p = self.line.interpolate(station).coords[0]
         g = grade(self.dem,p)
@@ -125,6 +127,43 @@ class Road:
         middle = 11.75 if self.key == PARK_ROAD else 10.25
         length = self.line.length
         return eased(station,[(0,a),(length*.26,middle),(length*.67,middle),(length,b)],g)
+
+    def height(self, station, p=None):
+        if p is None:
+            p = self.line.interpolate(station).coords[0]
+        if not is_bridge(self.tags):
+            base = surface_grade(self.dem, self.line, station, p)
+            distances = getattr(self, 'approach_distances', (math.inf, math.inf))
+            distance = min(station+distances[0], self.line.length-station+distances[1])
+            base = max(base, grade(self.dem,p) + .69*(1-smoothstep(distance/72.)))
+            return base
+        if hasattr(self, 'bridge_profile'):
+            stations, heights = self.bridge_profile
+            return float(np.interp(station,stations,heights))
+        length = self.line.length
+        result = self.legacy_height(station, p)
+        joins = getattr(self, 'joins', ())
+        for endpoint, target, distance in joins:
+            # Interior decks retain their design elevations. Approach ends meet at-grade
+            # routes or other bridge pieces at a single shared node elevation.
+            normalized = (station if endpoint == 0 else length-station)/distance
+            end_point = self.line.coords[0 if endpoint == 0 else -1]
+            end = grade(self.dem, end_point) if target is None else target
+            if normalized < 1:
+                result = end + smoothstep(normalized)*(result-end)
+        if joins:
+            upper = []
+            lower = []
+            for endpoint, target, _ in joins:
+                distance = station if endpoint==0 else length-station
+                upper.append(target + .115*distance)
+                lower.append(target - .115*distance)
+            result = max(max(lower), min(min(upper), result))
+        if joins and station<=.001:
+            return next(target for end,target,_ in joins if end==0)
+        if joins and length-station<=.001:
+            return next(target for end,target,_ in joins if end!=0)
+        return result
 
     def center(self, station):
         return np.asarray(self.line.interpolate(station).coords[0])
@@ -162,7 +201,139 @@ class RouteModel:
             v = np.asarray(r.line.coords)
             for q, v0 in [(v[0],v[1]-v[0]),(v[-1],v[-2]-v[-1])]:
                 self.endpoint_dirs[tuple(q)].append(v0/np.linalg.norm(v0))
+        self.configure_joins()
+        self.protect_crossing_clearance(source)
         self.support_count = 0
+
+    def configure_joins(self):
+        nodes = defaultdict(list)
+        graph = defaultdict(list)
+        ground_graph = defaultdict(list)
+        for road in self.roads:
+            road.joins = []
+            road.approach_distances = (math.inf, math.inf)
+            ends = [tuple(np.round(position, 3)) for position in (road.line.coords[0],road.line.coords[-1])]
+            for end, key in enumerate(ends):
+                nodes[key].append((road,end))
+            a,b = ends
+            if is_bridge(road.tags):
+                graph[a].append((b,road.line.length*.115))
+                graph[b].append((a,road.line.length*.115))
+            else:
+                ground_graph[a].append((b,road.line.length))
+                ground_graph[b].append((a,road.line.length))
+
+        targets = {}
+        fixed_approaches = set()
+        for key in graph:
+            refs = nodes[key]
+            bridges = [(road,end) for road,end in refs if is_bridge(road.tags)]
+            approaches = [(road,end) for road,end in refs if not is_bridge(road.tags)]
+            if approaches:
+                fixed_approaches.add(key)
+                targets[key] = grade(self.dem,key)+.69
+
+            elif len(bridges)==1:
+                targets[key] = grade(self.dem,key)
+            else:
+                targets[key] = sum(road.legacy_height(end*road.line.length)
+                                   for road,end in bridges)/len(bridges)
+
+        ground_distances = {key:0. for key in fixed_approaches}
+        pending = [(0.,key) for key in fixed_approaches]
+        heapq.heapify(pending)
+        while pending:
+            distance,key = heapq.heappop(pending)
+            if distance != ground_distances[key]:
+                continue
+            for neighbor,length in ground_graph[key]:
+                total = distance+length
+                if total<72. and total<ground_distances.get(neighbor, math.inf):
+                    ground_distances[neighbor] = total
+                    heapq.heappush(pending,(total,neighbor))
+        for road in self.roads:
+            if not is_bridge(road.tags):
+                road.approach_distances = tuple(ground_distances.get(tuple(np.round(p,3)),math.inf)
+                                                for p in (road.line.coords[0],road.line.coords[-1]))
+
+        # Limit adjacent bridge ends as a connected system, including very short
+        # pieces that would otherwise create an abrupt ramp at a shared node.
+        pending = [(height,key) for key,height in targets.items()]
+        heapq.heapify(pending)
+        while pending:
+            height,key = heapq.heappop(pending)
+            if height != targets[key]:
+                continue
+            for neighbor,rise in graph[key]:
+                if neighbor not in fixed_approaches and height+rise < targets[neighbor]:
+                    targets[neighbor] = height+rise
+                    heapq.heappush(pending,(height+rise,neighbor))
+        for key,target in targets.items():
+            for road,end in nodes[key]:
+                if not is_bridge(road.tags):
+                    continue
+                rise = abs(road.legacy_height(end*road.line.length)-target)
+                distance = max(.3,min(145.,max(18.,rise*13.),road.line.length*.49))
+                road.joins.append((end,target,distance))
+
+        for road in self.roads:
+            if not is_bridge(road.tags):
+                continue
+            stations = np.linspace(0,road.line.length,math.ceil(road.line.length/2)+1)
+            heights = [road.height(station) for station in stations]
+            allowance = .115*(stations[1]-stations[0])
+            for sequence in (range(1,len(heights)), range(len(heights)-2,-1,-1)):
+                previous = 0 if sequence.step>0 else len(heights)-1
+                for current in sequence:
+                    heights[current] = min(heights[current],heights[previous]+allowance)
+                    previous = current
+            road.bridge_profile = (stations,heights)
+
+    def protect_crossing_clearance(self, source):
+        """Keep existing driveable openings at actual intersecting centerlines."""
+        ways = [(g,t,key) for g,t,key in source if t['kind']=='road' and
+                t['highway'].removesuffix('_link') in VEHICLE]
+        tree = STRtree([g for g,_,_ in ways])
+        routes = {r.key:r for r in self.roads}
+        bridges = sorted((r for r in self.roads if is_bridge(r.tags)),
+                         key=lambda r:int(r.tags.get('layer','1')))
+        self.clearance_checks = []
+        for road in bridges:
+            if road.key==PARK_WALK:
+                continue
+            stations, baseline = road.bridge_profile
+            heights = np.array(baseline)
+            for i in tree.query(road.line,predicate='intersects'):
+                other,tags,key = ways[i]
+                if key==road.key or other.geom_type!='LineString':
+                    continue
+                if tags['highway'].endswith('_link') and not tags.get('name'):
+                    continue
+                if is_bridge(tags) and int(tags.get('layer','1')) >= int(road.tags.get('layer','1')):
+                    continue
+                for point in parts(road.line.intersection(other),'Point'):
+                    station = road.line.project(point)
+                    other_station = other.project(point)
+                    if min(station,road.line.length-station,other_station,other.length-other_station)<2.:
+                        continue
+                    low = routes[key].height(other_station) if key in routes else grade(self.dem,point.coords[0])
+                    original_clear = road.legacy_height(station)-low-.81
+                    if original_clear<2.15:
+                        continue
+                    required = low+.81+min(2.60,original_clear)
+                    # Fit a smooth correction to the checked crossing without changing either approach end.
+                    # Gate it over the closest available distance on short spans.
+                    pad = min(4.,station*.38,(road.line.length-station)*.38)
+                    delta = max(0.,required-min(float(np.interp(x,stations,heights))
+                                                for x in (station-pad,station,station+pad)))
+                    if delta:
+                        west=min(station-pad, max(26.,delta*15.))
+                        east=min(road.line.length-station-pad,max(26.,delta*15.))
+                        strength=[smoothstep((s-(station-pad-west))/west)*smoothstep((station+pad+east-s)/east)
+                                  for s in stations]
+                        heights += delta*np.asarray(strength)
+                    self.clearance_checks.append((road.key,key,station,low,required-.81-low))
+            road.bridge_profile = (stations,heights)
 
     def tangent(self, road, s, p):
         length = road.line.length
@@ -237,7 +408,7 @@ class RouteModel:
         coords = np.asarray(road.line.coords)
         vertices = np.r_[0,np.cumsum(np.linalg.norm(np.diff(coords,axis=0),axis=1))]
         # Break at real centerline corners and at lane stripe endpoints.
-        samples = np.sort(np.r_[np.arange(0,length,5),np.arange(4.6,length,15),
+        samples = np.sort(np.r_[np.arange(0,length,5 if is_bridge(road.tags) else 2.5),np.arange(4.6,length,15),
                                 np.arange(15,length,15),vertices,length])
         stations = list(np.r_[samples[0], samples[1:][np.diff(samples)>.008]])
         stations[-1] = length
@@ -268,9 +439,24 @@ class RouteModel:
                 if solid:
                     upward(collision,mat,quad,facing)
 
-            strip('flyover_walk' if ped else 'highway',-w,0,w,0,(0,1,0),True)
+            if is_bridge(road.tags):
+                strip('flyover_walk' if ped else 'highway',-w,0,w,0,(0,1,0),True)
+            else:
+                def drape(p, n, h, lateral):
+                    world = p + origin
+                    grade_here = float(self.dem(*world))
+                    return max(.026, min(.92, h-grade_here)) + float(self.dem(*(world+n*lateral)))
+                # Lane paint follows the same cross-section as the pavement.
+                base_face = face
+                def face(l0,l1,r0,r1):
+                    quad = base_face(l0,l1,r0,r1)
+                    return [ (q[0], drape(p,n,h,off)+dy, q[2]) for q,p,n,h,(off,dy) in zip(
+                        quad,(a,b,b,a),(na,nb,nb,na),(ya,yb,yb,ya),(l0,l1,r1,r0)) ]
+                bands=np.linspace(-w,w,max(3,math.ceil(width/3)+1))
+                for left,right in zip(bands,bands[1:]):
+                    strip('highway',left,0,right,0,(0,1,0),True)
             rise = (ya+yb)/2-grade(self.dem,mid)
-            if rise>.55:
+            if is_bridge(road.tags) and rise>.55:
                 strip('flyover_girder',-w,-.81,w,-.81,(0,-1,0))
                 for sgn in (-1,1):
                     out = (axis[0]*sgn,0,axis[1]*sgn)
@@ -309,8 +495,9 @@ class RouteModel:
                         strip('flyover_yellow',offset-.055,.019,offset+.055,.019,(0,1,0))
                 elif ((s0+s1)*.5)%15<4.6:
                     strip('flyover_white',x-.057,.018,x+.057,.018,(0,1,0))
-        for s in np.arange(min(18,length*.45),length-5,25 if ped else 26):
-            self.support(road,s)
+        if is_bridge(road.tags):
+            for s in np.arange(min(18,length*.45),length-5,25 if ped else 26):
+                self.support(road,s)
 
     @staticmethod
     def rail_post(mesh,p,n,rail,y,h):
@@ -329,7 +516,7 @@ def existing_layers(bounds, road_tree, records, others, selected, dem):
         if key in selected or t.get('tunnel') not in (None,'no','building_passage'):
             continue
         width,material = road_spec(t)
-        bridge = t.get('bridge') not in (None,'no')
+        bridge = is_bridge(t)
         for line in parts(geom,'LineString'):
             if line.length<.45:
                 continue

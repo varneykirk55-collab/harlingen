@@ -26,7 +26,8 @@ ROADS = {'motorway','trunk','primary','secondary','tertiary','unclassified','res
 TAGS = {'highway','building','material','building:material','building:levels','roof:shape','height',
         'name','sidewalk','lanes','surface','oneway','width','bridge','tunnel','layer','natural',
         'leaf_type','waterway','water','leisure','landuse','amenity','aeroway','railway','power',
-        'man_made','tourism','historic','shop','area','sport','parking','crossing','location','ref'}
+        'man_made','tourism','historic','shop','area','sport','parking','crossing','location','ref',
+        'healthcare','education','memorial','operator','website','addr:housenumber','addr:street'}
 
 
 def project(x,y,z=None):
@@ -38,6 +39,10 @@ def category(tags, area):
     if area:
         if tags.get('building','no') != 'no':
             return 'building'
+        if tags.get('amenity') in ('school','college','university','hospital') or tags.get('healthcare')=='hospital':
+            return 'site'
+        if tags.get('historic') in ('memorial','monument'):
+            return 'poi'
         if any(v in AREAS for k,v in tags.items() if k in ('natural','landuse','leisure','amenity','aeroway','water','highway','railway')):
             return 'land'
         if tags.get('waterway') == 'riverbank':
@@ -118,7 +123,8 @@ def load_osm(work):
                 tags.get('power') in ('pole','tower') or tags.get('natural')=='tree' or
                 tags.get('amenity')=='bench')
         poi=tags.get('name') and (tags.get('tourism') in ('museum','attraction','artwork') or
-            tags.get('historic') or tags.get('amenity') in ('townhall','library','community_centre','theatre','arts_centre'))
+            tags.get('historic') or tags.get('amenity') in ('townhall','library','community_centre','theatre','arts_centre',
+                                                  'hospital','school','college','university'))
         if useful or poi:
             save(Point(nodes[ident]),f'osm:node:{ident}',tags,'prop' if useful else 'poi')
     return rows

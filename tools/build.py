@@ -22,6 +22,9 @@ from shapely.strtree import STRtree
 
 from landmark import BAXTER_ID, BAXTER_NPS, baxter
 from vegetation import kit_meshes
+from road_grade import is_bridge
+from geographic_sites import (attach_sites, corrected_features, district_register, label_position,
+                              labels_by_tile, write_tile_sites)
 from mesh import Mesh, PALETTE, box as mesh_box, cylinder, facade_atlas, write_glb
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -316,15 +319,15 @@ class City:
             groups[t['kind']].append((geom,t,i))
         self.groups=groups
         self.landmarks=[]
-        for kind in ('building','land','poi','road','channel','airstrip'):
+        for kind in ('building','land','poi','road','channel','airstrip','site'):
             for geom,t,ident in groups[kind]:
                 if not t.get('name') or kind=='road' and t['name'] not in ('West Jackson Avenue','East Jackson Avenue','West Jackson Street','East Jackson Street','Jackson Street','Jackson Avenue'):
                     continue
                 if kind=='land' and not (t.get('leisure')=='park' or t.get('aeroway')=='aerodrome' or t.get('tourism')):
                     continue
-                p=geom.representative_point()
-                self.landmarks.append(dict(name=t['name'],layer=kind,source=ident,x=round(p.x,2),z=round(p.y,2),
-                                           northing=round(2898000-p.y,2),easting=round(630000+p.x,2)))
+                px,pz=label_position(geom,t)
+                self.landmarks.append(dict(name=t['name'],layer=kind,source=ident,x=round(px,2),z=round(pz,2),
+                                           northing=round(2898000-pz,2),easting=round(630000+px,2)))
         self.by_tile=defaultdict(list)
         self.assign_buildings()
         self.indices={k:STRtree([r[0] for r in items]) for k,items in groups.items() if k not in ('building','poi')}
@@ -420,7 +423,7 @@ class City:
             if t.get('tunnel') not in (None,'no','building_passage'):
                 continue
             width,mat=road_spec(t)
-            is_bridge=t.get('bridge') not in (None,'no')
+            bridge=is_bridge(t)
             for line in parts(feat,'LineString'):
                 if line.length<.45:
                     continue
@@ -428,7 +431,7 @@ class City:
                 if surface.is_empty:
                     continue
                 class_name=t['highway'].removesuffix('_link')
-                if is_bridge:
+                if bridge:
                     # Estimated rise with zero offset at the mapped deck join.
                     def bridge_ground(x,z):
                         distances=np.array([line.project(Point(a,b)) for a,b in zip(x,z)])
@@ -593,7 +596,7 @@ def main(work):
         dem=Elevation(work/'harlingen_dem.tif')
     else:
         dem=Elevation(ROOT/'source'/'3dep_float.tif')
-    rows=read_features('osm_local.geojson.gz')
+    rows=corrected_features(read_features('osm_local.geojson.gz'))
     global SHARED_CITY
     city=City(dem,rows)
     city.surface=terrain3d_import_data(dem,city.groups['land'])
@@ -603,6 +606,7 @@ def main(work):
                   local_extent=[-6000,-6000,6000,6000],prop_kit=kit,
                   landmarks=city.landmarks,
                   reference_models={BAXTER_ID:{"name":"Baxter Building","source":BAXTER_NPS}},tiles=[])
+    manifest['geographic_districts']=district_register()
     import os
     from concurrent.futures import ProcessPoolExecutor
     with ProcessPoolExecutor(max_workers=min(6,os.cpu_count() or 1),
@@ -612,6 +616,17 @@ def main(work):
             meta=job.result()
             manifest['tiles'].append(meta)
             print(meta['id'],meta['counts'],meta['instances'],flush=True)
+    label_rows=[(g,t,i) for g,t,i in rows if t.get('name') and
+                (t.get('kind')=='site' or i=='thc:iwo-jima')]
+    if any(i=='thc:iwo-jima' for _,_,i in label_rows):
+        from iwo_jima import build_memorial
+        memorial=ROOT/'assets'/'landmarks'/'IwoJimaMemorial.glb'
+        memorial.parent.mkdir(exist_ok=True)
+        build_memorial(memorial)
+    for tile,sites in labels_by_tile(label_rows).items():
+        folder=ROOT/'tiles'/tile
+        write_tile_sites(folder,sites,dem)
+        attach_sites(folder)
     (ROOT/'manifest.json').write_text(json.dumps(manifest,indent=2))
 
 # Fork workers share the parsed, read-only GIS scene and DEM.

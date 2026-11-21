@@ -3927,6 +3927,60 @@
       "z": 4765.38,
       "northing": 2893234.62,
       "easting": 634441.84
+    },
+    {
+      "name": "Valley Baptist Medical Center \u2013 Harlingen",
+      "layer": "site",
+      "source": "osm:way:545113289",
+      "x": 2858.3393,
+      "z": 2258.4802,
+      "easting": 632858.3393,
+      "northing": 2895741.5198
+    },
+    {
+      "name": "Harlingen High School",
+      "layer": "site",
+      "source": "city:parcel:9401",
+      "x": 1496.3088,
+      "z": -1306.1988,
+      "easting": 631496.3088,
+      "northing": 2899306.1988
+    },
+    {
+      "name": "Harlingen High School South",
+      "layer": "site",
+      "source": "osm:way:498375780",
+      "x": -2070.1195,
+      "z": 2165.3871,
+      "easting": 627929.8805,
+      "northing": 2895834.6129
+    },
+    {
+      "name": "Marine Military Academy",
+      "layer": "site",
+      "source": "city:campus:mma",
+      "x": 3052.8184,
+      "z": -4158.1478,
+      "easting": 633052.8184,
+      "northing": 2902158.1478
+    },
+    {
+      "name": "Texas State Technical College \u2013 Harlingen",
+      "layer": "site",
+      "source": "city:campus:tstc",
+      "x": 3281.6754,
+      "z": -2700.2891,
+      "easting": 633281.6754,
+      "northing": 2900700.2891
+    },
+    {
+      "name": "Iwo Jima Memorial",
+      "layer": "poi",
+      "source": "thc:iwo-jima",
+      "x": 3045.4535,
+      "z": -3042.2666,
+      "easting": 633045.4535,
+      "northing": 2901042.2666
     }
   ],
   "reference_models": {
@@ -4326,7 +4380,7 @@
         },
         "Markings": {
           "file": "tiles/+01_-03/Markings.glb",
-          "triangles": 43
+          "triangles": 36
         },
         "Roads": {
           "triangles": 2208,
@@ -4341,7 +4395,7 @@
           "file": "tiles/+01_-03/TerrainMesh.glb"
         },
         "Transport": {
-          "triangles": 900,
+          "triangles": 876,
           "file": "tiles/+01_-03/Transport.glb"
         },
         "Water": {
@@ -4410,7 +4464,7 @@
         },
         "Markings": {
           "file": "tiles/+02_-03/Markings.glb",
-          "triangles": 6
+          "triangles": 8
         },
         "Roads": {
           "triangles": 1224,
@@ -4425,7 +4479,7 @@
           "file": "tiles/+02_-03/TerrainMesh.glb"
         },
         "Transport": {
-          "triangles": 958,
+          "triangles": 960,
           "file": "tiles/+02_-03/Transport.glb"
         },
         "Water": {
@@ -4891,7 +4945,7 @@
         },
         "Markings": {
           "file": "tiles/+01_-02/Markings.glb",
-          "triangles": 256
+          "triangles": 257
         },
         "Roads": {
           "triangles": 15238,
@@ -4910,7 +4964,7 @@
           "file": "tiles/+01_-02/TerrainMesh.glb"
         },
         "Transport": {
-          "triangles": 1554,
+          "triangles": 1547,
           "file": "tiles/+01_-02/Transport.glb"
         },
         "Water": {
@@ -4984,7 +5038,7 @@
           "file": "tiles/+02_-02/LandCover.glb"
         },
         "Markings": {
-          "triangles": 88,
+          "triangles": 94,
           "file": "tiles/+02_-02/Markings.glb"
         },
         "Roads": {
@@ -5000,7 +5054,7 @@
           "file": "tiles/+02_-02/TerrainMesh.glb"
         },
         "Transport": {
-          "triangles": 2921,
+          "triangles": 2926,
           "file": "tiles/+02_-02/Transport.glb"
         },
         "Water": {
@@ -5202,11 +5256,11 @@
         },
         "ElevatedRoads": {
           "file": "tiles/-02_-01/ElevatedRoads.glb",
-          "triangles": 10736
+          "triangles": 7442
         },
         "ElevatedCollision": {
           "file": "tiles/-02_-01/ElevatedCollision.glb",
-          "triangles": 4088
+          "triangles": 3952
         },
         "StreetPaint": {
           "file": "tiles/-02_-01/StreetPaint.glb",
@@ -5773,11 +5827,11 @@
         },
         "ElevatedRoads": {
           "file": "tiles/-02_+00/ElevatedRoads.glb",
-          "triangles": 86232
+          "triangles": 61488
         },
         "ElevatedCollision": {
           "file": "tiles/-02_+00/ElevatedCollision.glb",
-          "triangles": 33542
+          "triangles": 28000
         },
         "StreetPaint": {
           "file": "tiles/-02_+00/StreetPaint.glb",
@@ -5875,11 +5929,11 @@
         },
         "ElevatedRoads": {
           "file": "tiles/-01_+00/ElevatedRoads.glb",
-          "triangles": 101024
+          "triangles": 63678
         },
         "ElevatedCollision": {
           "file": "tiles/-01_+00/ElevatedCollision.glb",
-          "triangles": 39368
+          "triangles": 32998
         },
         "StreetPaint": {
           "file": "tiles/-01_+00/StreetPaint.glb",
@@ -6088,11 +6142,11 @@
         },
         "ElevatedRoads": {
           "file": "tiles/+01_+00/ElevatedRoads.glb",
-          "triangles": 9416
+          "triangles": 9360
         },
         "ElevatedCollision": {
           "file": "tiles/+01_+00/ElevatedCollision.glb",
-          "triangles": 2884
+          "triangles": 2872
         },
         "StreetPaint": {
           "file": "tiles/+01_+00/StreetPaint.glb",
@@ -6477,11 +6531,11 @@
         },
         "ElevatedRoads": {
           "file": "tiles/-01_+01/ElevatedRoads.glb",
-          "triangles": 25886
+          "triangles": 16960
         },
         "ElevatedCollision": {
           "file": "tiles/-01_+01/ElevatedCollision.glb",
-          "triangles": 10044
+          "triangles": 9260
         },
         "StreetPaint": {
           "file": "tiles/-01_+01/StreetPaint.glb",
@@ -6587,11 +6641,11 @@
         },
         "ElevatedRoads": {
           "file": "tiles/+00_+01/ElevatedRoads.glb",
-          "triangles": 3456
+          "triangles": 7912
         },
         "ElevatedCollision": {
           "file": "tiles/+00_+01/ElevatedCollision.glb",
-          "triangles": 1106
+          "triangles": 5220
         },
         "StreetPaint": {
           "file": "tiles/+00_+01/StreetPaint.glb",
@@ -7470,9 +7524,715 @@
       "97348038",
       "97348043"
     ],
-    "pier_columns": 1031,
+    "pier_columns": 314,
     "ramsey_walk_bridge_m": 316.7,
-    "added_trail_m": 71.5
+    "added_trail_m": 71.5,
+    "audit_at_grade_ways": [
+      "20754951",
+      "20775588",
+      "25691779",
+      "25694477",
+      "27567572",
+      "28571061",
+      "28933381",
+      "28933409",
+      "97347872",
+      "97347887",
+      "97347898",
+      "97347928",
+      "97347974",
+      "97347991",
+      "97348000",
+      "97348043",
+      "118182291",
+      "119748708",
+      "119748710",
+      "119748917",
+      "119748931",
+      "143948211",
+      "894782355",
+      "894782356",
+      "894782357",
+      "895045660",
+      "1105186743",
+      "1157923171",
+      "1158711692",
+      "97347876",
+      "97347894",
+      "97347948",
+      "97347955",
+      "1183883591",
+      "20751842",
+      "119748890",
+      "119748941",
+      "1061023301",
+      "25838827",
+      "28660561",
+      "28660581",
+      "97347879",
+      "97347932",
+      "97348009",
+      "97348017",
+      "97348027",
+      "97348030",
+      "895045658",
+      "895045659",
+      "895045663",
+      "895045664",
+      "895045665",
+      "895077914",
+      "895077916",
+      "895098576",
+      "895155548",
+      "1157858355"
+    ],
+    "audit_way_profiles": {
+      "20754951": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.0241,
+        "profile_after_m": 0.1045,
+        "maximum_sampled_grade_percent": 1.9,
+        "collision_after_m": 0.1058
+      },
+      "20775588": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.8876,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 6.1,
+        "collision_after_m": 0.7705
+      },
+      "25691779": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.2819,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.7,
+        "collision_after_m": 0.7681
+      },
+      "25694477": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.9977,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 6.7,
+        "collision_after_m": 0.7483
+      },
+      "27567572": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.8467,
+        "profile_after_m": 0.0934,
+        "maximum_sampled_grade_percent": 1.2,
+        "collision_after_m": 0.0935
+      },
+      "28571061": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.1163,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 3.6,
+        "collision_after_m": 0.768
+      },
+      "28933381": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.2168,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.5,
+        "collision_after_m": 0.7679
+      },
+      "28933409": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.9327,
+        "profile_after_m": 0.0999,
+        "maximum_sampled_grade_percent": 1.3,
+        "collision_after_m": 0.1011
+      },
+      "97347848": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.4344,
+        "profile_after_m": 4.5013,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347872": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.0979,
+        "profile_after_m": 0.6295,
+        "maximum_sampled_grade_percent": 6.5,
+        "collision_after_m": 0.6285
+      },
+      "97347887": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.2164,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 10.8,
+        "collision_after_m": 0.7679
+      },
+      "97347898": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.6727,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 9.2,
+        "collision_after_m": 0.7679
+      },
+      "97347912": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.4889,
+        "profile_after_m": 4.6759,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347916": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.5656,
+        "profile_after_m": 4.406,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347928": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 7.5568,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 5.4,
+        "collision_after_m": 0.7634
+      },
+      "97347952": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.3283,
+        "profile_after_m": 4.8193,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347971": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 7.2355,
+        "profile_after_m": 7.2355,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347974": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.1354,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 11.9,
+        "collision_after_m": 0.768
+      },
+      "97347978": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 13.5455,
+        "profile_after_m": 13.5455,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347987": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 7.158,
+        "profile_after_m": 7.158,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347991": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.4121,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.0,
+        "collision_after_m": 0.768
+      },
+      "97348000": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.3591,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 10.6,
+        "collision_after_m": 0.7676
+      },
+      "97348013": {
+        "bridge": true,
+        "layer": "2",
+        "profile_before_m": 15.071,
+        "profile_after_m": 15.071,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97348034": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 8.5726,
+        "profile_after_m": 8.5725,
+        "maximum_sampled_grade_percent": 25.1
+      },
+      "97348043": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.8745,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 6.6,
+        "collision_after_m": 0.7643
+      },
+      "118182291": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.3122,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 4.4,
+        "collision_after_m": 0.768
+      },
+      "119748708": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.3267,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.0,
+        "collision_after_m": 0.768
+      },
+      "119748710": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.9264,
+        "profile_after_m": 0.2799,
+        "maximum_sampled_grade_percent": 16.4,
+        "collision_after_m": 0.2787
+      },
+      "119748783": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.6751,
+        "profile_after_m": 5.0094,
+        "maximum_sampled_grade_percent": 12.6
+      },
+      "119748869": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 8.1857,
+        "profile_after_m": 8.1857,
+        "maximum_sampled_grade_percent": 15.0
+      },
+      "119748917": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.1292,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.1,
+        "collision_after_m": 0.7679
+      },
+      "119748931": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 4.7113,
+        "profile_after_m": 0.0934,
+        "maximum_sampled_grade_percent": 13.1,
+        "collision_after_m": 0.0936
+      },
+      "143948211": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.0449,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 12.8,
+        "collision_after_m": 0.7564
+      },
+      "894782355": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.2085,
+        "profile_after_m": 0.0899,
+        "maximum_sampled_grade_percent": 1.8,
+        "collision_after_m": 0.0893
+      },
+      "894782356": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.3479,
+        "profile_after_m": 0.0984,
+        "maximum_sampled_grade_percent": 2.5,
+        "collision_after_m": 0.0993
+      },
+      "894782357": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.1114,
+        "profile_after_m": 0.0961,
+        "maximum_sampled_grade_percent": 4.5,
+        "collision_after_m": 0.0954
+      },
+      "895045660": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 4.707,
+        "profile_after_m": 0.0872,
+        "maximum_sampled_grade_percent": 1.2,
+        "collision_after_m": 0.0877
+      },
+      "1105186743": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.5561,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 12.7,
+        "collision_after_m": 0.7666
+      },
+      "1157923171": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.2822,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 0.6,
+        "collision_after_m": 0.7679
+      },
+      "1158711692": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.9929,
+        "profile_after_m": 0.1141,
+        "maximum_sampled_grade_percent": 5.7,
+        "collision_after_m": 0.1126
+      },
+      "97347864": {
+        "bridge": true,
+        "layer": "2",
+        "profile_before_m": 17.1726,
+        "profile_after_m": 17.0006,
+        "maximum_sampled_grade_percent": 21.8
+      },
+      "97347876": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.4809,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.3,
+        "collision_after_m": 0.7676
+      },
+      "97347880": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.3752,
+        "profile_after_m": 4.8259,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347894": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.6646,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 3.4,
+        "collision_after_m": 0.7708
+      },
+      "97347948": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.3761,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.6,
+        "collision_after_m": 0.7671
+      },
+      "97347955": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.2957,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.1,
+        "collision_after_m": 0.768
+      },
+      "97348004": {
+        "bridge": true,
+        "layer": "2",
+        "profile_before_m": 16.9427,
+        "profile_after_m": 16.8105,
+        "maximum_sampled_grade_percent": 18.8
+      },
+      "97348021": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.2756,
+        "profile_after_m": 4.8051,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "1183883591": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.2793,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 1.6,
+        "collision_after_m": 0.7673
+      },
+      "20751842": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 7.06,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 1.8,
+        "collision_after_m": 0.768
+      },
+      "119748890": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.8,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 1.9,
+        "collision_after_m": 0.768
+      },
+      "119748941": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 7.2599,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 1.9,
+        "collision_after_m": 0.7681
+      },
+      "119749039": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.5964,
+        "profile_after_m": 5.0465,
+        "maximum_sampled_grade_percent": 12.5
+      },
+      "1061023301": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.7719,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 1.8,
+        "collision_after_m": 0.7672
+      },
+      "25838827": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 7.5317,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 15.9,
+        "collision_after_m": 0.768
+      },
+      "28660561": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.9621,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 3.5,
+        "collision_after_m": 0.768
+      },
+      "28660581": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.4945,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 3.2,
+        "collision_after_m": 0.7682
+      },
+      "97347856": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.0556,
+        "profile_after_m": 4.5918,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347860": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.0965,
+        "profile_after_m": 4.5718,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "97347879": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 8.023,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 7.7,
+        "collision_after_m": 0.7671
+      },
+      "97347932": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 7.879,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 5.4,
+        "collision_after_m": 0.7679
+      },
+      "97347944": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 7.2592,
+        "profile_after_m": 7.2052,
+        "maximum_sampled_grade_percent": 19.9
+      },
+      "97348008": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 7.1834,
+        "profile_after_m": 7.1834,
+        "maximum_sampled_grade_percent": 27.2
+      },
+      "97348009": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.6485,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.2,
+        "collision_after_m": 0.7679
+      },
+      "97348017": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.6475,
+        "profile_after_m": 0.2275,
+        "maximum_sampled_grade_percent": 3.6,
+        "collision_after_m": 0.2268
+      },
+      "97348027": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.3004,
+        "profile_after_m": 0.2693,
+        "maximum_sampled_grade_percent": 17.6,
+        "collision_after_m": 0.3002
+      },
+      "97348030": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.4139,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 1.6,
+        "collision_after_m": 0.7679
+      },
+      "97348038": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 7.1387,
+        "profile_after_m": 7.1387,
+        "maximum_sampled_grade_percent": 16.7
+      },
+      "895045658": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.935,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 3.9,
+        "collision_after_m": 0.768
+      },
+      "895045659": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 7.9263,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 8.7,
+        "collision_after_m": 0.7688
+      },
+      "895045663": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.8833,
+        "profile_after_m": 0.0907,
+        "maximum_sampled_grade_percent": 2.2,
+        "collision_after_m": 0.0908
+      },
+      "895045664": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.4666,
+        "profile_after_m": 0.1078,
+        "maximum_sampled_grade_percent": 3.1,
+        "collision_after_m": 0.1047
+      },
+      "895045665": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.7115,
+        "profile_after_m": 0.1062,
+        "maximum_sampled_grade_percent": 3.2,
+        "collision_after_m": 0.1056
+      },
+      "895077914": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.888,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 0.6,
+        "collision_after_m": 0.768
+      },
+      "895077916": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.6531,
+        "profile_after_m": 0.6556,
+        "maximum_sampled_grade_percent": 10.8,
+        "collision_after_m": 0.6547
+      },
+      "895077923": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.8265,
+        "profile_after_m": 6.8265,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "895077924": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 6.8265,
+        "profile_after_m": 6.8265,
+        "maximum_sampled_grade_percent": 11.5
+      },
+      "895098576": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 3.8284,
+        "profile_after_m": 0.1042,
+        "maximum_sampled_grade_percent": 1.8,
+        "collision_after_m": 0.1052
+      },
+      "895155548": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 5.682,
+        "profile_after_m": 0.0963,
+        "maximum_sampled_grade_percent": 2.5,
+        "collision_after_m": 0.0943
+      },
+      "1157858355": {
+        "bridge": false,
+        "layer": null,
+        "profile_before_m": 6.3784,
+        "profile_after_m": 0.768,
+        "maximum_sampled_grade_percent": 2.3,
+        "collision_after_m": 0.7679
+      },
+      "1459656357": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 8.1232,
+        "profile_after_m": 7.5133,
+        "maximum_sampled_grade_percent": 20.7
+      },
+      "1459656358": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 8.02,
+        "profile_after_m": 8.0156,
+        "maximum_sampled_grade_percent": 3.5
+      },
+      "567766739": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 11.0931,
+        "profile_after_m": 11.0931,
+        "maximum_sampled_grade_percent": 3.1
+      },
+      "653171983": {
+        "bridge": true,
+        "layer": "1",
+        "profile_before_m": 10.072,
+        "profile_after_m": 10.072,
+        "maximum_sampled_grade_percent": 4.8
+      }
+    }
   },
   "street_realism": {
     "scope": "public at-grade streets and sidewalks",
@@ -8476,5 +9236,100 @@
       "grade_refinement_triangles": 14288
     },
     "mapped_junctions": 2582
+  },
+  "geographic_districts": {
+    "file": "source/geographic_districts.geojson.gz",
+    "municipality": "City of Harlingen, January 2025",
+    "planning_zones": 15,
+    "source_zoning_features": 25440,
+    "downtown_overlay": {
+      "id": "downtown-overlay",
+      "name": "Downtown District Overlay",
+      "source": "https://cms3.revize.com/revize/harlingen/Downtown%20District%20Overlay%20Boundary%20Map%202025.pdf",
+      "bounds_m": [
+        -206.17170516057067,
+        70.474837556606,
+        663.1644173176406,
+        547.4782412244112
+      ],
+      "area_m2": 303076.87,
+      "vertices": 19
+    }
+  },
+  "geographic_sites": "source/geographic_sites.geojson",
+  "airport_geography": {
+    "source": "source/faa_hrl_runway_ends.json",
+    "eff_date": "2026-10-29",
+    "affected_tiles": [
+      "+01_-03",
+      "+02_-03",
+      "+01_-02",
+      "+02_-02"
+    ],
+    "runways": {
+      "13/31": {
+        "before_end_offset_m": [
+          75.4388,
+          26.8166
+        ],
+        "after_end_offset_to_mesh_m": [
+          4e-06,
+          0.0
+        ],
+        "endpoints_local_m": [
+          [
+            3449.492230087286,
+            -4195.812548609916
+          ],
+          [
+            5012.259566034423,
+            -2630.8607217259705
+          ]
+        ],
+        "length_m": 2211.632
+      },
+      "18L/36R": {
+        "before_end_offset_m": [
+          22.0633,
+          62.5748
+        ],
+        "after_end_offset_to_mesh_m": [
+          0.0,
+          2.3e-05
+        ],
+        "endpoints_local_m": [
+          [
+            4974.46536495164,
+            -4296.70784831699
+          ],
+          [
+            4973.1527712645475,
+            -2483.7000504015014
+          ]
+        ],
+        "length_m": 1813.008
+      },
+      "18R/36L": {
+        "before_end_offset_m": [
+          3.5911,
+          1.6773
+        ],
+        "after_end_offset_to_mesh_m": [
+          0.0,
+          6e-06
+        ],
+        "endpoints_local_m": [
+          [
+            3980.2094571888447,
+            -4998.7663567420095
+          ],
+          [
+            3977.7367768292315,
+            -2134.005108220037
+          ]
+        ],
+        "length_m": 2864.762
+      }
+    }
   }
 }

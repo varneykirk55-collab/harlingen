@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[node name="GeographicSites" type="Node3D"]
+
+[node name="Site0" type="Node3D" parent="."]
+position = Vector3(1496.308800, 12.083999, 693.801200)
+metadata/geographic_source = "city:parcel:9401"
+
+[node name="MapLabel" type="Label3D" parent="Site0"]
+position = Vector3(0, 16, 0)
+billboard = 1
+visibility_range_end = 690.0
+pixel_size = 0.028
+font_size = 46
+outline_size = 10
+text = "Harlingen High School"

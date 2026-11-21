@@ -1,0 +1,55 @@
+{
+  "source": "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/Runway_Ends_Table/FeatureServer/1",
+  "provenance": "FAA NASR Runway Ends Table via USDOT BTS NTAD",
+  "eff_date": "2026-10-29",
+  "runways": {
+    "13/31": [
+      {
+        "end": "13",
+        "lat": 26.23318466,
+        "lon": -97.66396619,
+        "elevation_ft": 34.4,
+        "displaced_threshold_ft": null
+      },
+      {
+        "end": "31",
+        "lat": 26.21891147,
+        "lon": -97.64848727,
+        "elevation_ft": 35.7,
+        "displaced_threshold_ft": null
+      }
+    ],
+    "18L/36R": [
+      {
+        "end": "18L",
+        "lat": 26.23395272,
+        "lon": -97.64869172,
+        "elevation_ft": 33.7,
+        "displaced_threshold_ft": null
+      },
+      {
+        "end": "36R",
+        "lat": 26.21758672,
+        "lon": -97.648894,
+        "elevation_ft": 35,
+        "displaced_threshold_ft": 190
+      }
+    ],
+    "18R/36L": [
+      {
+        "end": "18R",
+        "lat": 26.2403835,
+        "lon": -97.65857086,
+        "elevation_ft": 34,
+        "displaced_threshold_ft": null
+      },
+      {
+        "end": "36L",
+        "lat": 26.21452327,
+        "lon": -97.6588923,
+        "elevation_ft": 35.5,
+        "displaced_threshold_ft": null
+      }
+    ]
+  }
+}

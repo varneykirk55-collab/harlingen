@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[node name="GeographicSites" type="Node3D"]
+
+[node name="Site0" type="Node3D" parent="."]
+position = Vector3(1052.818400, 9.780891, 1841.852200)
+metadata/geographic_source = "city:campus:mma"
+
+[node name="MapLabel" type="Label3D" parent="Site0"]
+position = Vector3(0, 16, 0)
+billboard = 1
+visibility_range_end = 690.0
+pixel_size = 0.028
+font_size = 46
+outline_size = 10
+text = "Marine Military Academy"

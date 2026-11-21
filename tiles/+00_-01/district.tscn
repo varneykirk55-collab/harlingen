@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" path="res://tiles/+00_-01/StreetWear.glb" id="streets_1"]
 [ext_resource type="PackedScene" path="res://tiles/+00_-01/StreetWires.glb" id="streets_2"]
 
+[ext_resource type="PackedScene" path="res://tiles/+00_-01/GeographicSites.tscn" id="geographic_sites"]
+
 [node name="District_p00_n01" type="Node3D"]
 position = Vector3(0, 0, -2000)
 script = ExtResource("1")
@@ -59,3 +61,5 @@ visible = false
 [node name="StreetWear" parent="." instance=ExtResource("streets_1")]
 
 [node name="StreetWires" parent="." instance=ExtResource("streets_2")]
+
+[node name="GeographicSites" parent="." instance=ExtResource("geographic_sites")]
