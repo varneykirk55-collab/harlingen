@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=28 format=3]
 
 [ext_resource type="Script" path="res://preview/world.gd" id="1"]
 
 [ext_resource type="Script" path="res://preview/walker.gd" id="2"]
 
-[ext_resource type="Shader" path="res://preview/sky/clear_midday.gdshader" id="3"]
+[ext_resource type="Texture2D" uid="uid://b8yp6fwc1deyh" path="res://materials/polyhaven/hdri/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="3"]
 
 [ext_resource type="PackedScene" path="res://scenes/player/PlayerCharacter.tscn" id="4"]
 
@@ -14,37 +14,116 @@
 
 [ext_resource type="PackedScene" path="res://scenes/ui/GameHUD.tscn" id="7"]
 
-[sub_resource type="ShaderMaterial" id="SkyMat"]
-shader = ExtResource("3")
+[ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/withered_grass_albedo_height.png" id="8"]
+
+[ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/withered_grass_normal_roughness.png" id="9"]
+
+[ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/leafy_grass_albedo_height.png" id="10"]
+
+[ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/leafy_grass_normal_roughness.png" id="11"]
+
+[ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/brown_mud_dry_albedo_height.png" id="12"]
+
+[ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/brown_mud_dry_normal_roughness.png" id="13"]
+
+[ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/gravel_road_albedo_height.png" id="14"]
+
+[ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/gravel_road_normal_roughness.png" id="15"]
+
+[ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/macro_noise.png" id="16"]
+
+[sub_resource type="PanoramaSkyMaterial" id="SkyMat"]
+panorama = ExtResource("3")
+energy_multiplier = 1.0
 
 [sub_resource type="Sky" id="Sky"]
 sky_material = SubResource("SkyMat")
-radiance_size = 2
+radiance_size = 3
 
 [sub_resource type="Environment" id="Env"]
 background_mode = 2
 sky = SubResource("Sky")
-ambient_light_source = 2
-ambient_light_color = Color(1, 0.97, 0.91, 1)
-ambient_light_energy = 0.48
-ambient_light_sky_contribution = 0.07
+ambient_light_source = 3
+ambient_light_color = Color(1, 0.96, 0.89, 1)
+ambient_light_energy = 0.35
+ambient_light_sky_contribution = 0.85
 reflected_light_source = 2
-tonemap_mode = 0
+tonemap_mode = 3
+tonemap_exposure = 0.83
 adjustment_enabled = true
-adjustment_brightness = 0.96
-adjustment_contrast = 1.015
-adjustment_saturation = 0.96
+adjustment_brightness = 0.98
+adjustment_contrast = 1.03
+adjustment_saturation = 1.02
 fog_enabled = true
 fog_light_color = Color(0.73, 0.81, 0.90, 1)
 fog_density = 0.000073
 fog_aerial_perspective = 0.5
 
 [sub_resource type="Terrain3DMaterial" id="TerrainMat"]
-show_checkered = false
-show_colormap = true
+_shader_parameters = {
+&"dual_scale_texture": 0,
+&"macro_variation1": Color(0.9, 0.87, 0.78, 1),
+&"macro_variation2": Color(0.84, 0.88, 0.78, 1),
+&"macro_variation_slope": 0.333,
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": ExtResource("16")
+}
 world_background = 0
+dual_scaling_enabled = true
+macro_variation_enabled = true
+show_checkered = false
+show_colormap = false
+
+[sub_resource type="Terrain3DTextureAsset" id="TerrainTex0"]
+name = "Dry South Texas Grass"
+albedo_color = Color(1.48, 1.48, 1.45, 1)
+albedo_texture = ExtResource("8")
+normal_texture = ExtResource("9")
+ao_strength = 0.45
+uv_scale = 0.12
+detiling_rotation = 0.25
+detiling_shift = 0.25
+
+[sub_resource type="Terrain3DTextureAsset" id="TerrainTex1"]
+name = "Park / Hospital Lawn Grass"
+id = 1
+albedo_color = Color(1.65, 1.75, 1.6, 1)
+albedo_texture = ExtResource("10")
+normal_texture = ExtResource("11")
+ao_strength = 0.45
+roughness = 0.05
+uv_scale = 0.14
+detiling_rotation = 0.25
+detiling_shift = 0.25
+
+[sub_resource type="Terrain3DTextureAsset" id="TerrainTex2"]
+name = "Dry South Texas Soil"
+id = 2
+albedo_color = Color(1.85, 1.85, 1.8, 1)
+albedo_texture = ExtResource("12")
+normal_texture = ExtResource("13")
+normal_depth = 1.1
+ao_strength = 0.5
+roughness = 0.15
+uv_scale = 0.15
+detiling_rotation = 0.3
+detiling_shift = 0.3
+
+[sub_resource type="Terrain3DTextureAsset" id="TerrainTex3"]
+name = "Gravel Shoulders & Lots"
+id = 3
+albedo_color = Color(1.8, 1.9, 1.95, 1)
+albedo_texture = ExtResource("14")
+normal_texture = ExtResource("15")
+normal_depth = 1.15
+ao_strength = 0.5
+uv_scale = 0.2
+detiling_rotation = 0.2
+detiling_shift = 0.2
 
 [sub_resource type="Terrain3DAssets" id="TerrainAssets"]
+texture_list = Array[Terrain3DTextureAsset]([SubResource("TerrainTex0"), SubResource("TerrainTex1"), SubResource("TerrainTex2"), SubResource("TerrainTex3")])
 
 [sub_resource type="LabelSettings" id="Text"]
 font_size = 16
@@ -64,8 +143,8 @@ environment = SubResource("Env")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 rotation_degrees = Vector3(-71, -36, 0)
-light_color = Color(1, 0.965, 0.869, 1)
-light_energy = 1.07
+light_color = Color(1, 0.955, 0.86, 1)
+light_energy = 0.95
 shadow_enabled = true
 shadow_bias = 0.10
 shadow_normal_bias = 1.85

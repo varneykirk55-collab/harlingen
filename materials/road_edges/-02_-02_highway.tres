@@ -1,16 +1,20 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3]
 
 [ext_resource type="Shader" path="res://materials/shaders/asphalt.gdshader" id="shader"]
-[ext_resource type="Texture2D" path="res://materials/textures/asphalt_albedo.jpg" id="asphalt_albedo"]
-[ext_resource type="Texture2D" path="res://materials/textures/street_asphalt_normal.png" id="aggregate_normal"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/asphalt_02/asphalt_02_diff_2k.jpg" id="asphalt_albedo"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/asphalt_02/asphalt_02_nor_gl_2k.jpg" id="aggregate_normal"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/asphalt_02/asphalt_02_rough_2k.jpg" id="asphalt_roughness"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/asphalt_02/asphalt_02_ao_2k.jpg" id="asphalt_ao"]
 [ext_resource type="Texture2D" path="res://materials/road_edges/-02_-02_edge.png" id="edge_distance"]
 
 [resource]
 shader = ExtResource("shader")
 shader_parameter/asphalt_albedo = ExtResource("asphalt_albedo")
 shader_parameter/aggregate_normal = ExtResource("aggregate_normal")
+shader_parameter/asphalt_roughness = ExtResource("asphalt_roughness")
+shader_parameter/asphalt_ao = ExtResource("asphalt_ao")
 shader_parameter/edge_distance = ExtResource("edge_distance")
 shader_parameter/tile_origin = Vector2(-4000, -4000)
 shader_parameter/texture_scale = 0.29
-shader_parameter/roughness_value = 0.72
-shader_parameter/tint = Color(0.94, 0.93, 0.91, 1)
+shader_parameter/roughness_value = 0.84
+shader_parameter/tint = Color(0.42, 0.43, 0.45, 1)

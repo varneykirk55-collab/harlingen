@@ -1,10 +1,21 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3]
 
 [ext_resource type="Shader" path="res://materials/shaders/roof_finish.gdshader" id="shader"]
-[ext_resource type="Texture2D" path="res://materials/textures/shingle_albedo.jpg" id="roof_albedo"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/grey_roof_01/grey_roof_01_diff_1k.jpg" id="roof_albedo"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/grey_roof_01/grey_roof_01_nor_gl_1k.jpg" id="roof_normal"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/grey_roof_01/grey_roof_01_rough_1k.jpg" id="roof_roughness_map"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/grey_roof_01/grey_roof_01_ao_1k.jpg" id="roof_ao_map"]
 
 [resource]
 shader = ExtResource("shader")
 shader_parameter/roof_albedo = ExtResource("roof_albedo")
-shader_parameter/roof_scale = 0.58
-shader_parameter/roof_roughness = 0.85
+shader_parameter/roof_normal = ExtResource("roof_normal")
+shader_parameter/roof_roughness_map = ExtResource("roof_roughness_map")
+shader_parameter/roof_ao_map = ExtResource("roof_ao_map")
+shader_parameter/roof_tint = Color(0.92, 0.90, 0.88, 1)
+shader_parameter/roof_scale = 0.45
+shader_parameter/roof_roughness = 0.84
+shader_parameter/roof_normal_strength = 0.65
+shader_parameter/roof_metallic = 0.0
+shader_parameter/roof_ao_strength = 0.70
+shader_parameter/anti_tile_rotate = 0.0
