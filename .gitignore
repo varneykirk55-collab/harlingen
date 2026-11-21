@@ -5,3 +5,5 @@
 # Godot GDExtension hot-reload temporary files
 addons/**/~*
 *.tmp
+__pycache__/
+*.pyc

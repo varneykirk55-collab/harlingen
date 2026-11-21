@@ -16,6 +16,7 @@
 
 [ext_resource type="PackedScene" path="res://tiles/+01_+00/ElevatedRoads.glb" id="flyover"]
 [ext_resource type="PackedScene" path="res://assets/landmarks/RamseyTrailhead.tscn" id="ramsey"]
+[ext_resource type="PackedScene" path="res://assets/signage/EdCareyStreetscape_01_00.tscn" id="streetscape"]
 
 [ext_resource type="PackedScene" path="res://tiles/+01_+00/StreetPaint.glb" id="streets_0"]
 [ext_resource type="PackedScene" path="res://tiles/+01_+00/StreetWear.glb" id="streets_1"]
@@ -56,6 +57,8 @@ visible = false
 [node name="ElevatedRoads" parent="." instance=ExtResource("flyover")]
 
 [node name="RamseyTrailhead" parent="." instance=ExtResource("ramsey")]
+
+[node name="EdCareyStreetscape_01_00" parent="." instance=ExtResource("streetscape")]
 
 [node name="StreetPaint" parent="." instance=ExtResource("streets_0")]
 

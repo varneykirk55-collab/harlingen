@@ -1,0 +1,561 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/CottonwoodCreek.png" id="CottonwoodCreek"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/HomeDepot.png" id="HomeDepot"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/JackInTheBox.png" id="JackInTheBox"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_CottonwoodBlvd.png" id="Street_CottonwoodBlvd"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_HummingbirdLn.png" id="Street_HummingbirdLn"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_KarimeAve.png" id="Street_KarimeAve"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_LambAve.png" id="Street_LambAve"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_MorrisRd.png" id="Street_MorrisRd"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_SEdCarey_FM801.png" id="Street_SEdCarey_FM801"]
+
+[sub_resource type="StandardMaterial3D" id="ShopFrame"]
+albedo_color = Color(0.20, 0.18, 0.15, 1)
+metallic = 0.15
+roughness = 0.65
+
+[sub_resource type="StandardMaterial3D" id="MonumentBaseMat"]
+albedo_color = Color(0.74, 0.70, 0.62, 1)
+metallic = 0.0
+roughness = 0.82
+
+[sub_resource type="StandardMaterial3D" id="MonumentBodyMat"]
+albedo_color = Color(0.24, 0.27, 0.31, 1)
+metallic = 0.12
+roughness = 0.62
+
+[sub_resource type="StandardMaterial3D" id="StreetFrame"]
+albedo_color = Color(0.15, 0.27, 0.23, 1)
+metallic = 0.0
+roughness = 0.68
+
+[sub_resource type="StandardMaterial3D" id="SignPole"]
+albedo_color = Color(0.46, 0.47, 0.45, 1)
+metallic = 0.54
+roughness = 0.68
+
+[sub_resource type="CylinderMesh" id="PoleMesh"]
+material = SubResource("SignPole")
+top_radius = 0.038
+bottom_radius = 0.044
+height = 2.91
+radial_segments = 7
+rings = 0
+
+[sub_resource type="CylinderMesh" id="PylonColumnMesh"]
+material = SubResource("SignPole")
+top_radius = 0.14
+bottom_radius = 0.17
+height = 4.20
+radial_segments = 10
+rings = 0
+
+[sub_resource type="BoxMesh" id="PylonPedestalMesh"]
+material = SubResource("MonumentBaseMat")
+size = Vector3(0.96, 0.65, 0.76)
+
+[sub_resource type="BoxMesh" id="MonumentPlinthMesh"]
+material = SubResource("MonumentBaseMat")
+size = Vector3(4.35, 0.55, 0.64)
+
+[sub_resource type="BoxMesh" id="MonumentCabinetMesh"]
+material = SubResource("MonumentBodyMat")
+size = Vector3(3.96, 1.24, 0.36)
+
+[sub_resource type="BoxMesh" id="MonumentCapMesh"]
+material = SubResource("MonumentBaseMat")
+size = Vector3(4.24, 0.14, 0.48)
+
+[sub_resource type="BoxMesh" id="PylonCabinetMesh"]
+material = SubResource("ShopFrame")
+size = Vector3(3.96, 1.22, 0.32)
+
+[sub_resource type="BoxMesh" id="StreetBacking"]
+material = SubResource("StreetFrame")
+size = Vector3(1.57, 0.45, 0.052)
+
+[sub_resource type="StandardMaterial3D" id="CottonwoodCreek_paint"]
+albedo_texture = ExtResource("CottonwoodCreek")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("CottonwoodCreek")
+
+[sub_resource type="QuadMesh" id="CottonwoodCreek_road_quad"]
+material = SubResource("CottonwoodCreek_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="HomeDepot_paint"]
+albedo_texture = ExtResource("HomeDepot")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("HomeDepot")
+
+[sub_resource type="QuadMesh" id="HomeDepot_road_quad"]
+material = SubResource("HomeDepot_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="JackInTheBox_paint"]
+albedo_texture = ExtResource("JackInTheBox")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("JackInTheBox")
+
+[sub_resource type="QuadMesh" id="JackInTheBox_road_quad"]
+material = SubResource("JackInTheBox_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Street_CottonwoodBlvd_paint"]
+albedo_texture = ExtResource("Street_CottonwoodBlvd")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_CottonwoodBlvd")
+
+[sub_resource type="QuadMesh" id="Street_CottonwoodBlvd_quad"]
+material = SubResource("Street_CottonwoodBlvd_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_HummingbirdLn_paint"]
+albedo_texture = ExtResource("Street_HummingbirdLn")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_HummingbirdLn")
+
+[sub_resource type="QuadMesh" id="Street_HummingbirdLn_quad"]
+material = SubResource("Street_HummingbirdLn_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_KarimeAve_paint"]
+albedo_texture = ExtResource("Street_KarimeAve")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_KarimeAve")
+
+[sub_resource type="QuadMesh" id="Street_KarimeAve_quad"]
+material = SubResource("Street_KarimeAve_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_LambAve_paint"]
+albedo_texture = ExtResource("Street_LambAve")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_LambAve")
+
+[sub_resource type="QuadMesh" id="Street_LambAve_quad"]
+material = SubResource("Street_LambAve_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_MorrisRd_paint"]
+albedo_texture = ExtResource("Street_MorrisRd")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_MorrisRd")
+
+[sub_resource type="QuadMesh" id="Street_MorrisRd_quad"]
+material = SubResource("Street_MorrisRd_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_SEdCarey_FM801_paint"]
+albedo_texture = ExtResource("Street_SEdCarey_FM801")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_SEdCarey_FM801")
+
+[sub_resource type="QuadMesh" id="Street_SEdCarey_FM801_quad"]
+material = SubResource("Street_SEdCarey_FM801_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="QuadMesh" id="JackInTheBox_facade_quad"]
+material = SubResource("JackInTheBox_paint")
+size = Vector2(3.9883, 1.1633)
+
+[sub_resource type="BoxMesh" id="JackInTheBox_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.0683, 1.2433, 0.11)
+
+[sub_resource type="QuadMesh" id="HomeDepot_facade_quad"]
+material = SubResource("HomeDepot_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="HomeDepot_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="CottonwoodCreek_facade_quad"]
+material = SubResource("CottonwoodCreek_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="CottonwoodCreek_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[node name="EdCareyStreetscape_00_02" type="Node3D"]
+
+[node name="JackInTheBox_Facade" type="Node3D" parent="."]
+position = Vector3(1841.8351, 19.1048, 47.7432)
+rotation = Vector3(0, -2.248946, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="JackInTheBox_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("JackInTheBox_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="JackInTheBox_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("JackInTheBox_facade_quad")
+cast_shadow = 0
+
+[node name="JackInTheBox_Pylon" type="Node3D" parent="."]
+position = Vector3(1839.3906, 13.3947, 41.5493)
+rotation = Vector3(0, 2.630267, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="JackInTheBox_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="JackInTheBox_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="JackInTheBox_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="JackInTheBox_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("JackInTheBox_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="JackInTheBox_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("JackInTheBox_road_quad")
+cast_shadow = 0
+
+[node name="HomeDepot_Facade" type="Node3D" parent="."]
+position = Vector3(1677.9106, 21.5129, 142.4023)
+rotation = Vector3(0, -2.248418, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="HomeDepot_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("HomeDepot_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="HomeDepot_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("HomeDepot_facade_quad")
+cast_shadow = 0
+
+[node name="HomeDepot_Pylon" type="Node3D" parent="."]
+position = Vector3(1633.8801, 13.1006, 104.6875)
+rotation = Vector3(0, -0.513388, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="HomeDepot_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="HomeDepot_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="HomeDepot_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="HomeDepot_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("HomeDepot_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="HomeDepot_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("HomeDepot_road_quad")
+cast_shadow = 0
+
+[node name="CottonwoodCreek_Facade" type="Node3D" parent="."]
+position = Vector3(1252.6153, 18.0207, 903.6122)
+rotation = Vector3(0, -2.084790, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="CottonwoodCreek_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("CottonwoodCreek_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="CottonwoodCreek_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("CottonwoodCreek_facade_quad")
+cast_shadow = 0
+
+[node name="CottonwoodCreek_Monument" type="Node3D" parent="."]
+position = Vector3(1187.3041, 13.3138, 870.4790)
+rotation = Vector3(0, -0.518518, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="CottonwoodCreek_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="CottonwoodCreek_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="CottonwoodCreek_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="CottonwoodCreek_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("CottonwoodCreek_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="CottonwoodCreek_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("CottonwoodCreek_road_quad")
+cast_shadow = 0
+
+[node name="Post_LambAve" type="Node3D" parent="."]
+position = Vector3(1508.9576, 12.9189, 273.7938)
+rotation = Vector3(0, -0.539476, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_LambAve"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_LambAve"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_LambAve/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_LambAve/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_LambAve"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_LambAve/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_LambAve_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_LambAve/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_LambAve_quad")
+cast_shadow = 0
+
+[node name="Post_HummingbirdLn" type="Node3D" parent="."]
+position = Vector3(1274.8039, 13.3790, 665.2586)
+rotation = Vector3(0, -0.518820, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_HummingbirdLn"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_HummingbirdLn"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_HummingbirdLn/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_HummingbirdLn/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_HummingbirdLn"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_HummingbirdLn/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_HummingbirdLn_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_HummingbirdLn/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_HummingbirdLn_quad")
+cast_shadow = 0
+
+[node name="Post_CottonwoodBlvd" type="Node3D" parent="."]
+position = Vector3(1168.9950, 13.7635, 851.1131)
+rotation = Vector3(0, -0.518518, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_CottonwoodBlvd"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_CottonwoodBlvd"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_CottonwoodBlvd/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_CottonwoodBlvd/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_CottonwoodBlvd"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_CottonwoodBlvd/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_CottonwoodBlvd_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_CottonwoodBlvd/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_CottonwoodBlvd_quad")
+cast_shadow = 0
+
+[node name="Post_KarimeAve" type="Node3D" parent="."]
+position = Vector3(1001.0918, 14.3062, 1142.3269)
+rotation = Vector3(0, -0.525351, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_KarimeAve"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_KarimeAve"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_KarimeAve/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_KarimeAve/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_KarimeAve"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_KarimeAve/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_KarimeAve_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_KarimeAve/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_KarimeAve_quad")
+cast_shadow = 0
+
+[node name="Post_MorrisRd" type="Node3D" parent="."]
+position = Vector3(905.7036, 14.1669, 1307.0361)
+rotation = Vector3(0, -0.517440, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_MorrisRd"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_MorrisRd"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_MorrisRd/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_MorrisRd/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_MorrisRd"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_MorrisRd/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_MorrisRd_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_MorrisRd/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_MorrisRd_quad")
+cast_shadow = 0

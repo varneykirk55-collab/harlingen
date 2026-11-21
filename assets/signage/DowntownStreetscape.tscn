@@ -1,11 +1,5 @@
 [gd_scene format=3]
 
-[ext_resource type="Texture2D" path="res://assets/signage/Taqueria.png" id="Taqueria"]
-[ext_resource type="Texture2D" path="res://assets/signage/Market.png" id="Market"]
-[ext_resource type="Texture2D" path="res://assets/signage/WineShop.png" id="WineShop"]
-[ext_resource type="Texture2D" path="res://assets/signage/Pharmacy.png" id="Pharmacy"]
-[ext_resource type="Texture2D" path="res://assets/signage/AutoParts.png" id="AutoParts"]
-[ext_resource type="Texture2D" path="res://assets/signage/TireShop.png" id="TireShop"]
 [ext_resource type="Texture2D" path="res://assets/signage/Church.png" id="Church"]
 [ext_resource type="Texture2D" path="res://assets/signage/JacksonAndA_Avenue.png" id="JacksonAndA_Avenue"]
 [ext_resource type="Texture2D" path="res://assets/signage/JacksonAndA_Street.png" id="JacksonAndA_Street"]
@@ -15,6 +9,39 @@
 [ext_resource type="Texture2D" path="res://assets/signage/JacksonAndSecond_Street.png" id="JacksonAndSecond_Street"]
 [ext_resource type="Texture2D" path="res://assets/signage/JacksonAndThird_Avenue.png" id="JacksonAndThird_Avenue"]
 [ext_resource type="Texture2D" path="res://assets/signage/JacksonAndThird_Street.png" id="JacksonAndThird_Street"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/JacksonStreetAntiques.png" id="JacksonStreetAntiques"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/ElSombrero.png" id="ElSombrero"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/CarlitosWineHouse.png" id="CarlitosWineHouse"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/PlantersStateBank.png" id="PlantersStateBank"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/TheBaxterBuilding.png" id="TheBaxterBuilding"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/WesternFinance.png" id="WesternFinance"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/RialtoReceptionHall.png" id="RialtoReceptionHall"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/RailroadCrossingStore.png" id="RailroadCrossingStore"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/PaulGonzalesInsurance.png" id="PaulGonzalesInsurance"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/RealtyAssociates.png" id="RealtyAssociates"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/ThePrelude.png" id="ThePrelude"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/DArteCentre.png" id="DArteCentre"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/LuxeBoutique.png" id="LuxeBoutique"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/AbsFineThings.png" id="AbsFineThings"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/AntiqueArtisansEmporium.png" id="AntiqueArtisansEmporium"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/AntiquesAndCollectables.png" id="AntiquesAndCollectables"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/QuelleBoutique.png" id="QuelleBoutique"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/TheSalvationArmy.png" id="TheSalvationArmy"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/SchaubArtStudio.png" id="SchaubArtStudio"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/BarriFinancialGroup.png" id="BarriFinancialGroup"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/FlowersByJesse.png" id="FlowersByJesse"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/Juiceology.png" id="Juiceology"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/TheBodSquadTraining.png" id="TheBodSquadTraining"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/RobertsJewelry.png" id="RobertsJewelry"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/InternationalCatAssoc.png" id="InternationalCatAssoc"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/RegionalFinance.png" id="RegionalFinance"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/FirstBaptistChurch.png" id="FirstBaptistChurch"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/CentennialPark.png" id="CentennialPark"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/JacksonAndCommerce_Street.png" id="JacksonAndCommerce_Street"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/JacksonAndFourth_Street.png" id="JacksonAndFourth_Street"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/JacksonAndFifth_Street.png" id="JacksonAndFifth_Street"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/JacksonAndSixth_Street.png" id="JacksonAndSixth_Street"]
+[ext_resource type="Texture2D" path="res://assets/signage/jackson/RailroadCrossing_Warning.png" id="RailroadCrossing_Warning"]
 
 [sub_resource type="StandardMaterial3D" id="ShopFrame"]
 albedo_color = Color(0.21, 0.18, 0.14, 1)
@@ -43,107 +70,489 @@ rings = 0
 material = SubResource("StreetFrame")
 size = Vector3(1.57, 0.45, 0.052)
 
-[sub_resource type="StandardMaterial3D" id="Taqueria_paint"]
-albedo_texture = ExtResource("Taqueria")
+[sub_resource type="StandardMaterial3D" id="JacksonStreetAntiques_paint"]
+albedo_texture = ExtResource("JacksonStreetAntiques")
 roughness = 0.68
 texture_filter = 5
 emission_enabled = true
 emission = Color(0.86, 0.81, 0.70, 1)
 emission_energy_multiplier = 0.115
-emission_texture = ExtResource("Taqueria")
+emission_texture = ExtResource("JacksonStreetAntiques")
 
-[sub_resource type="QuadMesh" id="Taqueria_quad"]
-material = SubResource("Taqueria_paint")
-size = Vector2(4.4, 1.2833333333333334)
+[sub_resource type="QuadMesh" id="JacksonStreetAntiques_quad"]
+material = SubResource("JacksonStreetAntiques_paint")
+size = Vector2(4.72, 1.3767)
 
-[sub_resource type="BoxMesh" id="Taqueria_frame"]
+[sub_resource type="BoxMesh" id="JacksonStreetAntiques_frame"]
 material = SubResource("ShopFrame")
-size = Vector3(4.461, 1.3373333333333335, 0.1)
+size = Vector3(4.781, 1.4307, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="Market_paint"]
-albedo_texture = ExtResource("Market")
+[sub_resource type="StandardMaterial3D" id="ElSombrero_paint"]
+albedo_texture = ExtResource("ElSombrero")
 roughness = 0.68
 texture_filter = 5
 emission_enabled = true
 emission = Color(0.86, 0.81, 0.70, 1)
 emission_energy_multiplier = 0.115
-emission_texture = ExtResource("Market")
+emission_texture = ExtResource("ElSombrero")
 
-[sub_resource type="QuadMesh" id="Market_quad"]
-material = SubResource("Market_paint")
-size = Vector2(6.2, 1.8083333333333333)
-
-[sub_resource type="BoxMesh" id="Market_frame"]
-material = SubResource("ShopFrame")
-size = Vector3(6.261, 1.8623333333333334, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="WineShop_paint"]
-albedo_texture = ExtResource("WineShop")
-roughness = 0.68
-texture_filter = 5
-emission_enabled = true
-emission = Color(0.86, 0.81, 0.70, 1)
-emission_energy_multiplier = 0.115
-emission_texture = ExtResource("WineShop")
-
-[sub_resource type="QuadMesh" id="WineShop_quad"]
-material = SubResource("WineShop_paint")
-size = Vector2(4.9, 1.429166666666667)
-
-[sub_resource type="BoxMesh" id="WineShop_frame"]
-material = SubResource("ShopFrame")
-size = Vector3(4.961, 1.483166666666667, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="Pharmacy_paint"]
-albedo_texture = ExtResource("Pharmacy")
-roughness = 0.68
-texture_filter = 5
-emission_enabled = true
-emission = Color(0.86, 0.81, 0.70, 1)
-emission_energy_multiplier = 0.115
-emission_texture = ExtResource("Pharmacy")
-
-[sub_resource type="QuadMesh" id="Pharmacy_quad"]
-material = SubResource("Pharmacy_paint")
+[sub_resource type="QuadMesh" id="ElSombrero_quad"]
+material = SubResource("ElSombrero_paint")
 size = Vector2(4.5, 1.3125)
 
-[sub_resource type="BoxMesh" id="Pharmacy_frame"]
+[sub_resource type="BoxMesh" id="ElSombrero_frame"]
 material = SubResource("ShopFrame")
 size = Vector3(4.561, 1.3665, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="AutoParts_paint"]
-albedo_texture = ExtResource("AutoParts")
+[sub_resource type="StandardMaterial3D" id="CarlitosWineHouse_paint"]
+albedo_texture = ExtResource("CarlitosWineHouse")
 roughness = 0.68
 texture_filter = 5
 emission_enabled = true
 emission = Color(0.86, 0.81, 0.70, 1)
 emission_energy_multiplier = 0.115
-emission_texture = ExtResource("AutoParts")
+emission_texture = ExtResource("CarlitosWineHouse")
 
-[sub_resource type="QuadMesh" id="AutoParts_quad"]
-material = SubResource("AutoParts_paint")
-size = Vector2(5.6, 1.633333333333333)
+[sub_resource type="QuadMesh" id="CarlitosWineHouse_quad"]
+material = SubResource("CarlitosWineHouse_paint")
+size = Vector2(5.2, 1.5167)
 
-[sub_resource type="BoxMesh" id="AutoParts_frame"]
+[sub_resource type="BoxMesh" id="CarlitosWineHouse_frame"]
 material = SubResource("ShopFrame")
-size = Vector3(5.661, 1.6873333333333331, 0.1)
+size = Vector3(5.261, 1.5707, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="TireShop_paint"]
-albedo_texture = ExtResource("TireShop")
+[sub_resource type="StandardMaterial3D" id="PlantersStateBank_paint"]
+albedo_texture = ExtResource("PlantersStateBank")
 roughness = 0.68
 texture_filter = 5
 emission_enabled = true
 emission = Color(0.86, 0.81, 0.70, 1)
 emission_energy_multiplier = 0.115
-emission_texture = ExtResource("TireShop")
+emission_texture = ExtResource("PlantersStateBank")
 
-[sub_resource type="QuadMesh" id="TireShop_quad"]
-material = SubResource("TireShop_paint")
-size = Vector2(5.7, 1.6624999999999999)
+[sub_resource type="QuadMesh" id="PlantersStateBank_quad"]
+material = SubResource("PlantersStateBank_paint")
+size = Vector2(6.2, 1.8083)
 
-[sub_resource type="BoxMesh" id="TireShop_frame"]
+[sub_resource type="BoxMesh" id="PlantersStateBank_frame"]
 material = SubResource("ShopFrame")
-size = Vector3(5.761, 1.7165, 0.1)
+size = Vector3(6.261, 1.8623, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="TheBaxterBuilding_paint"]
+albedo_texture = ExtResource("TheBaxterBuilding")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("TheBaxterBuilding")
+
+[sub_resource type="QuadMesh" id="TheBaxterBuilding_quad"]
+material = SubResource("TheBaxterBuilding_paint")
+size = Vector2(5.4, 1.575)
+
+[sub_resource type="BoxMesh" id="TheBaxterBuilding_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.461, 1.629, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="WesternFinance_paint"]
+albedo_texture = ExtResource("WesternFinance")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("WesternFinance")
+
+[sub_resource type="QuadMesh" id="WesternFinance_quad"]
+material = SubResource("WesternFinance_paint")
+size = Vector2(4.5, 1.3125)
+
+[sub_resource type="BoxMesh" id="WesternFinance_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.561, 1.3665, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="RialtoReceptionHall_paint"]
+albedo_texture = ExtResource("RialtoReceptionHall")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("RialtoReceptionHall")
+
+[sub_resource type="QuadMesh" id="RialtoReceptionHall_quad"]
+material = SubResource("RialtoReceptionHall_paint")
+size = Vector2(5.8, 1.6917)
+
+[sub_resource type="BoxMesh" id="RialtoReceptionHall_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.861, 1.7457, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="RailroadCrossingStore_paint"]
+albedo_texture = ExtResource("RailroadCrossingStore")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("RailroadCrossingStore")
+
+[sub_resource type="QuadMesh" id="RailroadCrossingStore_quad"]
+material = SubResource("RailroadCrossingStore_paint")
+size = Vector2(5.2, 1.5167)
+
+[sub_resource type="BoxMesh" id="RailroadCrossingStore_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.261, 1.5707, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="PaulGonzalesInsurance_paint"]
+albedo_texture = ExtResource("PaulGonzalesInsurance")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("PaulGonzalesInsurance")
+
+[sub_resource type="QuadMesh" id="PaulGonzalesInsurance_quad"]
+material = SubResource("PaulGonzalesInsurance_paint")
+size = Vector2(4.4, 1.2833)
+
+[sub_resource type="BoxMesh" id="PaulGonzalesInsurance_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.461, 1.3373, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="RealtyAssociates_paint"]
+albedo_texture = ExtResource("RealtyAssociates")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("RealtyAssociates")
+
+[sub_resource type="QuadMesh" id="RealtyAssociates_quad"]
+material = SubResource("RealtyAssociates_paint")
+size = Vector2(4.6, 1.3417)
+
+[sub_resource type="BoxMesh" id="RealtyAssociates_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.661, 1.3957, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="ThePrelude_paint"]
+albedo_texture = ExtResource("ThePrelude")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("ThePrelude")
+
+[sub_resource type="QuadMesh" id="ThePrelude_quad"]
+material = SubResource("ThePrelude_paint")
+size = Vector2(4.5, 1.3125)
+
+[sub_resource type="BoxMesh" id="ThePrelude_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.561, 1.3665, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="DArteCentre_paint"]
+albedo_texture = ExtResource("DArteCentre")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("DArteCentre")
+
+[sub_resource type="QuadMesh" id="DArteCentre_quad"]
+material = SubResource("DArteCentre_paint")
+size = Vector2(4.6, 1.3417)
+
+[sub_resource type="BoxMesh" id="DArteCentre_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.661, 1.3957, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="LuxeBoutique_paint"]
+albedo_texture = ExtResource("LuxeBoutique")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("LuxeBoutique")
+
+[sub_resource type="QuadMesh" id="LuxeBoutique_quad"]
+material = SubResource("LuxeBoutique_paint")
+size = Vector2(4.6, 1.3417)
+
+[sub_resource type="BoxMesh" id="LuxeBoutique_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.661, 1.3957, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="AbsFineThings_paint"]
+albedo_texture = ExtResource("AbsFineThings")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("AbsFineThings")
+
+[sub_resource type="QuadMesh" id="AbsFineThings_quad"]
+material = SubResource("AbsFineThings_paint")
+size = Vector2(4.4, 1.2833)
+
+[sub_resource type="BoxMesh" id="AbsFineThings_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.461, 1.3373, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="AntiqueArtisansEmporium_paint"]
+albedo_texture = ExtResource("AntiqueArtisansEmporium")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("AntiqueArtisansEmporium")
+
+[sub_resource type="QuadMesh" id="AntiqueArtisansEmporium_quad"]
+material = SubResource("AntiqueArtisansEmporium_paint")
+size = Vector2(5.6, 1.6333)
+
+[sub_resource type="BoxMesh" id="AntiqueArtisansEmporium_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.661, 1.6873, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="AntiquesAndCollectables_paint"]
+albedo_texture = ExtResource("AntiquesAndCollectables")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("AntiquesAndCollectables")
+
+[sub_resource type="QuadMesh" id="AntiquesAndCollectables_quad"]
+material = SubResource("AntiquesAndCollectables_paint")
+size = Vector2(5.4, 1.575)
+
+[sub_resource type="BoxMesh" id="AntiquesAndCollectables_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.461, 1.629, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="QuelleBoutique_paint"]
+albedo_texture = ExtResource("QuelleBoutique")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("QuelleBoutique")
+
+[sub_resource type="QuadMesh" id="QuelleBoutique_quad"]
+material = SubResource("QuelleBoutique_paint")
+size = Vector2(3.81, 1.1113)
+
+[sub_resource type="BoxMesh" id="QuelleBoutique_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(3.871, 1.1653, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="TheSalvationArmy_paint"]
+albedo_texture = ExtResource("TheSalvationArmy")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("TheSalvationArmy")
+
+[sub_resource type="QuadMesh" id="TheSalvationArmy_quad"]
+material = SubResource("TheSalvationArmy_paint")
+size = Vector2(6.4, 1.8667)
+
+[sub_resource type="BoxMesh" id="TheSalvationArmy_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(6.461, 1.9207, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="SchaubArtStudio_paint"]
+albedo_texture = ExtResource("SchaubArtStudio")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("SchaubArtStudio")
+
+[sub_resource type="QuadMesh" id="SchaubArtStudio_quad"]
+material = SubResource("SchaubArtStudio_paint")
+size = Vector2(4.5, 1.3125)
+
+[sub_resource type="BoxMesh" id="SchaubArtStudio_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.561, 1.3665, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="BarriFinancialGroup_paint"]
+albedo_texture = ExtResource("BarriFinancialGroup")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("BarriFinancialGroup")
+
+[sub_resource type="QuadMesh" id="BarriFinancialNorth_quad"]
+material = SubResource("BarriFinancialGroup_paint")
+size = Vector2(3.4, 0.9917)
+
+[sub_resource type="BoxMesh" id="BarriFinancialNorth_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(3.461, 1.0457, 0.1)
+
+[sub_resource type="QuadMesh" id="BarriFinancialSouth_quad"]
+material = SubResource("BarriFinancialGroup_paint")
+size = Vector2(4.5, 1.3125)
+
+[sub_resource type="BoxMesh" id="BarriFinancialSouth_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.561, 1.3665, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="FlowersByJesse_paint"]
+albedo_texture = ExtResource("FlowersByJesse")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("FlowersByJesse")
+
+[sub_resource type="QuadMesh" id="FlowersByJesse_quad"]
+material = SubResource("FlowersByJesse_paint")
+size = Vector2(4.5, 1.3125)
+
+[sub_resource type="BoxMesh" id="FlowersByJesse_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.561, 1.3665, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="Juiceology_paint"]
+albedo_texture = ExtResource("Juiceology")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("Juiceology")
+
+[sub_resource type="QuadMesh" id="Juiceology_quad"]
+material = SubResource("Juiceology_paint")
+size = Vector2(4.5, 1.3125)
+
+[sub_resource type="BoxMesh" id="Juiceology_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.561, 1.3665, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="TheBodSquadTraining_paint"]
+albedo_texture = ExtResource("TheBodSquadTraining")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("TheBodSquadTraining")
+
+[sub_resource type="QuadMesh" id="TheBodSquadTraining_quad"]
+material = SubResource("TheBodSquadTraining_paint")
+size = Vector2(4.4, 1.2833)
+
+[sub_resource type="BoxMesh" id="TheBodSquadTraining_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.461, 1.3373, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="RobertsJewelry_paint"]
+albedo_texture = ExtResource("RobertsJewelry")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("RobertsJewelry")
+
+[sub_resource type="QuadMesh" id="RobertsJewelry_quad"]
+material = SubResource("RobertsJewelry_paint")
+size = Vector2(4.4, 1.2833)
+
+[sub_resource type="BoxMesh" id="RobertsJewelry_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.461, 1.3373, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="InternationalCatAssoc_paint"]
+albedo_texture = ExtResource("InternationalCatAssoc")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("InternationalCatAssoc")
+
+[sub_resource type="QuadMesh" id="InternationalCatAssoc_quad"]
+material = SubResource("InternationalCatAssoc_paint")
+size = Vector2(5.6, 1.6333)
+
+[sub_resource type="BoxMesh" id="InternationalCatAssoc_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.661, 1.6873, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="RegionalFinance_paint"]
+albedo_texture = ExtResource("RegionalFinance")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("RegionalFinance")
+
+[sub_resource type="QuadMesh" id="RegionalFinance_quad"]
+material = SubResource("RegionalFinance_paint")
+size = Vector2(4.4, 1.2833)
+
+[sub_resource type="BoxMesh" id="RegionalFinance_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.461, 1.3373, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="FirstBaptistChurch_paint"]
+albedo_texture = ExtResource("FirstBaptistChurch")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("FirstBaptistChurch")
+
+[sub_resource type="QuadMesh" id="FirstBaptistChurch_quad"]
+material = SubResource("FirstBaptistChurch_paint")
+size = Vector2(6.2, 1.8083)
+
+[sub_resource type="BoxMesh" id="FirstBaptistChurch_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(6.261, 1.8623, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="CentennialPark_paint"]
+albedo_texture = ExtResource("CentennialPark")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("CentennialPark")
+
+[sub_resource type="QuadMesh" id="CentennialPark_quad"]
+material = SubResource("CentennialPark_paint")
+size = Vector2(4.2, 1.225)
+
+[sub_resource type="BoxMesh" id="CentennialPark_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.261, 1.279, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="Church_paint"]
 albedo_texture = ExtResource("Church")
@@ -156,11 +565,11 @@ emission_texture = ExtResource("Church")
 
 [sub_resource type="QuadMesh" id="Church_quad"]
 material = SubResource("Church_paint")
-size = Vector2(5.0, 1.4583333333333333)
+size = Vector2(5.0, 1.4583)
 
 [sub_resource type="BoxMesh" id="Church_frame"]
 material = SubResource("ShopFrame")
-size = Vector3(5.061, 1.5123333333333333, 0.1)
+size = Vector3(5.061, 1.5123, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="JacksonAndA_Avenue_paint"]
 albedo_texture = ExtResource("JacksonAndA_Avenue")
@@ -266,90 +675,477 @@ emission_texture = ExtResource("JacksonAndThird_Street")
 material = SubResource("JacksonAndThird_Street_paint")
 size = Vector2(1.52, 0.4433)
 
+[sub_resource type="StandardMaterial3D" id="JacksonAndCommerce_Street_paint"]
+albedo_texture = ExtResource("JacksonAndCommerce_Street")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("JacksonAndCommerce_Street")
+
+[sub_resource type="QuadMesh" id="JacksonAndCommerce_Street_quad"]
+material = SubResource("JacksonAndCommerce_Street_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="JacksonAndFourth_Street_paint"]
+albedo_texture = ExtResource("JacksonAndFourth_Street")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("JacksonAndFourth_Street")
+
+[sub_resource type="QuadMesh" id="JacksonAndFourth_Street_quad"]
+material = SubResource("JacksonAndFourth_Street_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="JacksonAndFifth_Street_paint"]
+albedo_texture = ExtResource("JacksonAndFifth_Street")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("JacksonAndFifth_Street")
+
+[sub_resource type="QuadMesh" id="JacksonAndFifth_Street_quad"]
+material = SubResource("JacksonAndFifth_Street_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="JacksonAndSixth_Street_paint"]
+albedo_texture = ExtResource("JacksonAndSixth_Street")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("JacksonAndSixth_Street")
+
+[sub_resource type="QuadMesh" id="JacksonAndSixth_Street_quad"]
+material = SubResource("JacksonAndSixth_Street_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="RailroadCrossing_Warning_paint"]
+albedo_texture = ExtResource("RailroadCrossing_Warning")
+roughness = 0.68
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.86, 0.81, 0.70, 1)
+emission_energy_multiplier = 0.115
+emission_texture = ExtResource("RailroadCrossing_Warning")
+
+[sub_resource type="QuadMesh" id="RailroadCrossing_Warning_quad"]
+material = SubResource("RailroadCrossing_Warning_paint")
+size = Vector2(1.52, 0.4433)
+
 [node name="DowntownStreetscape" type="Node3D"]
 
-[node name="Taqueria" type="Node3D" parent="."]
-position = Vector3(179.1794, 14.6091, 304.6246)
+[node name="JacksonStreetAntiques" type="Node3D" parent="."]
+position = Vector3(155.1788, 15.8876, 305.0518)
+rotation = Vector3(0, 0.008582, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="JacksonStreetAntiques"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("JacksonStreetAntiques_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="JacksonStreetAntiques"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("JacksonStreetAntiques_quad")
+cast_shadow = 0
+
+[node name="ElSombrero" type="Node3D" parent="."]
+position = Vector3(179.1794, 15.8710, 304.6336)
 rotation = Vector3(0, 0.000757, 0)
 
-[node name="Backing" type="MeshInstance3D" parent="Taqueria"]
+[node name="Backing" type="MeshInstance3D" parent="ElSombrero"]
 position = Vector3(0.0000, 0.0000, 0.0000)
-mesh = SubResource("Taqueria_frame")
+mesh = SubResource("ElSombrero_frame")
 cast_shadow = 0
 
-[node name="Lettering" type="MeshInstance3D" parent="Taqueria"]
+[node name="Lettering" type="MeshInstance3D" parent="ElSombrero"]
 position = Vector3(0.0000, 0.0000, 0.0540)
-mesh = SubResource("Taqueria_quad")
+mesh = SubResource("ElSombrero_quad")
 cast_shadow = 0
 
-[node name="Market" type="Node3D" parent="."]
-position = Vector3(186.8913, 14.6528, 327.1031)
-rotation = Vector3(0, -3.132012, 0)
-
-[node name="Backing" type="MeshInstance3D" parent="Market"]
-position = Vector3(0.0000, 0.0000, 0.0000)
-mesh = SubResource("Market_frame")
-cast_shadow = 0
-
-[node name="Lettering" type="MeshInstance3D" parent="Market"]
-position = Vector3(0.0000, 0.0000, 0.0540)
-mesh = SubResource("Market_quad")
-cast_shadow = 0
-
-[node name="WineShop" type="Node3D" parent="."]
-position = Vector3(205.8030, 14.6682, 304.5457)
+[node name="CarlitosWineHouse" type="Node3D" parent="."]
+position = Vector3(205.8030, 16.0314, 304.5547)
 rotation = Vector3(0, 0.006492, 0)
 
-[node name="Backing" type="MeshInstance3D" parent="WineShop"]
+[node name="Backing" type="MeshInstance3D" parent="CarlitosWineHouse"]
 position = Vector3(0.0000, 0.0000, 0.0000)
-mesh = SubResource("WineShop_frame")
+mesh = SubResource("CarlitosWineHouse_frame")
 cast_shadow = 0
 
-[node name="Lettering" type="MeshInstance3D" parent="WineShop"]
+[node name="Lettering" type="MeshInstance3D" parent="CarlitosWineHouse"]
 position = Vector3(0.0000, 0.0000, 0.0540)
-mesh = SubResource("WineShop_quad")
+mesh = SubResource("CarlitosWineHouse_quad")
 cast_shadow = 0
 
-[node name="Pharmacy" type="Node3D" parent="."]
-position = Vector3(376.1975, 14.6330, 300.6569)
-rotation = Vector3(0, 0.027393, 0)
+[node name="PlantersStateBank" type="Node3D" parent="."]
+position = Vector3(186.8912, 16.1631, 327.0941)
+rotation = Vector3(0, -3.132012, 0)
 
-[node name="Backing" type="MeshInstance3D" parent="Pharmacy"]
+[node name="Backing" type="MeshInstance3D" parent="PlantersStateBank"]
 position = Vector3(0.0000, 0.0000, 0.0000)
-mesh = SubResource("Pharmacy_frame")
+mesh = SubResource("PlantersStateBank_frame")
 cast_shadow = 0
 
-[node name="Lettering" type="MeshInstance3D" parent="Pharmacy"]
+[node name="Lettering" type="MeshInstance3D" parent="PlantersStateBank"]
 position = Vector3(0.0000, 0.0000, 0.0540)
-mesh = SubResource("Pharmacy_quad")
+mesh = SubResource("PlantersStateBank_quad")
 cast_shadow = 0
 
-[node name="AutoParts" type="Node3D" parent="."]
-position = Vector3(609.1269, 14.5833, 321.5724)
-rotation = Vector3(0, -3.134400, 0)
+[node name="TheBaxterBuilding" type="Node3D" parent="."]
+position = Vector3(206.6022, 16.9184, 326.8962)
+rotation = Vector3(0, -3.130826, 0)
 
-[node name="Backing" type="MeshInstance3D" parent="AutoParts"]
+[node name="Backing" type="MeshInstance3D" parent="TheBaxterBuilding"]
 position = Vector3(0.0000, 0.0000, 0.0000)
-mesh = SubResource("AutoParts_frame")
+mesh = SubResource("TheBaxterBuilding_frame")
 cast_shadow = 0
 
-[node name="Lettering" type="MeshInstance3D" parent="AutoParts"]
+[node name="Lettering" type="MeshInstance3D" parent="TheBaxterBuilding"]
 position = Vector3(0.0000, 0.0000, 0.0540)
-mesh = SubResource("AutoParts_quad")
+mesh = SubResource("TheBaxterBuilding_quad")
 cast_shadow = 0
 
-[node name="TireShop" type="Node3D" parent="."]
-position = Vector3(622.0484, 14.5465, 299.1688)
-rotation = Vector3(0, 0.014391, 0)
+[node name="WesternFinance" type="Node3D" parent="."]
+position = Vector3(296.9340, 15.9885, 301.9888)
+rotation = Vector3(0, 0.029105, 0)
 
-[node name="Backing" type="MeshInstance3D" parent="TireShop"]
+[node name="Backing" type="MeshInstance3D" parent="WesternFinance"]
 position = Vector3(0.0000, 0.0000, 0.0000)
-mesh = SubResource("TireShop_frame")
+mesh = SubResource("WesternFinance_frame")
 cast_shadow = 0
 
-[node name="Lettering" type="MeshInstance3D" parent="TireShop"]
+[node name="Lettering" type="MeshInstance3D" parent="WesternFinance"]
 position = Vector3(0.0000, 0.0000, 0.0540)
-mesh = SubResource("TireShop_quad")
+mesh = SubResource("WesternFinance_quad")
+cast_shadow = 0
+
+[node name="RialtoReceptionHall" type="Node3D" parent="."]
+position = Vector3(316.1338, 16.1008, 325.2255)
+rotation = Vector3(0, -3.121546, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="RialtoReceptionHall"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("RialtoReceptionHall_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="RialtoReceptionHall"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("RialtoReceptionHall_quad")
+cast_shadow = 0
+
+[node name="RailroadCrossingStore" type="Node3D" parent="."]
+position = Vector3(349.3718, 16.1152, 301.1350)
+rotation = Vector3(0, 0.004331, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="RailroadCrossingStore"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("RailroadCrossingStore_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="RailroadCrossingStore"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("RailroadCrossingStore_quad")
+cast_shadow = 0
+
+[node name="PaulGonzalesInsurance" type="Node3D" parent="."]
+position = Vector3(360.7205, 15.9274, 301.0043)
+rotation = Vector3(0, 0.026961, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="PaulGonzalesInsurance"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("PaulGonzalesInsurance_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="PaulGonzalesInsurance"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("PaulGonzalesInsurance_quad")
+cast_shadow = 0
+
+[node name="RealtyAssociates" type="Node3D" parent="."]
+position = Vector3(368.3434, 15.9241, 300.8391)
+rotation = Vector3(0, 0.016937, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="RealtyAssociates"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("RealtyAssociates_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="RealtyAssociates"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("RealtyAssociates_quad")
+cast_shadow = 0
+
+[node name="ThePrelude" type="Node3D" parent="."]
+position = Vector3(391.3250, 15.9110, 300.2147)
+rotation = Vector3(0, 0.039101, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="ThePrelude"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("ThePrelude_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="ThePrelude"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("ThePrelude_quad")
+cast_shadow = 0
+
+[node name="DArteCentre" type="Node3D" parent="."]
+position = Vector3(399.0467, 15.9269, 299.9765)
+rotation = Vector3(0, 0.022795, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="DArteCentre"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("DArteCentre_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="DArteCentre"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("DArteCentre_quad")
+cast_shadow = 0
+
+[node name="LuxeBoutique" type="Node3D" parent="."]
+position = Vector3(406.9854, 15.9473, 299.7582)
+rotation = Vector3(0, 0.032056, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="LuxeBoutique"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("LuxeBoutique_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="LuxeBoutique"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("LuxeBoutique_quad")
+cast_shadow = 0
+
+[node name="AbsFineThings" type="Node3D" parent="."]
+position = Vector3(414.6028, 15.9142, 299.5597)
+rotation = Vector3(0, 0.019306, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="AbsFineThings"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("AbsFineThings_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="AbsFineThings"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("AbsFineThings_quad")
+cast_shadow = 0
+
+[node name="AntiqueArtisansEmporium" type="Node3D" parent="."]
+position = Vector3(425.8938, 16.0985, 299.3188)
+rotation = Vector3(0, 0.022285, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="AntiqueArtisansEmporium"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("AntiqueArtisansEmporium_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="AntiqueArtisansEmporium"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("AntiqueArtisansEmporium_quad")
+cast_shadow = 0
+
+[node name="AntiquesAndCollectables" type="Node3D" parent="."]
+position = Vector3(364.6051, 16.0701, 324.6663)
+rotation = Vector3(0, -3.135174, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="AntiquesAndCollectables"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("AntiquesAndCollectables_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="AntiquesAndCollectables"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("AntiquesAndCollectables_quad")
+cast_shadow = 0
+
+[node name="QuelleBoutique" type="Node3D" parent="."]
+position = Vector3(384.3838, 15.8794, 324.7444)
+rotation = Vector3(0, -3.133341, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="QuelleBoutique"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("QuelleBoutique_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="QuelleBoutique"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("QuelleBoutique_quad")
+cast_shadow = 0
+
+[node name="TheSalvationArmy" type="Node3D" parent="."]
+position = Vector3(402.8361, 16.1825, 324.0770)
+rotation = Vector3(0, -3.134442, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="TheSalvationArmy"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("TheSalvationArmy_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="TheSalvationArmy"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("TheSalvationArmy_quad")
+cast_shadow = 0
+
+[node name="SchaubArtStudio" type="Node3D" parent="."]
+position = Vector3(485.4579, 15.8537, 298.9467)
+rotation = Vector3(0, 0.007241, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="SchaubArtStudio"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("SchaubArtStudio_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="SchaubArtStudio"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("SchaubArtStudio_quad")
+cast_shadow = 0
+
+[node name="BarriFinancialNorth" type="Node3D" parent="."]
+position = Vector3(537.9392, 15.7435, 298.7009)
+rotation = Vector3(0, 0.012115, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="BarriFinancialNorth"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("BarriFinancialNorth_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="BarriFinancialNorth"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("BarriFinancialNorth_quad")
+cast_shadow = 0
+
+[node name="BarriFinancialSouth" type="Node3D" parent="."]
+position = Vector3(516.0796, 15.8298, 323.2313)
+rotation = Vector3(0, -3.135910, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="BarriFinancialSouth"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("BarriFinancialSouth_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="BarriFinancialSouth"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("BarriFinancialSouth_quad")
+cast_shadow = 0
+
+[node name="FlowersByJesse" type="Node3D" parent="."]
+position = Vector3(478.1189, 15.8692, 323.4083)
+rotation = Vector3(0, -3.131531, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="FlowersByJesse"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("FlowersByJesse_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="FlowersByJesse"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("FlowersByJesse_quad")
+cast_shadow = 0
+
+[node name="Juiceology" type="Node3D" parent="."]
+position = Vector3(485.7973, 15.8669, 323.2923)
+rotation = Vector3(0, -3.121442, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Juiceology"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Juiceology_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Juiceology"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("Juiceology_quad")
+cast_shadow = 0
+
+[node name="TheBodSquadTraining" type="Node3D" parent="."]
+position = Vector3(493.4120, 15.1619, 323.1658)
+rotation = Vector3(0, -3.128594, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="TheBodSquadTraining"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("TheBodSquadTraining_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="TheBodSquadTraining"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("TheBodSquadTraining_quad")
+cast_shadow = 0
+
+[node name="RobertsJewelry" type="Node3D" parent="."]
+position = Vector3(508.6593, 15.8206, 323.2893)
+rotation = Vector3(0, -3.131529, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="RobertsJewelry"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("RobertsJewelry_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="RobertsJewelry"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("RobertsJewelry_quad")
+cast_shadow = 0
+
+[node name="InternationalCatAssoc" type="Node3D" parent="."]
+position = Vector3(584.5152, 15.9783, 320.9195)
+rotation = Vector3(0, -3.135817, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="InternationalCatAssoc"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("InternationalCatAssoc_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="InternationalCatAssoc"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("InternationalCatAssoc_quad")
+cast_shadow = 0
+
+[node name="RegionalFinance" type="Node3D" parent="."]
+position = Vector3(618.5276, 15.8495, 320.7708)
+rotation = Vector3(0, -3.126953, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="RegionalFinance"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("RegionalFinance_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="RegionalFinance"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("RegionalFinance_quad")
+cast_shadow = 0
+
+[node name="FirstBaptistChurch" type="Node3D" parent="."]
+position = Vector3(795.7390, 15.2995, 319.5385)
+rotation = Vector3(0, -3.129711, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="FirstBaptistChurch"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("FirstBaptistChurch_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="FirstBaptistChurch"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("FirstBaptistChurch_quad")
+cast_shadow = 0
+
+[node name="CentennialPark" type="Node3D" parent="."]
+position = Vector3(102.0000, 13.7584, 325.2000)
+rotation = Vector3(0, -3.141593, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="CentennialPark"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("CentennialPark_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="CentennialPark"]
+position = Vector3(0.0000, 0.0000, 0.0540)
+mesh = SubResource("CentennialPark_quad")
 cast_shadow = 0
 
 [node name="Church" type="Node3D" parent="."]
@@ -366,8 +1162,49 @@ position = Vector3(0.0000, 0.0000, 0.0540)
 mesh = SubResource("Church_quad")
 cast_shadow = 0
 
+[node name="JacksonAndCommerce" type="Node3D" parent="."]
+position = Vector3(153.5000, 12.0318, 309.8000)
+
+[node name="Post" type="MeshInstance3D" parent="JacksonAndCommerce"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="JacksonAndCommerce_Avenue" type="MeshInstance3D" parent="JacksonAndCommerce"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="JacksonAndCommerce/JacksonAndCommerce_Avenue"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("JacksonAndA_Avenue_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="JacksonAndCommerce/JacksonAndCommerce_Avenue"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("JacksonAndA_Avenue_quad")
+cast_shadow = 0
+
+[node name="JacksonAndCommerce_Street" type="MeshInstance3D" parent="JacksonAndCommerce"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="JacksonAndCommerce/JacksonAndCommerce_Street"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("JacksonAndCommerce_Street_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="JacksonAndCommerce/JacksonAndCommerce_Street"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("JacksonAndCommerce_Street_quad")
+cast_shadow = 0
+
 [node name="JacksonAndA" type="Node3D" parent="."]
-position = Vector3(218.1000, 11.9905, 309.0000)
+position = Vector3(218.1000, 12.1018, 309.8000)
 
 [node name="Post" type="MeshInstance3D" parent="JacksonAndA"]
 position = Vector3(0.0000, 1.4550, 0.0000)
@@ -408,7 +1245,7 @@ mesh = SubResource("JacksonAndA_Street_quad")
 cast_shadow = 0
 
 [node name="JacksonAndFirst" type="Node3D" parent="."]
-position = Vector3(326.1000, 11.9366, 320.0000)
+position = Vector3(326.1000, 12.0510, 319.0000)
 
 [node name="Post" type="MeshInstance3D" parent="JacksonAndFirst"]
 position = Vector3(0.0000, 1.4550, 0.0000)
@@ -449,7 +1286,7 @@ mesh = SubResource("JacksonAndFirst_Street_quad")
 cast_shadow = 0
 
 [node name="JacksonAndSecond" type="Node3D" parent="."]
-position = Vector3(449.4000, 11.8441, 319.8000)
+position = Vector3(449.4000, 11.9583, 318.0000)
 
 [node name="Post" type="MeshInstance3D" parent="JacksonAndSecond"]
 position = Vector3(0.0000, 1.4550, 0.0000)
@@ -490,7 +1327,7 @@ mesh = SubResource("JacksonAndSecond_Street_quad")
 cast_shadow = 0
 
 [node name="JacksonAndThird" type="Node3D" parent="."]
-position = Vector3(546.1000, 11.6994, 317.7000)
+position = Vector3(546.1000, 11.8062, 316.5000)
 
 [node name="Post" type="MeshInstance3D" parent="JacksonAndThird"]
 position = Vector3(0.0000, 1.4550, 0.0000)
@@ -528,4 +1365,177 @@ cast_shadow = 0
 position = Vector3(0.0000, 0.0000, -0.0290)
 rotation = Vector3(0, 3.141593, 0)
 mesh = SubResource("JacksonAndThird_Street_quad")
+cast_shadow = 0
+
+[node name="JacksonAndFourth" type="Node3D" parent="."]
+position = Vector3(656.5000, 11.9964, 304.2000)
+
+[node name="Post" type="MeshInstance3D" parent="JacksonAndFourth"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="JacksonAndFourth_Avenue" type="MeshInstance3D" parent="JacksonAndFourth"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="JacksonAndFourth/JacksonAndFourth_Avenue"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("JacksonAndSecond_Avenue_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="JacksonAndFourth/JacksonAndFourth_Avenue"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("JacksonAndSecond_Avenue_quad")
+cast_shadow = 0
+
+[node name="JacksonAndFourth_Street" type="MeshInstance3D" parent="JacksonAndFourth"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="JacksonAndFourth/JacksonAndFourth_Street"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("JacksonAndFourth_Street_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="JacksonAndFourth/JacksonAndFourth_Street"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("JacksonAndFourth_Street_quad")
+cast_shadow = 0
+
+[node name="JacksonAndFifth" type="Node3D" parent="."]
+position = Vector3(767.0000, 11.9538, 303.1000)
+
+[node name="Post" type="MeshInstance3D" parent="JacksonAndFifth"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="JacksonAndFifth_Avenue" type="MeshInstance3D" parent="JacksonAndFifth"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="JacksonAndFifth/JacksonAndFifth_Avenue"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("JacksonAndSecond_Avenue_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="JacksonAndFifth/JacksonAndFifth_Avenue"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("JacksonAndSecond_Avenue_quad")
+cast_shadow = 0
+
+[node name="JacksonAndFifth_Street" type="MeshInstance3D" parent="JacksonAndFifth"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="JacksonAndFifth/JacksonAndFifth_Street"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("JacksonAndFifth_Street_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="JacksonAndFifth/JacksonAndFifth_Street"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("JacksonAndFifth_Street_quad")
+cast_shadow = 0
+
+[node name="JacksonAndSixth" type="Node3D" parent="."]
+position = Vector3(874.5000, 12.1598, 301.5000)
+
+[node name="Post" type="MeshInstance3D" parent="JacksonAndSixth"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="JacksonAndSixth_Avenue" type="MeshInstance3D" parent="JacksonAndSixth"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="JacksonAndSixth/JacksonAndSixth_Avenue"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("JacksonAndSecond_Avenue_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="JacksonAndSixth/JacksonAndSixth_Avenue"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("JacksonAndSecond_Avenue_quad")
+cast_shadow = 0
+
+[node name="JacksonAndSixth_Street" type="MeshInstance3D" parent="JacksonAndSixth"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="JacksonAndSixth/JacksonAndSixth_Street"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("JacksonAndSixth_Street_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="JacksonAndSixth/JacksonAndSixth_Street"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("JacksonAndSixth_Street_quad")
+cast_shadow = 0
+
+[node name="RailroadCrossingEast" type="Node3D" parent="."]
+position = Vector3(86.8000, 12.5879, 311.3000)
+rotation = Vector3(0, 1.570796, 0)
+
+[node name="Post" type="MeshInstance3D" parent="RailroadCrossingEast"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="SignBoard" type="MeshInstance3D" parent="RailroadCrossingEast"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="RailroadCrossingEast/SignBoard"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("RailroadCrossing_Warning_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="RailroadCrossingEast/SignBoard"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("RailroadCrossing_Warning_quad")
+cast_shadow = 0
+
+[node name="RailroadCrossingWest" type="Node3D" parent="."]
+position = Vector3(76.6000, 12.6347, 321.8000)
+rotation = Vector3(0, -1.570796, 0)
+
+[node name="Post" type="MeshInstance3D" parent="RailroadCrossingWest"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="SignBoard" type="MeshInstance3D" parent="RailroadCrossingWest"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="RailroadCrossingWest/SignBoard"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("RailroadCrossing_Warning_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="RailroadCrossingWest/SignBoard"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("RailroadCrossing_Warning_quad")
 cast_shadow = 0

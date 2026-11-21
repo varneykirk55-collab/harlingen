@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" path="res://tiles/+00_+01/Water.glb" id="12"]
 [ext_resource type="PackedScene" path="res://tiles/+00_+01/StreetEdges.glb" id="streetedges"]
 [ext_resource type="PackedScene" path="res://tiles/+00_+01/FacadeDetails.glb" id="facadedetails"]
+[ext_resource type="PackedScene" path="res://assets/signage/EdCareyStreetscape_00_01.tscn" id="streetscape"]
 
 [ext_resource type="PackedScene" path="res://tiles/+00_+01/ElevatedRoads.glb" id="flyover"]
 
@@ -50,6 +51,8 @@ visible = false
 [node name="Transport" parent="." instance=ExtResource("11")]
 
 [node name="Water" parent="." instance=ExtResource("12")]
+
+[node name="EdCareyStreetscape_00_01" parent="." instance=ExtResource("streetscape")]
 
 [node name="StreetEdges" parent="." instance=ExtResource("streetedges")]
 

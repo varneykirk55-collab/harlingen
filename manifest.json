@@ -5928,11 +5928,11 @@
           "file": "tiles/+00_+00/Bridges.glb"
         },
         "BuildingCollision": {
-          "triangles": 39579,
+          "triangles": 39575,
           "file": "tiles/+00_+00/BuildingCollision.glb"
         },
         "Buildings": {
-          "triangles": 106809,
+          "triangles": 106805,
           "file": "tiles/+00_+00/Buildings.glb"
         },
         "BuildingsFar": {
@@ -5948,7 +5948,7 @@
           "file": "tiles/+00_+00/LandCover.glb"
         },
         "Landmarks": {
-          "triangles": 1870,
+          "triangles": 2150,
           "file": "tiles/+00_+00/Landmarks.glb"
         },
         "Markings": {
@@ -5956,11 +5956,11 @@
           "triangles": 41
         },
         "Roads": {
-          "triangles": 46338,
+          "triangles": 116657,
           "file": "tiles/+00_+00/Roads.glb"
         },
         "Sidewalks": {
-          "triangles": 31153,
+          "triangles": 57105,
           "file": "tiles/+00_+00/Sidewalks.glb"
         },
         "TerrainFar": {
@@ -5981,15 +5981,15 @@
         },
         "StreetEdges": {
           "file": "tiles/+00_+00/StreetEdges.glb",
-          "triangles": 303222
+          "triangles": 297924
         },
         "FacadeDetails": {
-          "triangles": 177372,
+          "triangles": 185672,
           "file": "tiles/+00_+00/FacadeDetails.glb"
         },
         "StreetPaint": {
           "file": "tiles/+00_+00/StreetPaint.glb",
-          "triangles": 78798
+          "triangles": 78854
         },
         "StreetWear": {
           "file": "tiles/+00_+00/StreetWear.glb",
@@ -6060,10 +6060,10 @@
         },
         "Roads": {
           "file": "tiles/+01_+00/Roads.glb",
-          "triangles": 20145
+          "triangles": 153777
         },
         "Sidewalks": {
-          "triangles": 1474,
+          "triangles": 2283,
           "file": "tiles/+01_+00/Sidewalks.glb"
         },
         "TerrainFar": {
@@ -6080,10 +6080,10 @@
         },
         "StreetEdges": {
           "file": "tiles/+01_+00/StreetEdges.glb",
-          "triangles": 12575
+          "triangles": 20883
         },
         "FacadeDetails": {
-          "triangles": 48660,
+          "triangles": 414020,
           "file": "tiles/+01_+00/FacadeDetails.glb"
         },
         "ElevatedRoads": {
@@ -6096,7 +6096,7 @@
         },
         "StreetPaint": {
           "file": "tiles/+01_+00/StreetPaint.glb",
-          "triangles": 44778
+          "triangles": 44848
         },
         "StreetWear": {
           "file": "tiles/+01_+00/StreetWear.glb",
@@ -6523,11 +6523,11 @@
       "layers": {
         "BridgeCollision": {
           "file": "tiles/+00_+01/BridgeCollision.glb",
-          "triangles": 266
+          "triangles": 1322
         },
         "Bridges": {
           "file": "tiles/+00_+01/Bridges.glb",
-          "triangles": 266
+          "triangles": 1530
         },
         "BuildingCollision": {
           "triangles": 23834,
@@ -6555,10 +6555,10 @@
         },
         "Roads": {
           "file": "tiles/+00_+01/Roads.glb",
-          "triangles": 19547
+          "triangles": 222520
         },
         "Sidewalks": {
-          "triangles": 2362,
+          "triangles": 3000,
           "file": "tiles/+00_+01/Sidewalks.glb"
         },
         "TerrainFar": {
@@ -6579,10 +6579,10 @@
         },
         "StreetEdges": {
           "file": "tiles/+00_+01/StreetEdges.glb",
-          "triangles": 25216
+          "triangles": 31192
         },
         "FacadeDetails": {
-          "triangles": 41190,
+          "triangles": 169070,
           "file": "tiles/+00_+01/FacadeDetails.glb"
         },
         "ElevatedRoads": {
@@ -6664,11 +6664,11 @@
           "triangles": 8
         },
         "Roads": {
-          "triangles": 27200,
+          "triangles": 132098,
           "file": "tiles/+01_+01/Roads.glb"
         },
         "Sidewalks": {
-          "triangles": 1228,
+          "triangles": 2818,
           "file": "tiles/+01_+01/Sidewalks.glb"
         },
         "TerrainFar": {
@@ -6689,15 +6689,15 @@
         },
         "StreetEdges": {
           "file": "tiles/+01_+01/StreetEdges.glb",
-          "triangles": 10380
+          "triangles": 25396
         },
         "FacadeDetails": {
-          "triangles": 20840,
+          "triangles": 635806,
           "file": "tiles/+01_+01/FacadeDetails.glb"
         },
         "StreetPaint": {
           "file": "tiles/+01_+01/StreetPaint.glb",
-          "triangles": 53886
+          "triangles": 56224
         },
         "StreetWear": {
           "file": "tiles/+01_+01/StreetWear.glb",
@@ -7095,7 +7095,7 @@
           "triangles": 130
         },
         "Roads": {
-          "triangles": 6267,
+          "triangles": 68650,
           "file": "tiles/+00_+02/Roads.glb"
         },
         "TerrainFar": {
@@ -7111,12 +7111,12 @@
           "file": "tiles/+00_+02/Water.glb"
         },
         "FacadeDetails": {
-          "triangles": 14260,
+          "triangles": 335222,
           "file": "tiles/+00_+02/FacadeDetails.glb"
         },
         "StreetPaint": {
           "file": "tiles/+00_+02/StreetPaint.glb",
-          "triangles": 15612
+          "triangles": 16744
         },
         "StreetWear": {
           "file": "tiles/+00_+02/StreetWear.glb",
@@ -7129,6 +7129,14 @@
         "StreetRampCollision": {
           "file": "tiles/+00_+02/StreetRampCollision.glb",
           "triangles": 1198
+        },
+        "Sidewalks": {
+          "file": "tiles/+00_+02/Sidewalks.glb",
+          "triangles": 2254
+        },
+        "StreetEdges": {
+          "file": "tiles/+00_+02/StreetEdges.glb",
+          "triangles": 21218
         }
       },
       "counts": {

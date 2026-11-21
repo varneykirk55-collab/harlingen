@@ -1,0 +1,2379 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Arbys.png" id="Arbys"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/BurgerKing.png" id="BurgerKing"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/CVSPharmacy.png" id="CVSPharmacy"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/ChickFilA.png" id="ChickFilA"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Goodwill.png" id="Goodwill"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/HamptonInn.png" id="HamptonInn"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Lowes.png" id="Lowes"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/McDonalds.png" id="McDonalds"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/ProfOfficeBldg.png" id="ProfOfficeBldg"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/QuickQuack.png" id="QuickQuack"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/RGVCancerCenter.png" id="RGVCancerCenter"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/RaisingCanes.png" id="RaisingCanes"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/SevenEleven.png" id="SevenEleven"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/SpeedyCash.png" id="SpeedyCash"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Starbucks.png" id="Starbucks"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_BellSt.png" id="Street_BellSt"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_BenwoodSt.png" id="Street_BenwoodSt"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_Bus77.png" id="Street_Bus77"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_GlasscockAve.png" id="Street_GlasscockAve"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_HaleAve.png" id="Street_HaleAve"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_NEdCarey_Loop499.png" id="Street_NEdCarey_Loop499"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_PeaseSt.png" id="Street_PeaseSt"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_SesameDr.png" id="Street_SesameDr"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_UPRailroad.png" id="Street_UPRailroad"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/SuClinicaFamiliar.png" id="SuClinicaFamiliar"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/TacoBell.png" id="TacoBell"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/TreasureHillsImaging.png" id="TreasureHillsImaging"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/UTHealthSurgical.png" id="UTHealthSurgical"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/UTHealthWomen.png" id="UTHealthWomen"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/VAHealthCare.png" id="VAHealthCare"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/ValleyBaptistEmergency.png" id="ValleyBaptistEmergency"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/ValleyBaptistMain.png" id="ValleyBaptistMain"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Walgreens.png" id="Walgreens"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/WellsFargo.png" id="WellsFargo"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Wendys.png" id="Wendys"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Whataburger.png" id="Whataburger"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Wingstop.png" id="Wingstop"]
+
+[sub_resource type="StandardMaterial3D" id="ShopFrame"]
+albedo_color = Color(0.20, 0.18, 0.15, 1)
+metallic = 0.15
+roughness = 0.65
+
+[sub_resource type="StandardMaterial3D" id="MonumentBaseMat"]
+albedo_color = Color(0.74, 0.70, 0.62, 1)
+metallic = 0.0
+roughness = 0.82
+
+[sub_resource type="StandardMaterial3D" id="MonumentBodyMat"]
+albedo_color = Color(0.24, 0.27, 0.31, 1)
+metallic = 0.12
+roughness = 0.62
+
+[sub_resource type="StandardMaterial3D" id="StreetFrame"]
+albedo_color = Color(0.15, 0.27, 0.23, 1)
+metallic = 0.0
+roughness = 0.68
+
+[sub_resource type="StandardMaterial3D" id="SignPole"]
+albedo_color = Color(0.46, 0.47, 0.45, 1)
+metallic = 0.54
+roughness = 0.68
+
+[sub_resource type="CylinderMesh" id="PoleMesh"]
+material = SubResource("SignPole")
+top_radius = 0.038
+bottom_radius = 0.044
+height = 2.91
+radial_segments = 7
+rings = 0
+
+[sub_resource type="CylinderMesh" id="PylonColumnMesh"]
+material = SubResource("SignPole")
+top_radius = 0.14
+bottom_radius = 0.17
+height = 4.20
+radial_segments = 10
+rings = 0
+
+[sub_resource type="BoxMesh" id="PylonPedestalMesh"]
+material = SubResource("MonumentBaseMat")
+size = Vector3(0.96, 0.65, 0.76)
+
+[sub_resource type="BoxMesh" id="MonumentPlinthMesh"]
+material = SubResource("MonumentBaseMat")
+size = Vector3(4.35, 0.55, 0.64)
+
+[sub_resource type="BoxMesh" id="MonumentCabinetMesh"]
+material = SubResource("MonumentBodyMat")
+size = Vector3(3.96, 1.24, 0.36)
+
+[sub_resource type="BoxMesh" id="MonumentCapMesh"]
+material = SubResource("MonumentBaseMat")
+size = Vector3(4.24, 0.14, 0.48)
+
+[sub_resource type="BoxMesh" id="PylonCabinetMesh"]
+material = SubResource("ShopFrame")
+size = Vector3(3.96, 1.22, 0.32)
+
+[sub_resource type="BoxMesh" id="StreetBacking"]
+material = SubResource("StreetFrame")
+size = Vector3(1.57, 0.45, 0.052)
+
+[sub_resource type="StandardMaterial3D" id="Arbys_paint"]
+albedo_texture = ExtResource("Arbys")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Arbys")
+
+[sub_resource type="QuadMesh" id="Arbys_road_quad"]
+material = SubResource("Arbys_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="BurgerKing_paint"]
+albedo_texture = ExtResource("BurgerKing")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("BurgerKing")
+
+[sub_resource type="QuadMesh" id="BurgerKing_road_quad"]
+material = SubResource("BurgerKing_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="CVSPharmacy_paint"]
+albedo_texture = ExtResource("CVSPharmacy")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("CVSPharmacy")
+
+[sub_resource type="QuadMesh" id="CVSPharmacy_road_quad"]
+material = SubResource("CVSPharmacy_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="ChickFilA_paint"]
+albedo_texture = ExtResource("ChickFilA")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("ChickFilA")
+
+[sub_resource type="QuadMesh" id="ChickFilA_road_quad"]
+material = SubResource("ChickFilA_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Goodwill_paint"]
+albedo_texture = ExtResource("Goodwill")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Goodwill")
+
+[sub_resource type="QuadMesh" id="Goodwill_road_quad"]
+material = SubResource("Goodwill_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="HamptonInn_paint"]
+albedo_texture = ExtResource("HamptonInn")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("HamptonInn")
+
+[sub_resource type="QuadMesh" id="HamptonInn_road_quad"]
+material = SubResource("HamptonInn_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Lowes_paint"]
+albedo_texture = ExtResource("Lowes")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Lowes")
+
+[sub_resource type="QuadMesh" id="Lowes_road_quad"]
+material = SubResource("Lowes_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="McDonalds_paint"]
+albedo_texture = ExtResource("McDonalds")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("McDonalds")
+
+[sub_resource type="QuadMesh" id="McDonalds_road_quad"]
+material = SubResource("McDonalds_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="ProfOfficeBldg_paint"]
+albedo_texture = ExtResource("ProfOfficeBldg")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("ProfOfficeBldg")
+
+[sub_resource type="QuadMesh" id="ProfOfficeBldg_road_quad"]
+material = SubResource("ProfOfficeBldg_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="QuickQuack_paint"]
+albedo_texture = ExtResource("QuickQuack")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("QuickQuack")
+
+[sub_resource type="QuadMesh" id="QuickQuack_road_quad"]
+material = SubResource("QuickQuack_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="RGVCancerCenter_paint"]
+albedo_texture = ExtResource("RGVCancerCenter")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("RGVCancerCenter")
+
+[sub_resource type="QuadMesh" id="RGVCancerCenter_road_quad"]
+material = SubResource("RGVCancerCenter_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="RaisingCanes_paint"]
+albedo_texture = ExtResource("RaisingCanes")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("RaisingCanes")
+
+[sub_resource type="QuadMesh" id="RaisingCanes_road_quad"]
+material = SubResource("RaisingCanes_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="SevenEleven_paint"]
+albedo_texture = ExtResource("SevenEleven")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("SevenEleven")
+
+[sub_resource type="QuadMesh" id="SevenEleven_road_quad"]
+material = SubResource("SevenEleven_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="SpeedyCash_paint"]
+albedo_texture = ExtResource("SpeedyCash")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("SpeedyCash")
+
+[sub_resource type="QuadMesh" id="SpeedyCash_road_quad"]
+material = SubResource("SpeedyCash_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Starbucks_paint"]
+albedo_texture = ExtResource("Starbucks")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Starbucks")
+
+[sub_resource type="QuadMesh" id="Starbucks_road_quad"]
+material = SubResource("Starbucks_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Street_BellSt_paint"]
+albedo_texture = ExtResource("Street_BellSt")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_BellSt")
+
+[sub_resource type="QuadMesh" id="Street_BellSt_quad"]
+material = SubResource("Street_BellSt_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_BenwoodSt_paint"]
+albedo_texture = ExtResource("Street_BenwoodSt")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_BenwoodSt")
+
+[sub_resource type="QuadMesh" id="Street_BenwoodSt_quad"]
+material = SubResource("Street_BenwoodSt_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_Bus77_paint"]
+albedo_texture = ExtResource("Street_Bus77")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_Bus77")
+
+[sub_resource type="QuadMesh" id="Street_Bus77_quad"]
+material = SubResource("Street_Bus77_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_GlasscockAve_paint"]
+albedo_texture = ExtResource("Street_GlasscockAve")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_GlasscockAve")
+
+[sub_resource type="QuadMesh" id="Street_GlasscockAve_quad"]
+material = SubResource("Street_GlasscockAve_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_HaleAve_paint"]
+albedo_texture = ExtResource("Street_HaleAve")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_HaleAve")
+
+[sub_resource type="QuadMesh" id="Street_HaleAve_quad"]
+material = SubResource("Street_HaleAve_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_NEdCarey_Loop499_paint"]
+albedo_texture = ExtResource("Street_NEdCarey_Loop499")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_NEdCarey_Loop499")
+
+[sub_resource type="QuadMesh" id="Street_NEdCarey_Loop499_quad"]
+material = SubResource("Street_NEdCarey_Loop499_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_PeaseSt_paint"]
+albedo_texture = ExtResource("Street_PeaseSt")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_PeaseSt")
+
+[sub_resource type="QuadMesh" id="Street_PeaseSt_quad"]
+material = SubResource("Street_PeaseSt_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_SesameDr_paint"]
+albedo_texture = ExtResource("Street_SesameDr")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_SesameDr")
+
+[sub_resource type="QuadMesh" id="Street_SesameDr_quad"]
+material = SubResource("Street_SesameDr_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_UPRailroad_paint"]
+albedo_texture = ExtResource("Street_UPRailroad")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_UPRailroad")
+
+[sub_resource type="QuadMesh" id="Street_UPRailroad_quad"]
+material = SubResource("Street_UPRailroad_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="SuClinicaFamiliar_paint"]
+albedo_texture = ExtResource("SuClinicaFamiliar")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("SuClinicaFamiliar")
+
+[sub_resource type="QuadMesh" id="SuClinicaFamiliar_road_quad"]
+material = SubResource("SuClinicaFamiliar_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="TacoBell_paint"]
+albedo_texture = ExtResource("TacoBell")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("TacoBell")
+
+[sub_resource type="QuadMesh" id="TacoBell_road_quad"]
+material = SubResource("TacoBell_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="TreasureHillsImaging_paint"]
+albedo_texture = ExtResource("TreasureHillsImaging")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("TreasureHillsImaging")
+
+[sub_resource type="QuadMesh" id="TreasureHillsImaging_road_quad"]
+material = SubResource("TreasureHillsImaging_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="UTHealthSurgical_paint"]
+albedo_texture = ExtResource("UTHealthSurgical")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("UTHealthSurgical")
+
+[sub_resource type="QuadMesh" id="UTHealthSurgical_road_quad"]
+material = SubResource("UTHealthSurgical_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="UTHealthWomen_paint"]
+albedo_texture = ExtResource("UTHealthWomen")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("UTHealthWomen")
+
+[sub_resource type="QuadMesh" id="UTHealthWomen_road_quad"]
+material = SubResource("UTHealthWomen_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="VAHealthCare_paint"]
+albedo_texture = ExtResource("VAHealthCare")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("VAHealthCare")
+
+[sub_resource type="QuadMesh" id="VAHealthCare_road_quad"]
+material = SubResource("VAHealthCare_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="ValleyBaptistEmergency_paint"]
+albedo_texture = ExtResource("ValleyBaptistEmergency")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("ValleyBaptistEmergency")
+
+[sub_resource type="QuadMesh" id="ValleyBaptistEmergency_road_quad"]
+material = SubResource("ValleyBaptistEmergency_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="ValleyBaptistMain_paint"]
+albedo_texture = ExtResource("ValleyBaptistMain")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("ValleyBaptistMain")
+
+[sub_resource type="QuadMesh" id="ValleyBaptistMain_road_quad"]
+material = SubResource("ValleyBaptistMain_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Walgreens_paint"]
+albedo_texture = ExtResource("Walgreens")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Walgreens")
+
+[sub_resource type="QuadMesh" id="Walgreens_road_quad"]
+material = SubResource("Walgreens_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="WellsFargo_paint"]
+albedo_texture = ExtResource("WellsFargo")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("WellsFargo")
+
+[sub_resource type="QuadMesh" id="WellsFargo_road_quad"]
+material = SubResource("WellsFargo_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Wendys_paint"]
+albedo_texture = ExtResource("Wendys")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Wendys")
+
+[sub_resource type="QuadMesh" id="Wendys_road_quad"]
+material = SubResource("Wendys_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Whataburger_paint"]
+albedo_texture = ExtResource("Whataburger")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Whataburger")
+
+[sub_resource type="QuadMesh" id="Whataburger_road_quad"]
+material = SubResource("Whataburger_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Wingstop_paint"]
+albedo_texture = ExtResource("Wingstop")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Wingstop")
+
+[sub_resource type="QuadMesh" id="Wingstop_road_quad"]
+material = SubResource("Wingstop_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="QuadMesh" id="ValleyBaptistMain_facade_quad"]
+material = SubResource("ValleyBaptistMain_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="ValleyBaptistMain_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="ValleyBaptistEmergency_facade_quad"]
+material = SubResource("ValleyBaptistEmergency_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="ValleyBaptistEmergency_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="ProfOfficeBldg_facade_quad"]
+material = SubResource("ProfOfficeBldg_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="ProfOfficeBldg_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="RGVCancerCenter_facade_quad"]
+material = SubResource("RGVCancerCenter_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="RGVCancerCenter_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="TreasureHillsImaging_facade_quad"]
+material = SubResource("TreasureHillsImaging_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="TreasureHillsImaging_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="SuClinicaFamiliar_facade_quad"]
+material = SubResource("SuClinicaFamiliar_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="SuClinicaFamiliar_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="VAHealthCare_facade_quad"]
+material = SubResource("VAHealthCare_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="VAHealthCare_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="UTHealthWomen_facade_quad"]
+material = SubResource("UTHealthWomen_paint")
+size = Vector2(4.6760, 1.3638)
+
+[sub_resource type="BoxMesh" id="UTHealthWomen_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.7560, 1.4438, 0.11)
+
+[sub_resource type="QuadMesh" id="UTHealthSurgical_facade_quad"]
+material = SubResource("UTHealthSurgical_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="UTHealthSurgical_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="WellsFargo_facade_quad"]
+material = SubResource("WellsFargo_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="WellsFargo_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="Walgreens_facade_quad"]
+material = SubResource("Walgreens_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="Walgreens_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="ChickFilA_facade_quad"]
+material = SubResource("ChickFilA_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="ChickFilA_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="BurgerKing_facade_quad"]
+material = SubResource("BurgerKing_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="BurgerKing_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="SpeedyCash_facade_quad"]
+material = SubResource("SpeedyCash_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="SpeedyCash_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="CVSPharmacy_facade_quad"]
+material = SubResource("CVSPharmacy_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="CVSPharmacy_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="Starbucks_facade_quad"]
+material = SubResource("Starbucks_paint")
+size = Vector2(4.8488, 1.4142)
+
+[sub_resource type="BoxMesh" id="Starbucks_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.9288, 1.4942, 0.11)
+
+[sub_resource type="QuadMesh" id="SevenEleven_facade_quad"]
+material = SubResource("SevenEleven_paint")
+size = Vector2(3.8000, 1.1083)
+
+[sub_resource type="BoxMesh" id="SevenEleven_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(3.8800, 1.1883, 0.11)
+
+[sub_resource type="QuadMesh" id="TacoBell_facade_quad"]
+material = SubResource("TacoBell_paint")
+size = Vector2(3.8000, 1.1083)
+
+[sub_resource type="BoxMesh" id="TacoBell_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(3.8800, 1.1883, 0.11)
+
+[sub_resource type="QuadMesh" id="Wingstop_facade_quad"]
+material = SubResource("Wingstop_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="Wingstop_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="Wendys_facade_quad"]
+material = SubResource("Wendys_paint")
+size = Vector2(4.8492, 1.4144)
+
+[sub_resource type="BoxMesh" id="Wendys_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.9292, 1.4944, 0.11)
+
+[sub_resource type="QuadMesh" id="McDonalds_facade_quad"]
+material = SubResource("McDonalds_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="McDonalds_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="Arbys_facade_quad"]
+material = SubResource("Arbys_paint")
+size = Vector2(3.8000, 1.1083)
+
+[sub_resource type="BoxMesh" id="Arbys_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(3.8800, 1.1883, 0.11)
+
+[sub_resource type="QuadMesh" id="RaisingCanes_facade_quad"]
+material = SubResource("RaisingCanes_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="RaisingCanes_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="QuickQuack_facade_quad"]
+material = SubResource("QuickQuack_paint")
+size = Vector2(3.8000, 1.1083)
+
+[sub_resource type="BoxMesh" id="QuickQuack_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(3.8800, 1.1883, 0.11)
+
+[sub_resource type="QuadMesh" id="Goodwill_facade_quad"]
+material = SubResource("Goodwill_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="Goodwill_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="HamptonInn_facade_quad"]
+material = SubResource("HamptonInn_paint")
+size = Vector2(4.6957, 1.3696)
+
+[sub_resource type="BoxMesh" id="HamptonInn_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.7757, 1.4496, 0.11)
+
+[sub_resource type="QuadMesh" id="Whataburger_facade_quad"]
+material = SubResource("Whataburger_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="Whataburger_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="Lowes_facade_quad"]
+material = SubResource("Lowes_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="Lowes_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[node name="EdCareyStreetscape_01_01" type="Node3D"]
+
+[node name="ValleyBaptistMain_Facade" type="Node3D" parent="."]
+position = Vector3(782.9237, 19.6500, 177.2999)
+rotation = Vector3(0, -1.986501, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="ValleyBaptistMain_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("ValleyBaptistMain_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="ValleyBaptistMain_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("ValleyBaptistMain_facade_quad")
+cast_shadow = 0
+
+[node name="ValleyBaptistMain_Monument" type="Node3D" parent="."]
+position = Vector3(750.6251, 11.2320, 160.6675)
+rotation = Vector3(0, -0.550593, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="ValleyBaptistMain_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="ValleyBaptistMain_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="ValleyBaptistMain_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="ValleyBaptistMain_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("ValleyBaptistMain_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="ValleyBaptistMain_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("ValleyBaptistMain_road_quad")
+cast_shadow = 0
+
+[node name="ValleyBaptistEmergency_Facade" type="Node3D" parent="."]
+position = Vector3(782.9237, 19.6500, 177.2999)
+rotation = Vector3(0, -1.986501, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="ValleyBaptistEmergency_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("ValleyBaptistEmergency_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="ValleyBaptistEmergency_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("ValleyBaptistEmergency_facade_quad")
+cast_shadow = 0
+
+[node name="ValleyBaptistEmergency_Monument" type="Node3D" parent="."]
+position = Vector3(740.7975, 11.3634, 176.6750)
+rotation = Vector3(0, -0.550613, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="ValleyBaptistEmergency_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="ValleyBaptistEmergency_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="ValleyBaptistEmergency_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="ValleyBaptistEmergency_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("ValleyBaptistEmergency_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="ValleyBaptistEmergency_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("ValleyBaptistEmergency_road_quad")
+cast_shadow = 0
+
+[node name="ProfOfficeBldg_Facade" type="Node3D" parent="."]
+position = Vector3(816.8099, 17.1674, 434.9274)
+rotation = Vector3(0, -2.086727, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="ProfOfficeBldg_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("ProfOfficeBldg_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="ProfOfficeBldg_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("ProfOfficeBldg_facade_quad")
+cast_shadow = 0
+
+[node name="ProfOfficeBldg_Monument" type="Node3D" parent="."]
+position = Vector3(647.2203, 11.5153, 333.5299)
+rotation = Vector3(0, -0.534082, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="ProfOfficeBldg_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="ProfOfficeBldg_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="ProfOfficeBldg_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="ProfOfficeBldg_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("ProfOfficeBldg_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="ProfOfficeBldg_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("ProfOfficeBldg_road_quad")
+cast_shadow = 0
+
+[node name="RGVCancerCenter_Facade" type="Node3D" parent="."]
+position = Vector3(1056.4171, 15.7115, 381.9863)
+rotation = Vector3(0, -2.017042, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="RGVCancerCenter_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("RGVCancerCenter_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="RGVCancerCenter_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("RGVCancerCenter_facade_quad")
+cast_shadow = 0
+
+[node name="RGVCancerCenter_Monument" type="Node3D" parent="."]
+position = Vector3(1062.9708, 11.3559, 369.8949)
+rotation = Vector3(0, 2.592182, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="RGVCancerCenter_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="RGVCancerCenter_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="RGVCancerCenter_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="RGVCancerCenter_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("RGVCancerCenter_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="RGVCancerCenter_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("RGVCancerCenter_road_quad")
+cast_shadow = 0
+
+[node name="TreasureHillsImaging_Facade" type="Node3D" parent="."]
+position = Vector3(1033.6341, 16.3941, 532.8712)
+rotation = Vector3(0, -2.248946, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="TreasureHillsImaging_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("TreasureHillsImaging_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="TreasureHillsImaging_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("TreasureHillsImaging_facade_quad")
+cast_shadow = 0
+
+[node name="TreasureHillsImaging_Monument" type="Node3D" parent="."]
+position = Vector3(1023.6299, 11.9209, 546.5665)
+rotation = Vector3(0, 2.609560, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="TreasureHillsImaging_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="TreasureHillsImaging_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="TreasureHillsImaging_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="TreasureHillsImaging_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("TreasureHillsImaging_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="TreasureHillsImaging_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("TreasureHillsImaging_road_quad")
+cast_shadow = 0
+
+[node name="SuClinicaFamiliar_Facade" type="Node3D" parent="."]
+position = Vector3(1138.5399, 18.7253, 597.9070)
+rotation = Vector3(0, -2.078346, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="SuClinicaFamiliar_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("SuClinicaFamiliar_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="SuClinicaFamiliar_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("SuClinicaFamiliar_facade_quad")
+cast_shadow = 0
+
+[node name="SuClinicaFamiliar_Monument" type="Node3D" parent="."]
+position = Vector3(1138.1042, 12.0385, 594.0685)
+rotation = Vector3(0, 2.594932, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="SuClinicaFamiliar_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="SuClinicaFamiliar_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="SuClinicaFamiliar_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="SuClinicaFamiliar_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("SuClinicaFamiliar_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="SuClinicaFamiliar_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("SuClinicaFamiliar_road_quad")
+cast_shadow = 0
+
+[node name="VAHealthCare_Facade" type="Node3D" parent="."]
+position = Vector3(1163.3060, 20.0049, 670.3777)
+rotation = Vector3(0, -2.246159, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="VAHealthCare_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("VAHealthCare_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="VAHealthCare_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("VAHealthCare_facade_quad")
+cast_shadow = 0
+
+[node name="VAHealthCare_Monument" type="Node3D" parent="."]
+position = Vector3(1157.3031, 11.4566, 674.3048)
+rotation = Vector3(0, 2.642496, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="VAHealthCare_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="VAHealthCare_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="VAHealthCare_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="VAHealthCare_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("VAHealthCare_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="VAHealthCare_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("VAHealthCare_road_quad")
+cast_shadow = 0
+
+[node name="UTHealthWomen_Facade" type="Node3D" parent="."]
+position = Vector3(265.3410, 16.5666, 1549.7034)
+rotation = Vector3(0, -2.252148, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="UTHealthWomen_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("UTHealthWomen_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="UTHealthWomen_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("UTHealthWomen_facade_quad")
+cast_shadow = 0
+
+[node name="UTHealthWomen_Monument" type="Node3D" parent="."]
+position = Vector3(263.3224, 12.2851, 1532.8287)
+rotation = Vector3(0, 2.625743, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="UTHealthWomen_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="UTHealthWomen_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="UTHealthWomen_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="UTHealthWomen_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("UTHealthWomen_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="UTHealthWomen_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("UTHealthWomen_road_quad")
+cast_shadow = 0
+
+[node name="UTHealthSurgical_Facade" type="Node3D" parent="."]
+position = Vector3(353.0053, 17.4714, 1534.4929)
+rotation = Vector3(0, -2.242390, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="UTHealthSurgical_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("UTHealthSurgical_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="UTHealthSurgical_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("UTHealthSurgical_facade_quad")
+cast_shadow = 0
+
+[node name="UTHealthSurgical_Monument" type="Node3D" parent="."]
+position = Vector3(344.4690, 12.2771, 1546.9565)
+rotation = Vector3(0, 2.616021, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="UTHealthSurgical_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="UTHealthSurgical_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="UTHealthSurgical_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="UTHealthSurgical_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("UTHealthSurgical_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="UTHealthSurgical_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("UTHealthSurgical_road_quad")
+cast_shadow = 0
+
+[node name="WellsFargo_Facade" type="Node3D" parent="."]
+position = Vector3(524.6312, 15.8083, 336.4546)
+rotation = Vector3(0, 0.734167, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="WellsFargo_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("WellsFargo_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="WellsFargo_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("WellsFargo_facade_quad")
+cast_shadow = 0
+
+[node name="WellsFargo_Monument" type="Node3D" parent="."]
+position = Vector3(604.8494, 11.1414, 353.0325)
+rotation = Vector3(0, -0.498038, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="WellsFargo_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="WellsFargo_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="WellsFargo_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="WellsFargo_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("WellsFargo_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="WellsFargo_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("WellsFargo_road_quad")
+cast_shadow = 0
+
+[node name="Walgreens_Facade" type="Node3D" parent="."]
+position = Vector3(576.9331, 16.9559, 368.7325)
+rotation = Vector3(0, 0.731587, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Walgreens_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Walgreens_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Walgreens_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Walgreens_facade_quad")
+cast_shadow = 0
+
+[node name="Walgreens_Pylon" type="Node3D" parent="."]
+position = Vector3(586.9148, 11.1880, 386.0151)
+rotation = Vector3(0, -0.498038, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Walgreens_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Walgreens_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Walgreens_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Walgreens_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Walgreens_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Walgreens_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Walgreens_road_quad")
+cast_shadow = 0
+
+[node name="ChickFilA_Facade" type="Node3D" parent="."]
+position = Vector3(445.3262, 17.0442, 414.7828)
+rotation = Vector3(0, 1.044962, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="ChickFilA_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("ChickFilA_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="ChickFilA_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("ChickFilA_facade_quad")
+cast_shadow = 0
+
+[node name="ChickFilA_Pylon" type="Node3D" parent="."]
+position = Vector3(556.0136, 11.6713, 440.9054)
+rotation = Vector3(0, -0.499022, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="ChickFilA_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="ChickFilA_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="ChickFilA_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="ChickFilA_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("ChickFilA_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="ChickFilA_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("ChickFilA_road_quad")
+cast_shadow = 0
+
+[node name="BurgerKing_Facade" type="Node3D" parent="."]
+position = Vector3(498.0346, 17.1730, 431.9738)
+rotation = Vector3(0, 1.055967, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="BurgerKing_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("BurgerKing_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="BurgerKing_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("BurgerKing_facade_quad")
+cast_shadow = 0
+
+[node name="BurgerKing_Pylon" type="Node3D" parent="."]
+position = Vector3(539.4696, 11.4447, 468.1250)
+rotation = Vector3(0, -0.499022, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="BurgerKing_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="BurgerKing_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="BurgerKing_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="BurgerKing_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("BurgerKing_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="BurgerKing_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("BurgerKing_road_quad")
+cast_shadow = 0
+
+[node name="SpeedyCash_Facade" type="Node3D" parent="."]
+position = Vector3(522.5654, 17.3373, 466.9699)
+rotation = Vector3(0, 0.735828, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="SpeedyCash_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("SpeedyCash_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="SpeedyCash_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("SpeedyCash_facade_quad")
+cast_shadow = 0
+
+[node name="SpeedyCash_Pylon" type="Node3D" parent="."]
+position = Vector3(543.3156, 11.5843, 461.0686)
+rotation = Vector3(0, -0.499022, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="SpeedyCash_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="SpeedyCash_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="SpeedyCash_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="SpeedyCash_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("SpeedyCash_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="SpeedyCash_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("SpeedyCash_road_quad")
+cast_shadow = 0
+
+[node name="CVSPharmacy_Facade" type="Node3D" parent="."]
+position = Vector3(638.7289, 15.8997, 452.6021)
+rotation = Vector3(0, -2.423670, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="CVSPharmacy_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("CVSPharmacy_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="CVSPharmacy_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("CVSPharmacy_facade_quad")
+cast_shadow = 0
+
+[node name="CVSPharmacy_Pylon" type="Node3D" parent="."]
+position = Vector3(591.1554, 11.6696, 433.6455)
+rotation = Vector3(0, -0.514229, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="CVSPharmacy_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="CVSPharmacy_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="CVSPharmacy_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="CVSPharmacy_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("CVSPharmacy_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="CVSPharmacy_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("CVSPharmacy_road_quad")
+cast_shadow = 0
+
+[node name="Starbucks_Facade" type="Node3D" parent="."]
+position = Vector3(490.4237, 16.2180, 519.7836)
+rotation = Vector3(0, 0.739622, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Starbucks_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Starbucks_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Starbucks_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Starbucks_facade_quad")
+cast_shadow = 0
+
+[node name="Starbucks_Pylon" type="Node3D" parent="."]
+position = Vector3(509.0804, 11.6174, 525.3808)
+rotation = Vector3(0, -0.514244, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Starbucks_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Starbucks_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Starbucks_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Starbucks_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Starbucks_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Starbucks_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Starbucks_road_quad")
+cast_shadow = 0
+
+[node name="SevenEleven_Facade" type="Node3D" parent="."]
+position = Vector3(568.8403, 15.4631, 514.4204)
+rotation = Vector3(0, -2.422378, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="SevenEleven_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("SevenEleven_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="SevenEleven_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("SevenEleven_facade_quad")
+cast_shadow = 0
+
+[node name="SevenEleven_Pylon" type="Node3D" parent="."]
+position = Vector3(552.9658, 11.6554, 505.6251)
+rotation = Vector3(0, -0.513928, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="SevenEleven_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="SevenEleven_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="SevenEleven_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="SevenEleven_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("SevenEleven_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="SevenEleven_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("SevenEleven_road_quad")
+cast_shadow = 0
+
+[node name="TacoBell_Facade" type="Node3D" parent="."]
+position = Vector3(547.6752, 15.4949, 549.4496)
+rotation = Vector3(0, -2.390271, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="TacoBell_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("TacoBell_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="TacoBell_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("TacoBell_facade_quad")
+cast_shadow = 0
+
+[node name="TacoBell_Pylon" type="Node3D" parent="."]
+position = Vector3(530.6701, 11.9247, 542.0570)
+rotation = Vector3(0, -0.514244, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="TacoBell_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="TacoBell_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="TacoBell_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="TacoBell_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("TacoBell_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="TacoBell_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("TacoBell_road_quad")
+cast_shadow = 0
+
+[node name="Wingstop_Facade" type="Node3D" parent="."]
+position = Vector3(588.9519, 16.0414, 577.6138)
+rotation = Vector3(0, -2.119791, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Wingstop_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Wingstop_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Wingstop_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Wingstop_facade_quad")
+cast_shadow = 0
+
+[node name="Wingstop_Pylon" type="Node3D" parent="."]
+position = Vector3(527.7927, 11.8123, 547.1502)
+rotation = Vector3(0, -0.514244, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Wingstop_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Wingstop_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Wingstop_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Wingstop_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Wingstop_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Wingstop_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Wingstop_road_quad")
+cast_shadow = 0
+
+[node name="Wendys_Facade" type="Node3D" parent="."]
+position = Vector3(442.4443, 16.9839, 609.5094)
+rotation = Vector3(0, 0.730138, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Wendys_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Wendys_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Wendys_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Wendys_facade_quad")
+cast_shadow = 0
+
+[node name="Wendys_Pylon" type="Node3D" parent="."]
+position = Vector3(455.7369, 11.8139, 619.9053)
+rotation = Vector3(0, -0.508254, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Wendys_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Wendys_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Wendys_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Wendys_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Wendys_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Wendys_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Wendys_road_quad")
+cast_shadow = 0
+
+[node name="McDonalds_Facade" type="Node3D" parent="."]
+position = Vector3(619.9094, 15.9409, 598.2854)
+rotation = Vector3(0, -2.099754, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="McDonalds_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("McDonalds_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="McDonalds_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("McDonalds_facade_quad")
+cast_shadow = 0
+
+[node name="McDonalds_Pylon" type="Node3D" parent="."]
+position = Vector3(519.9965, 11.8174, 560.9501)
+rotation = Vector3(0, -0.514244, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="McDonalds_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="McDonalds_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="McDonalds_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="McDonalds_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("McDonalds_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="McDonalds_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("McDonalds_road_quad")
+cast_shadow = 0
+
+[node name="Arbys_Facade" type="Node3D" parent="."]
+position = Vector3(416.5625, 15.5548, 647.9523)
+rotation = Vector3(0, 0.732466, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Arbys_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Arbys_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Arbys_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Arbys_facade_quad")
+cast_shadow = 0
+
+[node name="Arbys_Pylon" type="Node3D" parent="."]
+position = Vector3(436.4513, 11.9611, 654.4850)
+rotation = Vector3(0, -0.521551, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Arbys_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Arbys_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Arbys_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Arbys_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Arbys_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Arbys_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Arbys_road_quad")
+cast_shadow = 0
+
+[node name="RaisingCanes_Facade" type="Node3D" parent="."]
+position = Vector3(641.9612, 16.8039, 634.4931)
+rotation = Vector3(0, -2.118288, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="RaisingCanes_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("RaisingCanes_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="RaisingCanes_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("RaisingCanes_facade_quad")
+cast_shadow = 0
+
+[node name="RaisingCanes_Pylon" type="Node3D" parent="."]
+position = Vector3(512.7018, 11.7095, 573.8717)
+rotation = Vector3(0, -0.513863, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="RaisingCanes_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="RaisingCanes_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="RaisingCanes_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="RaisingCanes_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("RaisingCanes_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="RaisingCanes_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("RaisingCanes_road_quad")
+cast_shadow = 0
+
+[node name="QuickQuack_Facade" type="Node3D" parent="."]
+position = Vector3(393.5141, 16.3606, 695.5149)
+rotation = Vector3(0, 0.761589, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="QuickQuack_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("QuickQuack_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="QuickQuack_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("QuickQuack_facade_quad")
+cast_shadow = 0
+
+[node name="QuickQuack_Pylon" type="Node3D" parent="."]
+position = Vector3(410.0073, 12.6705, 700.6080)
+rotation = Vector3(0, -0.520250, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="QuickQuack_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="QuickQuack_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="QuickQuack_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="QuickQuack_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("QuickQuack_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="QuickQuack_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("QuickQuack_road_quad")
+cast_shadow = 0
+
+[node name="Goodwill_Facade" type="Node3D" parent="."]
+position = Vector3(256.5120, 16.1858, 902.5959)
+rotation = Vector3(0, 1.095466, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Goodwill_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Goodwill_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Goodwill_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Goodwill_facade_quad")
+cast_shadow = 0
+
+[node name="Goodwill_Pylon" type="Node3D" parent="."]
+position = Vector3(283.1389, 11.9421, 917.8479)
+rotation = Vector3(0, -0.519293, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Goodwill_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Goodwill_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Goodwill_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Goodwill_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Goodwill_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Goodwill_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Goodwill_road_quad")
+cast_shadow = 0
+
+[node name="HamptonInn_Facade" type="Node3D" parent="."]
+position = Vector3(323.4229, 17.5853, 929.7404)
+rotation = Vector3(0, -2.095228, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="HamptonInn_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("HamptonInn_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="HamptonInn_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("HamptonInn_facade_quad")
+cast_shadow = 0
+
+[node name="HamptonInn_Pylon" type="Node3D" parent="."]
+position = Vector3(312.3831, 12.3244, 921.0965)
+rotation = Vector3(0, -0.519410, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="HamptonInn_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="HamptonInn_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="HamptonInn_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="HamptonInn_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("HamptonInn_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="HamptonInn_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("HamptonInn_road_quad")
+cast_shadow = 0
+
+[node name="Whataburger_Facade" type="Node3D" parent="."]
+position = Vector3(47.6675, 18.1184, 1302.9173)
+rotation = Vector3(0, 1.088286, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Whataburger_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Whataburger_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Whataburger_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Whataburger_facade_quad")
+cast_shadow = 0
+
+[node name="Whataburger_Pylon" type="Node3D" parent="."]
+position = Vector3(56.9189, 12.1187, 1307.1882)
+rotation = Vector3(0, -0.524869, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Whataburger_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Whataburger_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Whataburger_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Whataburger_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Whataburger_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Whataburger_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Whataburger_road_quad")
+cast_shadow = 0
+
+[node name="Lowes_Facade" type="Node3D" parent="."]
+position = Vector3(0.2257, 20.0001, 1707.4270)
+rotation = Vector3(0, -2.240885, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Lowes_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Lowes_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Lowes_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Lowes_facade_quad")
+cast_shadow = 0
+
+[node name="Lowes_Pylon" type="Node3D" parent="."]
+position = Vector3(-116.4158, 12.5805, 1669.1089)
+rotation = Vector3(0, -0.526430, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Lowes_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Lowes_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Lowes_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Lowes_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Lowes_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Lowes_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Lowes_road_quad")
+cast_shadow = 0
+
+[node name="Post_BenwoodSt" type="Node3D" parent="."]
+position = Vector3(811.6345, 10.0802, 13.3175)
+rotation = Vector3(0, -0.548989, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_BenwoodSt"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_BenwoodSt"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_BenwoodSt/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_BenwoodSt/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_BenwoodSt"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_BenwoodSt/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_BenwoodSt_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_BenwoodSt/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_BenwoodSt_quad")
+cast_shadow = 0
+
+[node name="Post_PeaseSt" type="Node3D" parent="."]
+position = Vector3(668.8689, 11.1238, 244.1083)
+rotation = Vector3(0, -0.545180, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_PeaseSt"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_PeaseSt"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_PeaseSt/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_PeaseSt/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_PeaseSt"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_PeaseSt/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_PeaseSt_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_PeaseSt/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_PeaseSt_quad")
+cast_shadow = 0
+
+[node name="Post_BellSt" type="Node3D" parent="."]
+position = Vector3(614.5347, 11.0973, 334.9168)
+rotation = Vector3(0, -0.526886, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_BellSt"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_BellSt"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_BellSt/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_BellSt/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_BellSt"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_BellSt/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_BellSt_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_BellSt/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_BellSt_quad")
+cast_shadow = 0
+
+[node name="Post_Business77" type="Node3D" parent="."]
+position = Vector3(558.4560, 11.4963, 435.5171)
+rotation = Vector3(0, -0.502316, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_Business77"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_Business77"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_Business77/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_Business77/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_Business77"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_Business77/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_Bus77_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_Business77/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_Bus77_quad")
+cast_shadow = 0
+
+[node name="Post_UPRailroad" type="Node3D" parent="."]
+position = Vector3(443.9403, 11.9232, 643.6607)
+rotation = Vector3(0, -0.523776, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_UPRailroad"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_UPRailroad"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_UPRailroad/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_UPRailroad/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_UPRailroad"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_UPRailroad/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_UPRailroad_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_UPRailroad/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_UPRailroad_quad")
+cast_shadow = 0
+
+[node name="Post_GlasscockAve" type="Node3D" parent="."]
+position = Vector3(318.1836, 11.9616, 859.5740)
+rotation = Vector3(0, -0.519333, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_GlasscockAve"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_GlasscockAve"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_GlasscockAve/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_GlasscockAve/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_GlasscockAve"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_GlasscockAve/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_GlasscockAve_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_GlasscockAve/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_GlasscockAve_quad")
+cast_shadow = 0
+
+[node name="Post_HaleAve" type="Node3D" parent="."]
+position = Vector3(114.9367, 11.9059, 1206.0450)
+rotation = Vector3(0, -0.519298, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_HaleAve"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_HaleAve"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_HaleAve/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_HaleAve/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_HaleAve"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_HaleAve/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_HaleAve_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_HaleAve/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_HaleAve_quad")
+cast_shadow = 0
+
+[node name="Post_SesameDr" type="Node3D" parent="."]
+position = Vector3(15.5973, 12.0397, 1377.4589)
+rotation = Vector3(0, -0.517767, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_SesameDr"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_SesameDr"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_SesameDr/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_SesameDr/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_SesameDr"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_SesameDr/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_SesameDr_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_SesameDr/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_SesameDr_quad")
+cast_shadow = 0
