@@ -1,14 +1,11 @@
 """Apply targeted geometry/data updates to an existing Harlingen project."""
 import json
 
-import numpy as np
-from shapely.geometry import Point
-
-from build import Elevation, ROOT, TILE_SIZE, read_features
-from elevated_roads import PARK_ROAD, PARK_WALK, Road, RouteModel
+from build import Elevation, ROOT, read_features
+from elevated_roads import Road, RouteModel
 from mesh import write_glb
 from road_grade import is_bridge
-from street_detail import Surface, glb_parts
+from bridge_validation import validate
 
 
 def correct_highways(manifest, source, dem):
@@ -19,78 +16,38 @@ def correct_highways(manifest, source, dem):
         raise ValueError('Highway inventory no longer matches the OSM source')
     model = RouteModel(roads, source, dem)
 
-    report = {}
-    for road in roads:
-        points = np.linspace(0., road.line.length, max(2,int(road.line.length/2.5)+1))
-        base = np.asarray([dem(*road.center(s)) for s in points])
-        legacy = np.asarray([road.legacy_height(s) for s in points])
-        fixed = np.asarray([road.height(s) for s in points])
-        report[road.key] = dict(bridge=is_bridge(road.tags),layer=road.tags.get('layer'),
-            profile_before_m=round(float(np.max(abs(legacy-base))),4),
-            profile_after_m=round(float(np.max(abs(fixed-base))),4),
-            maximum_sampled_grade_percent=round(float(100*np.max(abs(np.diff(fixed)/np.diff(points)))),1))
+    checks,deficits = model.fit_motorway(source)
+    motorway = [road for road in roads if hasattr(road,'corrected_profile')]
+    bridge_count = sum(is_bridge(road.tags) for road in roads)
+    ground_count = len(roads)-bridge_count
+    if (ground_count,bridge_count) != (57,27):
+        raise ValueError(f'Expected 57 ground roads and 27 bridges, found {ground_count} and {bridge_count}')
+    for road in motorway:
         model.model(road)
-    ground = [i for i,r in report.items() if not r['bridge']]
-    if len(ground) != 57:
-        raise ValueError(f'Expected the audited 57 non-bridge ways, found {len(ground)}')
-    info['pier_columns'] = model.support_count
-    info['audit_at_grade_ways'] = ground
-    info['audit_way_profiles'] = report
 
     tiles = {r['id']:r for r in manifest['tiles']}
+    highway_tiles = []
     for (ix,iz), geometry in sorted(model.tiles.items()):
         tile = f'{ix:+03d}_{iz:+03d}'
-        folder = ROOT/'tiles'/tile
+        highway_tiles.append(tile)
         for name,mesh in geometry.items():
-            path = folder/f'{name}.glb'
-            # The Ramsey path is part of the existing visual layer. Transfer it
-            # intact without touching the park scene or its asset.
-            if tile == '+01_+00' and name=='ElevatedRoads':
-                for mat,coords,indices in glb_parts(path):
-                    if mat == 'flyover_trail':
-                        mesh.add(mat,coords,indices.ravel(),normals=[(0,1,0)]*len(coords))
+            path = ROOT/'tiles'/tile/f'{name}.glb'
             if not write_glb(path,name,mesh):
                 raise ValueError(f'Expected populated highway asset {path}')
-            tiles[tile]['layers'][name]['triangles'] = mesh.triangles()
-    del model
+            layers[name]['triangles'] = mesh.triangles()
 
-    rendered = {}
-    for tile in info['tiles']:
-        rendered[tile] = Surface(ROOT/'tiles'/tile/'ElevatedCollision.glb',
-                                  ignored=('flyover_concrete','flyover_rail','flyover_walk'))
-    for road in roads:
-        if is_bridge(road.tags):
-            continue
-        maximum = 0.
-        for s in np.linspace(0.08,road.line.length-.08,max(2,int(road.line.length/2.5)+1)):
-            x,z = road.center(s)
-            ix,iz = np.floor(np.array([x,z])/TILE_SIZE).astype(int)
-            found = []
-            for tx,tz in ((ix,iz),(ix-1,iz),(ix+1,iz),(ix,iz-1),(ix,iz+1)):
-                surface = rendered.get(f'{tx:+03d}_{tz:+03d}')
-                if surface is None:
-                    continue
-                p = np.array([x-tx*TILE_SIZE,z-tz*TILE_SIZE])
-                ids = surface.index.query(Point(p),predicate='intersects')
-                if len(ids):
-                    # Where decks overlap, measure the height closest to this way's
-                    # local profile rather than attributing a separate bridge to it.
-                    for verts in surface.tri[ids]:
-                        v = verts[:,[0,2]]
-                        basis = np.column_stack((v[1]-v[0],v[2]-v[0]))
-                        u,w = np.linalg.solve(basis, p-v[0])
-                        found.append(verts[0,1]+u*(verts[1,1]-verts[0,1])+w*(verts[2,1]-verts[0,1]))
-                if len(found):
-                    break
-            if not found:
-                raise ValueError(f'No exported road collision for {road.key} at {x,z}')
-            base = float(dem(x,z))
-            maximum = max(maximum, min(abs(y-base) for y in found))
-        report[road.key]['collision_after_m'] = round(maximum,4)
-        if maximum > 1.0:
-            raise ValueError(f'{road.key} exceeds the one metre tolerance ({maximum:.3f})')
-    print(f'{len(ground)} corrected ways, {len(roads)-len(ground)} tagged bridges retained; '
-          f'maximum exported at-grade deviation {max(report[i]["collision_after_m"] for i in ground):.3f} m')
+    info['bridge_clearance'] = validate(highway_tiles,roads,checks,dem)
+    report = info['bridge_clearance']
+    report['modeled_clearance_shortfalls'] = [
+        {'upper_way':upper,'lower_way':lower,'deficit_to_design_m':gap}
+        for upper,lower,gap in deficits
+    ]
+    report['exported_tiles'] = highway_tiles
+    report['motorway_pier_columns'] = model.support_count
+    print(f'{ground_count} non-bridge ways, {bridge_count} tagged bridges retained. '
+          f'Exported minimum clearance {report["minimum_mesh_clearance_m"]:.3f} m. '
+          f'Exported maximum motorway grade {report["maximum_exported_motorway_grade_percent"]:.3f}%. '
+          f'Crossings below target: {len(report["below_target"])}.')
 
 
 def main():

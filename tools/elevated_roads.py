@@ -17,6 +17,7 @@ from landmarks import Frame, Landmark
 from mesh import Mesh, PALETTE, cylinder, write_glb
 from vegetation import scrub
 from road_grade import ground_grade, is_bridge, smoothstep, surface_grade
+from bridge_profiles import DECK_DEPTH, fit_profiles
 
 MAIN = '''
 1061023301 119748890 119748783 119749039 1105186743 143948211 97347898
@@ -129,6 +130,8 @@ class Road:
         return eased(station,[(0,a),(length*.26,middle),(length*.67,middle),(length,b)],g)
 
     def height(self, station, p=None):
+        if hasattr(self, 'corrected_profile'):
+            return float(np.interp(station,*self.corrected_profile))
         if p is None:
             p = self.line.interpolate(station).coords[0]
         if not is_bridge(self.tags):
@@ -365,6 +368,14 @@ class RouteModel:
         h = y-grade(self.dem,p)
         if h<2.15:
             return
+        corrected = hasattr(road,'corrected_profile')
+        if corrected:
+            t = np.array([n[1],-n[0]])
+            beam = Polygon([p+n*w+t*d for w,d in
+                            [(-road.width/2,-1.45),(road.width/2,-1.45),
+                             (road.width/2,1.45),(-road.width/2,1.45)]])
+            if self.openings.query(beam,predicate='intersects').size:
+                return
         candidates = [p]
         if road.width>6 and road.key!=PARK_WALK:
             candidates = [p + n*d for d in (-road.width*.24,road.width*.24)]
@@ -397,11 +408,18 @@ class RouteModel:
             t = np.array([n[1],-n[0]])
             ring = [p + n*w + t*d - [dx,dz] for w,d in
                     [(-cap_w/2,-.66),(cap_w/2,-.66),(cap_w/2,.66),(-cap_w/2,.66)]]
-            for k,(x,z) in enumerate(ring):
-                a,b = ring[(k+1)%4]
-                upward(mesh,'flyover_girder',[(x,y-1.09,z),(a,y-1.09,b),(a,y-.46,b),(x,y-.46,z)],
-                       [(x+a)/2-p[0]+dx,0,(z+b)/2-p[1]+dz])
-            upward(mesh,'flyover_girder',[(x,y-1.09,z) for x,z in ring],[0,-1,0])
+            for target in (mesh,collision) if corrected else (mesh,):
+                for k,(x,z) in enumerate(ring):
+                    a,b = ring[(k+1)%4]
+                    upward(target,'flyover_girder',[(x,y-1.09,z),(a,y-1.09,b),(a,y-.46,b),(x,y-.46,z)],
+                           [(x+a)/2-p[0]+dx,0,(z+b)/2-p[1]+dz])
+                upward(target,'flyover_girder',[(x,y-1.09,z) for x,z in ring],[0,-1,0])
+
+    def fit_motorway(self,source):
+        checks,deficits = fit_profiles(self,source)
+        self.openings = STRtree([c.line.buffer(road_spec(c.tags)[0]/2)
+                                .intersection(c.point.buffer(45.)) for c in checks])
+        return checks,deficits
 
     def model(self,road):
         length = road.line.length
@@ -412,7 +430,13 @@ class RouteModel:
                                 np.arange(15,length,15),vertices,length])
         stations = list(np.r_[samples[0], samples[1:][np.diff(samples)>.008]])
         stations[-1] = length
+        corrected = hasattr(road, 'corrected_profile')
+        if corrected:
+            samples = np.sort(np.r_[samples,road.corrected_profile[0]])
+            stations = list(np.r_[samples[0],samples[1:][np.diff(samples)>.00001]])
+            stations[-1] = length
         width = road.width
+        tagged_bridge = is_bridge(road.tags)
         ped = road.key == PARK_WALK
         w=width/2
         for s0,s1 in zip(stations,stations[1:]):
@@ -439,10 +463,22 @@ class RouteModel:
                 if solid:
                     upward(collision,mat,quad,facing)
 
-            if is_bridge(road.tags):
-                strip('flyover_walk' if ped else 'highway',-w,0,w,0,(0,1,0),True)
+            if tagged_bridge:
+                material = 'flyover_walk' if ped else 'highway'
+                bands = (-w,0.,w) if corrected else (-w,w)
+                for left,right in zip(bands,bands[1:]):
+                    strip(material,left,0,right,0,(0,1,0),True)
             else:
-                def drape(p, n, h, lateral):
+                def drape(p, n, h, lateral, s):
+                    if corrected:
+                        world = p + origin
+                        raster = float(self.dem(*world))
+                        shoulder = float(self.dem(*(world+n*lateral)))
+                        # Flatten the crossfall gradually over a bridge tie-in.
+                        ends = getattr(road,'flat_tie_ends', (False,False))
+                        remaining = min(s if ends[0] else math.inf,length-s if ends[1] else math.inf)
+                        blend = min(smoothstep(remaining/14.),1-smoothstep((h-raster-.22)/.64))
+                        return h+(shoulder-raster)*blend
                     world = p + origin
                     grade_here = float(self.dem(*world))
                     return max(.026, min(.92, h-grade_here)) + float(self.dem(*(world+n*lateral)))
@@ -450,17 +486,21 @@ class RouteModel:
                 base_face = face
                 def face(l0,l1,r0,r1):
                     quad = base_face(l0,l1,r0,r1)
-                    return [ (q[0], drape(p,n,h,off)+dy, q[2]) for q,p,n,h,(off,dy) in zip(
-                        quad,(a,b,b,a),(na,nb,nb,na),(ya,yb,yb,ya),(l0,l1,r1,r0)) ]
-                bands=np.linspace(-w,w,max(3,math.ceil(width/3)+1))
+                    return [ (q[0], drape(p,n,h,off,s)+dy, q[2]) for q,p,n,h,s,(off,dy) in zip(
+                        quad,(a,b,b,a),(na,nb,nb,na),(ya,yb,yb,ya),(s0,s1,s1,s0),(l0,l1,r1,r0)) ]
+                half_bands = math.ceil(w/3)
+                count = 2*half_bands+1 if corrected else max(3,math.ceil(width/3)+1)
+                bands = np.linspace(-w,w,count)
                 for left,right in zip(bands,bands[1:]):
                     strip('highway',left,0,right,0,(0,1,0),True)
             rise = (ya+yb)/2-grade(self.dem,mid)
-            if is_bridge(road.tags) and rise>.55:
-                strip('flyover_girder',-w,-.81,w,-.81,(0,-1,0))
+            if (tagged_bridge or corrected) and rise>.55:
+                bands = (-w,0.,w) if corrected else (-w,w)
+                for left,right in zip(bands,bands[1:]):
+                    strip('flyover_girder',left,-DECK_DEPTH,right,-DECK_DEPTH,(0,-1,0),corrected)
                 for sgn in (-1,1):
                     out = (axis[0]*sgn,0,axis[1]*sgn)
-                    strip('flyover_concrete',w*sgn,0,w*sgn,-.81,out)
+                    strip('flyover_concrete',w*sgn,0,w*sgn,-DECK_DEPTH,out,corrected)
                     if rise<.95 or self.shared_edge(road,mid+axis*(w-.06)*sgn,(ya+yb)/2):
                         continue
                     rail_top = .23 if ped else .55
@@ -495,7 +535,7 @@ class RouteModel:
                         strip('flyover_yellow',offset-.055,.019,offset+.055,.019,(0,1,0))
                 elif ((s0+s1)*.5)%15<4.6:
                     strip('flyover_white',x-.057,.018,x+.057,.018,(0,1,0))
-        if is_bridge(road.tags):
+        if tagged_bridge or corrected:
             for s in np.arange(min(18,length*.45),length-5,25 if ped else 26):
                 self.support(road,s)
 
@@ -693,6 +733,7 @@ def main(previous):
     roads = [Road(i,g,t,dem) for g,t,i in records if i in selected]
     assert {r.key for r in roads}==selected
     model = RouteModel(roads,source,dem)
+    model.fit_motorway(source)
     for road in roads:
         assert road.line.geom_type=='LineString'
         model.model(road)
