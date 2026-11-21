@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://materials/street_realism/traffic_paint.gdshader" id="1"]
+[ext_resource type="Texture2D" path="res://materials/textures/asphalt_roughness.jpg" id="2"]
+
+[resource]
+shader = ExtResource("1")
+shader_parameter/wear_map = ExtResource("2")
+shader_parameter/paint_color = Color(0.92, 0.91, 0.85, 1)

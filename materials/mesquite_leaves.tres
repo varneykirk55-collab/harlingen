@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://materials/textures/foliage_albedo.jpg" id="1"]
+
+[resource]
+texture_filter = 5
+resource_name = "Mesquite Leaves"
+roughness = 0.8
+metallic = 0
+metallic_specular = 0.45
+albedo_color = Color(0.73, 0.91, 0.58, 1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv1_triplanar_sharpness = 8.0
+uv1_scale = Vector3(1.4, 1.4, 1.4)
+albedo_texture = ExtResource("1")

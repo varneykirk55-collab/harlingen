@@ -1,0 +1,162 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_fhwjy"]
+[ext_resource type="PackedScene" path="res://assets/character/harlingen_character.glb" id="2_6nsgb"]
+[ext_resource type="Script" path="res://scripts/player/player_camera.gd" id="3_ljh2g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g7j5r"]
+radius = 0.32
+height = 1.78
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v81jw"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j4yks"]
+animation = &"Walking"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_laqyv"]
+animation = &"FastRun"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_wp8q1"]
+min_space = 0.0
+max_space = 2.0
+blend_point_0/node = SubResource("AnimationNodeAnimation_v81jw")
+blend_point_0/pos = 0.0
+blend_point_0/name = &"Idle"
+blend_point_1/node = SubResource("AnimationNodeAnimation_j4yks")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"Walking"
+blend_point_2/node = SubResource("AnimationNodeAnimation_laqyv")
+blend_point_2/pos = 2.0
+blend_point_2/name = &"FastRun"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_slbhc"]
+animation = &"Punching"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gsbha"]
+animation = &"Reloading"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bnayp"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kkcsf"]
+animation = &"WalkWithRifle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_adj0b"]
+min_space = 0.0
+blend_point_0/node = SubResource("AnimationNodeAnimation_bnayp")
+blend_point_0/pos = 0.0
+blend_point_0/name = &"Idle"
+blend_point_1/node = SubResource("AnimationNodeAnimation_kkcsf")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"WalkWithRifle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_akj2q"]
+animation = &"Strafing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kuao7"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7q84o"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0x1p2"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_88aji"]
+xfade_time = 0.18
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hkntq"]
+xfade_time = 0.18
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6qouk"]
+xfade_time = 0.18
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rm0r4"]
+xfade_time = 0.18
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xiasu"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ydu3x"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_djlof"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_07k56"]
+xfade_time = 0.18
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mxcls"]
+xfade_time = 0.18
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wrkuw"]
+xfade_time = 0.18
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vycf0"]
+xfade_time = 0.18
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vy23r"]
+xfade_time = 0.18
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h3nqo"]
+xfade_time = 0.18
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ip3vl"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fyjgo"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a033j"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vka04"]
+states/Locomotion/node = SubResource("AnimationNodeBlendSpace1D_wp8q1")
+states/Locomotion/position = Vector2(200, 120)
+states/Punching/node = SubResource("AnimationNodeAnimation_slbhc")
+states/Punching/position = Vector2(460, 40)
+states/Reloading/node = SubResource("AnimationNodeAnimation_gsbha")
+states/Reloading/position = Vector2(460, 340)
+states/RifleLocomotion/node = SubResource("AnimationNodeBlendSpace1D_adj0b")
+states/RifleLocomotion/position = Vector2(200, 280)
+states/Strafing/node = SubResource("AnimationNodeAnimation_akj2q")
+states/Strafing/position = Vector2(460, 200)
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_kuao7"), "Locomotion", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_7q84o"), "RifleLocomotion", "Locomotion", SubResource("AnimationNodeStateMachineTransition_0x1p2"), "Locomotion", "Strafing", SubResource("AnimationNodeStateMachineTransition_88aji"), "Strafing", "Locomotion", SubResource("AnimationNodeStateMachineTransition_hkntq"), "RifleLocomotion", "Strafing", SubResource("AnimationNodeStateMachineTransition_6qouk"), "Strafing", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_rm0r4"), "Locomotion", "Punching", SubResource("AnimationNodeStateMachineTransition_xiasu"), "RifleLocomotion", "Punching", SubResource("AnimationNodeStateMachineTransition_ydu3x"), "Strafing", "Punching", SubResource("AnimationNodeStateMachineTransition_djlof"), "Punching", "Locomotion", SubResource("AnimationNodeStateMachineTransition_07k56"), "Punching", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_mxcls"), "Punching", "Strafing", SubResource("AnimationNodeStateMachineTransition_wrkuw"), "Locomotion", "Reloading", SubResource("AnimationNodeStateMachineTransition_vycf0"), "RifleLocomotion", "Reloading", SubResource("AnimationNodeStateMachineTransition_vy23r"), "Strafing", "Reloading", SubResource("AnimationNodeStateMachineTransition_h3nqo"), "Reloading", "Locomotion", SubResource("AnimationNodeStateMachineTransition_ip3vl"), "Reloading", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_fyjgo"), "Reloading", "Strafing", SubResource("AnimationNodeStateMachineTransition_a033j")]
+
+[node name="PlayerCharacter" type="CharacterBody3D" unique_id=1943646353]
+collision_layer = 2
+collision_mask = 5
+floor_snap_length = 0.4
+script = ExtResource("1_fhwjy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=109454610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, 0)
+shape = SubResource("CapsuleShape3D_g7j5r")
+
+[node name="VisualRoot" type="Node3D" parent="." unique_id=1567989356]
+
+[node name="CharacterModel" type="Node3D" parent="VisualRoot" unique_id=766329246 instance=ExtResource("2_6nsgb")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1661731150]
+tree_root = SubResource("AnimationNodeStateMachine_vka04")
+anim_player = NodePath("../VisualRoot/CharacterModel/AnimationPlayer")
+parameters/Locomotion/blend_position = 0.0
+parameters/RifleLocomotion/blend_position = 0.0
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=167821456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0)
+script = ExtResource("3_ljh2g")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=1916288347]
+spring_length = 3.2
+margin = 0.2
+
+[node name="PlayerCamera" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=611549647]
+fov = 70.0
+near = 0.15
+far = 16000.0

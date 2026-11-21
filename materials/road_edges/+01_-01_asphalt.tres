@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+
+[ext_resource type="Shader" path="res://materials/street_realism/curb_asphalt_weather.gdshader" id="shader"]
+[ext_resource type="Texture2D" path="res://materials/textures/asphalt_albedo.jpg" id="asphalt_albedo"]
+[ext_resource type="Texture2D" path="res://materials/textures/street_asphalt_normal.png" id="aggregate_normal"]
+[ext_resource type="Texture2D" path="res://materials/road_edges/+01_-01_edge.png" id="edge_distance"]
+
+[resource]
+shader = ExtResource("shader")
+shader_parameter/asphalt_albedo = ExtResource("asphalt_albedo")
+shader_parameter/aggregate_normal = ExtResource("aggregate_normal")
+shader_parameter/edge_distance = ExtResource("edge_distance")
+shader_parameter/tile_origin = Vector2(2000, -2000)
+shader_parameter/texture_scale = 0.44
+shader_parameter/roughness_value = 0.72
+shader_parameter/tint = Color(0.96, 0.94, 0.91, 1)

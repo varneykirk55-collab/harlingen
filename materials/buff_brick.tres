@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://materials/textures/buff_brick_albedo.jpg" id="1"]
+[ext_resource type="Texture2D" path="res://materials/textures/brick_normal.png" id="2"]
+
+[resource]
+texture_filter = 5
+resource_name = "Buff Brick"
+roughness = 0.84
+metallic = 0
+metallic_specular = 0.45
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv1_triplanar_sharpness = 8.0
+uv1_scale = Vector3(0.47, 0.47, 0.47)
+normal_enabled = true
+normal_scale = 0.55
+albedo_texture = ExtResource("1")
+normal_texture = ExtResource("2")

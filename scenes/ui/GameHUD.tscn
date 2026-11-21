@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/game_hud.gd" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="PanelBg"]
+bg_color = Color(0.06, 0.09, 0.11, 0.76)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.72, 0.84, 0.92, 0.28)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="ModeText"]
+font_size = 15
+font_color = Color(1, 1, 1, 1)
+outline_size = 4
+outline_color = Color(0.04, 0.06, 0.08, 0.9)
+
+[sub_resource type="LabelSettings" id="PromptText"]
+font_size = 17
+font_color = Color(1, 1, 1, 1)
+outline_size = 5
+outline_color = Color(0.04, 0.06, 0.08, 0.95)
+
+[node name="GameHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1")
+
+[node name="TopRightPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 96.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("PanelBg")
+
+[node name="Margin" type="MarginContainer" parent="TopRightPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="TopRightPanel/Margin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="ModeRow" type="HBoxContainer" parent="TopRightPanel/Margin/VBox"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ModeLabel" type="Label" parent="TopRightPanel/Margin/VBox/ModeRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ON FOOT"
+label_settings = SubResource("ModeText")
+horizontal_alignment = 2
+mouse_filter = 2
+
+[node name="SpeedLabel" type="Label" parent="TopRightPanel/Margin/VBox"]
+visible = false
+layout_mode = 2
+text = "0 MPH  ·  0 KM/H"
+label_settings = SubResource("ModeText")
+horizontal_alignment = 2
+mouse_filter = 2
+
+[node name="StanceLabel" type="Label" parent="TopRightPanel/Margin/VBox"]
+layout_mode = 2
+text = "STANCE: UNARMED"
+label_settings = SubResource("ModeText")
+horizontal_alignment = 2
+mouse_filter = 2
+
+[node name="BottomPromptAnchor" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -102.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="PromptPanel" type="PanelContainer" parent="BottomPromptAnchor"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("PanelBg")
+
+[node name="Margin" type="MarginContainer" parent="BottomPromptAnchor/PromptPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 8
+
+[node name="PromptLabel" type="Label" parent="BottomPromptAnchor/PromptPanel/Margin"]
+layout_mode = 2
+text = "[E / Y] Enter Vehicle"
+label_settings = SubResource("PromptText")
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2

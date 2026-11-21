@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Facade Window Frame"
+albedo_color = Color(0.63, 0.61, 0.53, 1)
+roughness = 0.69
+metallic_specular = 0.34

@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://materials/street_realism/pavement.gdshader" id="1"]
+[ext_resource type="Texture2D" path="res://materials/textures/concrete_albedo.jpg" id="2"]
+[ext_resource type="Texture2D" path="res://materials/textures/concrete_normal.png" id="3"]
+[ext_resource type="Texture2D" path="res://materials/textures/concrete_roughness.jpg" id="4"]
+
+[resource]
+shader = ExtResource("1")
+shader_parameter/albedo_map = ExtResource("2")
+shader_parameter/detail_normal = ExtResource("3")
+shader_parameter/wear_map = ExtResource("4")
+shader_parameter/tint = Color(0.86, 0.85, 0.8, 1)
+shader_parameter/texture_scale = 0.58
+shader_parameter/concrete = 1.0

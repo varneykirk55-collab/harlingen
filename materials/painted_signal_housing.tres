@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=1 format=3]
+
+
+[resource]
+resource_name = "Painted Signal Housing"
+roughness = 0.66
+metallic = 0
+metallic_specular = 0.45
+albedo_color = Color(0.24, 0.25, 0.14, 1)

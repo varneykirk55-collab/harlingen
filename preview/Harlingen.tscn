@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://preview/world.gd" id="1"]
+
+[ext_resource type="Script" path="res://preview/walker.gd" id="2"]
+
+[ext_resource type="Shader" path="res://preview/sky/clear_midday.gdshader" id="3"]
+
+[sub_resource type="ShaderMaterial" id="SkyMat"]
+shader = ExtResource("3")
+
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("SkyMat")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 2
+ambient_light_color = Color(1, 0.97, 0.91, 1)
+ambient_light_energy = 0.48
+ambient_light_sky_contribution = 0.07
+reflected_light_source = 2
+tonemap_mode = 0
+adjustment_enabled = true
+adjustment_brightness = 0.96
+adjustment_contrast = 1.015
+adjustment_saturation = 0.96
+fog_enabled = true
+fog_light_color = Color(0.73, 0.81, 0.90, 1)
+fog_density = 0.000073
+fog_aerial_perspective = 0.5
+
+[sub_resource type="Terrain3DMaterial" id="TerrainMat"]
+show_checkered = false
+show_colormap = true
+world_background = 0
+
+[sub_resource type="Terrain3DAssets" id="TerrainAssets"]
+
+[sub_resource type="LabelSettings" id="Text"]
+font_size = 16
+font_color = Color(1, 1, 1, 1)
+outline_size = 7
+outline_color = Color(0.07, 0.10, 0.09, 0.85)
+
+[sub_resource type="CapsuleShape3D" id="WalkerCapsule"]
+radius = 0.32
+height = 1.78
+
+[node name="Harlingen" type="Node3D"]
+script = ExtResource("1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-71, -36, 0)
+light_color = Color(1, 0.965, 0.869, 1)
+light_energy = 1.07
+shadow_enabled = true
+shadow_bias = 0.10
+shadow_normal_bias = 1.85
+shadow_opacity = 0.96
+shadow_blur = 0.35
+directional_shadow_blend_splits = true
+directional_shadow_split_1 = 0.075
+directional_shadow_split_2 = 0.18
+directional_shadow_split_3 = 0.44
+directional_shadow_max_distance = 340.0
+
+[node name="WestJacksonReflections" type="ReflectionProbe" parent="."]
+position = Vector3(220, 19, 317)
+intensity = 0.67
+max_distance = 135.0
+size = Vector3(250, 70, 95)
+box_projection = true
+
+[node name="EastJacksonReflections" type="ReflectionProbe" parent="."]
+position = Vector3(466, 20, 312)
+intensity = 0.67
+max_distance = 145.0
+size = Vector3(280, 80, 110)
+box_projection = true
+
+[node name="Camera" type="Camera3D" parent="."]
+position = Vector3(424, 75, 493)
+current = true
+fov = 59.0
+near = 0.45
+far = 24500.0
+
+[node name="Walker" type="CharacterBody3D" parent="."]
+collision_layer = 0
+floor_snap_length = 0.4
+script = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker"]
+position = Vector3(0, 0.89, 0)
+shape = SubResource("WalkerCapsule")
+
+[node name="Eyes" type="Camera3D" parent="Walker"]
+position = Vector3(0, 1.65, 0)
+fov = 75.0
+near = 0.15
+far = 16000.0
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+region_size = 256
+vertex_spacing = 5.0
+free_editor_textures = false
+collision_mode = 0
+material = SubResource("TerrainMat")
+assets = SubResource("TerrainAssets")
+data_directory = "res://terrain/regions"
+
+[node name="Districts" type="Node3D" parent="."]
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="Hint" type="Label" parent="Overlay"]
+offset_left = 24.0
+offset_top = 25.0
+text = "Harlingen"
+label_settings = SubResource("Text")
+mouse_filter = 2
+
+[node name="Attribution" type="Label" parent="Overlay"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -38.0
+text = "© OpenStreetMap contributors  ·  Overture / Microsoft  ·  USGS / USDA"
+label_settings = SubResource("Text")
+mouse_filter = 2

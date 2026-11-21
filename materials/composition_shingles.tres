@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://materials/shaders/roof_finish.gdshader" id="shader"]
+[ext_resource type="Texture2D" path="res://materials/textures/shingle_albedo.jpg" id="roof_albedo"]
+
+[resource]
+shader = ExtResource("shader")
+shader_parameter/roof_albedo = ExtResource("roof_albedo")
+shader_parameter/roof_scale = 0.58
+shader_parameter/roof_roughness = 0.85

@@ -1,0 +1,49 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://preview/tile.gd" id="1"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/Bridges.glb" id="2"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/Buildings.glb" id="3"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/BuildingsFar.glb" id="4"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/LandCover.glb" id="5"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/Roads.glb" id="7"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/TerrainFar.glb" id="8"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/TerrainMesh.glb" id="9"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/Water.glb" id="10"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/FacadeDetails.glb" id="facadedetails"]
+
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/StreetPaint.glb" id="streets_0"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/StreetWear.glb" id="streets_1"]
+[ext_resource type="PackedScene" path="res://tiles/+02_+01/StreetWires.glb" id="streets_2"]
+
+[node name="District_p02_p01" type="Node3D"]
+position = Vector3(4000, 0, 2000)
+script = ExtResource("1")
+tile_id = "+02_+01"
+
+[node name="Bridges" parent="." instance=ExtResource("2")]
+
+[node name="Buildings" parent="." instance=ExtResource("3")]
+
+[node name="BuildingsFar" parent="." instance=ExtResource("4")]
+visible = false
+
+[node name="LandCover" parent="." instance=ExtResource("5")]
+
+
+
+[node name="Roads" parent="." instance=ExtResource("7")]
+
+[node name="TerrainFar" parent="." instance=ExtResource("8")]
+visible = false
+
+[node name="TerrainMesh" parent="." instance=ExtResource("9")]
+
+[node name="Water" parent="." instance=ExtResource("10")]
+
+[node name="FacadeDetails" parent="." instance=ExtResource("facadedetails")]
+
+[node name="StreetPaint" parent="." instance=ExtResource("streets_0")]
+
+[node name="StreetWear" parent="." instance=ExtResource("streets_1")]
+
+[node name="StreetWires" parent="." instance=ExtResource("streets_2")]

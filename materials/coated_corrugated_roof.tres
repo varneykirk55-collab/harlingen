@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3]
+
+[ext_resource type="Shader" path="res://materials/shaders/roof_finish.gdshader" id="shader"]
+[ext_resource type="Texture2D" path="res://materials/textures/coated_roof_albedo.jpg" id="roof_albedo"]
+
+[ext_resource type="Texture2D" path="res://materials/textures/metal_normal.png" id="roof_normal"]
+
+[resource]
+shader = ExtResource("shader")
+shader_parameter/roof_albedo = ExtResource("roof_albedo")
+shader_parameter/roof_scale = 0.32
+shader_parameter/roof_roughness = 0.66
+shader_parameter/roof_normal = ExtResource("roof_normal")
+shader_parameter/roof_normal_strength = 0.32

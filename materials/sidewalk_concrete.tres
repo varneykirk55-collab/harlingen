@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+
+[ext_resource type="Shader" path="res://materials/shaders/concrete_walk.gdshader" id="shader"]
+[ext_resource type="Texture2D" path="res://materials/textures/concrete_albedo.jpg" id="concrete_albedo"]
+[ext_resource type="Texture2D" path="res://materials/textures/concrete_normal.png" id="concrete_normal"]
+[ext_resource type="Texture2D" path="res://materials/textures/concrete_roughness.jpg" id="concrete_roughness"]
+
+[resource]
+shader = ExtResource("shader")
+shader_parameter/concrete_albedo = ExtResource("concrete_albedo")
+shader_parameter/concrete_normal = ExtResource("concrete_normal")
+shader_parameter/concrete_roughness = ExtResource("concrete_roughness")
+shader_parameter/texture_scale = 0.53
+shader_parameter/warm_tint = Color(0.93, 0.88, 0.78, 1)

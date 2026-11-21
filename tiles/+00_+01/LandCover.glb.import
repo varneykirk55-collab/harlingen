@@ -1,0 +1,73 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://d14xyo6e3o3ir"
+path="res://.godot/imported/LandCover.glb-996906d90fc221015f8cc113ba9ef272.scn"
+
+[deps]
+
+source_file="res://tiles/+00_+01/LandCover.glb"
+dest_files=["res://.godot/imported/LandCover.glb-996906d90fc221015f8cc113ba9ef272.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"baseball": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/baseball_infield.tres",
+"use_external/path": "res://materials/baseball_infield.tres"
+},
+"concrete": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/plaza_concrete.tres",
+"use_external/path": "res://materials/plaza_concrete.tres"
+},
+"grass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/park_grass.tres",
+"use_external/path": "res://materials/park_grass.tres"
+},
+"lot": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/street_realism/asphalt_lot.tres",
+"use_external/path": "res://materials/street_realism/asphalt_lot.tres"
+},
+"woodland": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/woodland_floor.tres",
+"use_external/path": "res://materials/woodland_floor.tres"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
+gltf/texture_map_mode=1

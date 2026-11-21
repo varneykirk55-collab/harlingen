@@ -1,0 +1,139 @@
+extends Node3D
+## One independent 2 km district scene with visible and collision layers.
+
+@export var tile_id: String
+static var kit_meshes: Dictionary = {}
+var _collision_enabled := false
+
+func _ready() -> void:
+	for layer in ["StreetPaint", "StreetWear", "StreetWires"]:
+		var assembly := get_node_or_null(layer)
+		if assembly == null:
+			continue
+		var instances := assembly.find_children("*", "MeshInstance3D", true, false)
+		if assembly is MeshInstance3D:
+			instances.push_front(assembly)
+		for surface: MeshInstance3D in instances:
+			surface.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			surface.visibility_range_end = 500.0 if layer == "StreetWires" else 385.0
+			surface.visibility_range_end_margin = 30.0
+	_add_street_furniture()
+	for layer in ["StreetEdges", "FacadeDetails"]:
+		var detail := get_node_or_null(layer)
+		if detail:
+			for surface: MeshInstance3D in detail.find_children("*", "MeshInstance3D", true, false):
+				surface.visibility_range_end = 485.0
+				surface.visibility_range_end_margin = 32.0
+				surface.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var path := "res://tiles/%s/instances.json" % tile_id
+	if FileAccess.file_exists(path):
+		var records: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+		for kind: String in records:
+			_add_instances(kind, records[kind])
+
+func _add_street_furniture() -> void:
+	var path := "res://tiles/%s/StreetFurniture.json" % tile_id
+	if not FileAccess.file_exists(path):
+		return
+	var records: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+	var furniture := Node3D.new()
+	furniture.name = "StreetFurniture"
+	add_child(furniture)
+	for kind: String in records:
+		var resource := "street_realism/" + kind
+		if not kit_meshes.has(resource):
+			var packed := load("res://assets/%s.glb" % resource) as PackedScene
+			var prototype := packed.instantiate()
+			kit_meshes[resource] = _mesh_instance(prototype).mesh
+			prototype.free()
+		var chunks := {}
+		for row: Array in records[kind]:
+			var cell := Vector2i(floori(row[0] / 256.0), floori(row[2] / 256.0))
+			if not chunks.has(cell):
+				chunks[cell] = []
+			chunks[cell].append(row)
+		for cell: Vector2i in chunks:
+			var batch: Array = chunks[cell]
+			var center := Vector3(cell.x * 256 + 128, 0.0, cell.y * 256 + 128)
+			var instance := MultiMeshInstance3D.new()
+			instance.position = center
+			instance.multimesh = MultiMesh.new()
+			instance.multimesh.transform_format = MultiMesh.TRANSFORM_3D
+			instance.multimesh.mesh = kit_meshes[resource]
+			instance.multimesh.instance_count = batch.size()
+			for i in batch.size():
+				var row: Array = batch[i]
+				var basis := Basis(Vector3.UP, float(row[3]))
+				var position := Vector3(row[0], row[1], row[2]) - center
+				instance.multimesh.set_instance_transform(i, Transform3D(basis, position))
+			instance.visibility_range_end = 490.0 if kind in ["pole", "light", "signal0", "signal1"] else 300.0
+			instance.visibility_range_end_margin = 35.0
+			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			furniture.add_child(instance)
+
+func _add_instances(kind: String, placements: Array) -> void:
+	if not kit_meshes.has(kind):
+		var kit_scene := load("res://assets/%s.glb" % kind) as PackedScene
+		var node := kit_scene.instantiate()
+		kit_meshes[kind] = _mesh_instance(node).mesh
+		node.free()
+	var instance := MultiMeshInstance3D.new()
+	instance.name = kind
+	instance.multimesh = MultiMesh.new()
+	instance.multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	instance.multimesh.mesh = kit_meshes[kind]
+	instance.multimesh.instance_count = placements.size()
+	for i in placements.size():
+		var row: Array = placements[i]
+		var basis := Basis(Vector3.UP, float(row[3])).scaled(Vector3.ONE * float(row[4]))
+		instance.multimesh.set_instance_transform(i, Transform3D(basis, Vector3(row[0], row[1], row[2])))
+	match kind:
+		"palm": instance.visibility_range_end = 2050.0
+		"scrub": instance.visibility_range_end = 650.0
+		"dry_grass": instance.visibility_range_end = 260.0
+		_: instance.visibility_range_end = 1400.0
+	instance.visibility_range_end_margin = 180.0
+	if kind != "palm":
+		instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(instance)
+
+static func _mesh_instance(node: Node) -> MeshInstance3D:
+	if node is MeshInstance3D:
+		return node
+	return node.find_children("*", "MeshInstance3D", true, false)[0]
+
+func update_detail(use_native_ground: bool, near: bool, detailed_buildings: bool, collisions: bool) -> void:
+	$TerrainMesh.visible = near and not use_native_ground
+	$TerrainFar.visible = not near and not use_native_ground
+	var buildings := get_node_or_null("Buildings") as Node3D
+	if buildings:
+		buildings.visible = detailed_buildings
+		$BuildingsFar.visible = not detailed_buildings
+	for layer in ["Markings", "Sidewalks", "StreetEdges", "FacadeDetails", "StreetPaint", "StreetWear", "StreetWires", "StreetFurniture"]:
+		var node := get_node_or_null(layer) as Node3D
+		if node:
+			node.visible = near
+	if collisions == _collision_enabled:
+		return
+	_collision_enabled = collisions
+	if collisions:
+		var body := StaticBody3D.new()
+		body.name = "DistrictCollision"
+		for layer in ["GroundCollision", "BuildingCollision", "BridgeCollision", "ElevatedCollision", "StreetRampCollision"]:
+			var path := "res://tiles/%s/%s.glb" % [tile_id, layer]
+			if (layer == "GroundCollision" and use_native_ground) or not ResourceLoader.exists(path):
+				continue
+			var packed := load(path) as PackedScene
+			var source := packed.instantiate()
+			var surface := _mesh_instance(source)
+			var collider := CollisionShape3D.new()
+			collider.name = layer
+			collider.shape = surface.mesh.create_trimesh_shape()
+			body.add_child(collider)
+			source.free()
+		add_child(body)
+	else:
+		var body := get_node_or_null("DistrictCollision")
+		if body:
+			remove_child(body)
+			body.queue_free()

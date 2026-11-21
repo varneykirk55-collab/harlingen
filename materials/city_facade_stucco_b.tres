@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3]
+
+[ext_resource type="Shader" path="res://materials/shaders/facade_finish.gdshader" id="shader"]
+[ext_resource type="Texture2D" path="res://materials/textures/facades_city_albedo.jpg" id="facade_albedo"]
+[ext_resource type="Texture2D" path="res://materials/textures/facades_normal.png" id="facade_normal"]
+[ext_resource type="Texture2D" path="res://materials/textures/facades_city_ao.png" id="facade_occlusion"]
+[ext_resource type="Texture2D" path="res://materials/textures/facade_glazing.png" id="glazing"]
+
+[resource]
+shader = ExtResource("shader")
+shader_parameter/facade_albedo = ExtResource("facade_albedo")
+shader_parameter/facade_normal = ExtResource("facade_normal")
+shader_parameter/facade_occlusion = ExtResource("facade_occlusion")
+shader_parameter/glazing = ExtResource("glazing")
+shader_parameter/wall_tint = Color(1.01, 0.98, 0.95, 1)
+shader_parameter/wall_roughness = 0.84
+shader_parameter/wall_normal_strength = 0.46
