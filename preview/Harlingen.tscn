@@ -1,10 +1,18 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://preview/world.gd" id="1"]
 
 [ext_resource type="Script" path="res://preview/walker.gd" id="2"]
 
 [ext_resource type="Shader" path="res://preview/sky/clear_midday.gdshader" id="3"]
+
+[ext_resource type="PackedScene" path="res://scenes/player/PlayerCharacter.tscn" id="4"]
+
+[ext_resource type="PackedScene" path="res://scenes/vehicle/HarlingenVehicle.tscn" id="5"]
+
+[ext_resource type="Script" path="res://scripts/game/vehicle_interaction.gd" id="6"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/GameHUD.tscn" id="7"]
 
 [sub_resource type="ShaderMaterial" id="SkyMat"]
 shader = ExtResource("3")
@@ -105,6 +113,20 @@ fov = 75.0
 near = 0.15
 far = 16000.0
 
+[node name="PlayerCharacter" parent="." instance=ExtResource("4")]
+position = Vector3(205, 12.35, 320)
+
+[node name="HarlingenVehicle" parent="." instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223, 11.88, 316)
+
+[node name="TransitionCamera" type="Camera3D" parent="."]
+fov = 70.0
+near = 0.15
+far = 16000.0
+
+[node name="VehicleInteraction" type="Node" parent="."]
+script = ExtResource("6")
+
 [node name="Terrain3D" type="Terrain3D" parent="."]
 region_size = 256
 vertex_spacing = 5.0
@@ -133,3 +155,5 @@ offset_top = -38.0
 text = "© OpenStreetMap contributors  ·  Overture / Microsoft  ·  USGS / USDA"
 label_settings = SubResource("Text")
 mouse_filter = 2
+
+[node name="GameHUD" parent="Overlay" instance=ExtResource("7")]
