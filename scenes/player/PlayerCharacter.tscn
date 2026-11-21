@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_fhwjy"]
 [ext_resource type="PackedScene" path="res://assets/character/harlingen_character.glb" id="2_6nsgb"]
 [ext_resource type="Script" path="res://scripts/player/player_camera.gd" id="3_ljh2g"]
+[ext_resource type="PackedScene" path="res://assets/weapons/m4/Modern_M4_LOD1.glb" id="4_m4rfl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g7j5r"]
 radius = 0.32
@@ -37,7 +38,7 @@ animation = &"Punching"
 animation = &"Reloading"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bnayp"]
-animation = &"Idle"
+animation = &"RifleIdle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kkcsf"]
 animation = &"WalkWithRifle"
@@ -46,13 +47,69 @@ animation = &"WalkWithRifle"
 min_space = 0.0
 blend_point_0/node = SubResource("AnimationNodeAnimation_bnayp")
 blend_point_0/pos = 0.0
-blend_point_0/name = &"Idle"
+blend_point_0/name = &"RifleIdle"
 blend_point_1/node = SubResource("AnimationNodeAnimation_kkcsf")
 blend_point_1/pos = 1.0
 blend_point_1/name = &"WalkWithRifle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_akj2q"]
-animation = &"Strafing"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_stfl1"]
+animation = &"StrafeLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_stfr1"]
+animation = &"StrafeRight"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_strf1"]
+min_space = -1.0
+max_space = 1.0
+blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_stfl1")
+blend_point_0/pos = -1.0
+blend_point_0/name = &"StrafeLeft"
+blend_point_1/node = SubResource("AnimationNodeAnimation_stfr1")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"StrafeRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jump1"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fall1"]
+animation = &"Fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air01"]
+xfade_time = 0.12
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air02"]
+xfade_time = 0.12
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air03"]
+xfade_time = 0.12
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air04"]
+xfade_time = 0.25
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air05"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air06"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air07"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air08"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air09"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air10"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air11"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_air12"]
+xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kuao7"]
 advance_mode = 2
@@ -124,9 +181,13 @@ states/Reloading/node = SubResource("AnimationNodeAnimation_gsbha")
 states/Reloading/position = Vector2(460, 340)
 states/RifleLocomotion/node = SubResource("AnimationNodeBlendSpace1D_adj0b")
 states/RifleLocomotion/position = Vector2(200, 280)
-states/Strafing/node = SubResource("AnimationNodeAnimation_akj2q")
+states/Strafing/node = SubResource("AnimationNodeBlendSpace1D_strf1")
 states/Strafing/position = Vector2(460, 200)
-transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_kuao7"), "Locomotion", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_7q84o"), "RifleLocomotion", "Locomotion", SubResource("AnimationNodeStateMachineTransition_0x1p2"), "Locomotion", "Strafing", SubResource("AnimationNodeStateMachineTransition_88aji"), "Strafing", "Locomotion", SubResource("AnimationNodeStateMachineTransition_hkntq"), "RifleLocomotion", "Strafing", SubResource("AnimationNodeStateMachineTransition_6qouk"), "Strafing", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_rm0r4"), "Locomotion", "Punching", SubResource("AnimationNodeStateMachineTransition_xiasu"), "RifleLocomotion", "Punching", SubResource("AnimationNodeStateMachineTransition_ydu3x"), "Strafing", "Punching", SubResource("AnimationNodeStateMachineTransition_djlof"), "Punching", "Locomotion", SubResource("AnimationNodeStateMachineTransition_07k56"), "Punching", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_mxcls"), "Punching", "Strafing", SubResource("AnimationNodeStateMachineTransition_wrkuw"), "Locomotion", "Reloading", SubResource("AnimationNodeStateMachineTransition_vycf0"), "RifleLocomotion", "Reloading", SubResource("AnimationNodeStateMachineTransition_vy23r"), "Strafing", "Reloading", SubResource("AnimationNodeStateMachineTransition_h3nqo"), "Reloading", "Locomotion", SubResource("AnimationNodeStateMachineTransition_ip3vl"), "Reloading", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_fyjgo"), "Reloading", "Strafing", SubResource("AnimationNodeStateMachineTransition_a033j")]
+states/Jump/node = SubResource("AnimationNodeAnimation_jump1")
+states/Jump/position = Vector2(700, 120)
+states/Fall/node = SubResource("AnimationNodeAnimation_fall1")
+states/Fall/position = Vector2(700, 280)
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_kuao7"), "Locomotion", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_7q84o"), "RifleLocomotion", "Locomotion", SubResource("AnimationNodeStateMachineTransition_0x1p2"), "Locomotion", "Strafing", SubResource("AnimationNodeStateMachineTransition_88aji"), "Strafing", "Locomotion", SubResource("AnimationNodeStateMachineTransition_hkntq"), "RifleLocomotion", "Strafing", SubResource("AnimationNodeStateMachineTransition_6qouk"), "Strafing", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_rm0r4"), "Locomotion", "Punching", SubResource("AnimationNodeStateMachineTransition_xiasu"), "RifleLocomotion", "Punching", SubResource("AnimationNodeStateMachineTransition_ydu3x"), "Strafing", "Punching", SubResource("AnimationNodeStateMachineTransition_djlof"), "Punching", "Locomotion", SubResource("AnimationNodeStateMachineTransition_07k56"), "Punching", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_mxcls"), "Punching", "Strafing", SubResource("AnimationNodeStateMachineTransition_wrkuw"), "Locomotion", "Reloading", SubResource("AnimationNodeStateMachineTransition_vycf0"), "RifleLocomotion", "Reloading", SubResource("AnimationNodeStateMachineTransition_vy23r"), "Strafing", "Reloading", SubResource("AnimationNodeStateMachineTransition_h3nqo"), "Reloading", "Locomotion", SubResource("AnimationNodeStateMachineTransition_ip3vl"), "Reloading", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_fyjgo"), "Reloading", "Strafing", SubResource("AnimationNodeStateMachineTransition_a033j"), "Locomotion", "Jump", SubResource("AnimationNodeStateMachineTransition_air01"), "RifleLocomotion", "Jump", SubResource("AnimationNodeStateMachineTransition_air02"), "Strafing", "Jump", SubResource("AnimationNodeStateMachineTransition_air03"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_air04"), "Locomotion", "Fall", SubResource("AnimationNodeStateMachineTransition_air05"), "RifleLocomotion", "Fall", SubResource("AnimationNodeStateMachineTransition_air06"), "Jump", "Locomotion", SubResource("AnimationNodeStateMachineTransition_air07"), "Jump", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_air08"), "Fall", "Locomotion", SubResource("AnimationNodeStateMachineTransition_air09"), "Fall", "RifleLocomotion", SubResource("AnimationNodeStateMachineTransition_air10"), "Strafing", "Fall", SubResource("AnimationNodeStateMachineTransition_air11"), "Fall", "Strafing", SubResource("AnimationNodeStateMachineTransition_air12")]
 
 [node name="PlayerCharacter" type="CharacterBody3D" unique_id=1943646353]
 collision_layer = 2
@@ -142,11 +203,22 @@ shape = SubResource("CapsuleShape3D_g7j5r")
 
 [node name="CharacterModel" type="Node3D" parent="VisualRoot" unique_id=766329246 instance=ExtResource("2_6nsgb")]
 
+[node name="RifleAttachment" type="BoneAttachment3D" parent="VisualRoot"]
+bone_name = "mixamorig_RightHand"
+use_external_skeleton = true
+external_skeleton = NodePath("../CharacterModel/Armature/Skeleton3D")
+
+[node name="M4Grip" type="Node3D" parent="VisualRoot/RifleAttachment"]
+transform = Transform3D(-0.233358, 0.902493, 0.362008, 0.971745, 0.230004, 0.0530033, -0.0354283, 0.364148, -0.930667, 0.0180525, 0.118718, 0.0106904)
+
+[node name="M4" parent="VisualRoot/RifleAttachment/M4Grip" instance=ExtResource("4_m4rfl")]
+
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1661731150]
 tree_root = SubResource("AnimationNodeStateMachine_vka04")
 anim_player = NodePath("../VisualRoot/CharacterModel/AnimationPlayer")
 parameters/Locomotion/blend_position = 0.0
 parameters/RifleLocomotion/blend_position = 0.0
+parameters/Strafing/blend_position = -1.0
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=167821456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0)
