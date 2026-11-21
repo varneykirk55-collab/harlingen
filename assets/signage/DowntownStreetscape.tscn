@@ -42,6 +42,9 @@
 [ext_resource type="Texture2D" path="res://assets/signage/jackson/JacksonAndFifth_Street.png" id="JacksonAndFifth_Street"]
 [ext_resource type="Texture2D" path="res://assets/signage/jackson/JacksonAndSixth_Street.png" id="JacksonAndSixth_Street"]
 [ext_resource type="Texture2D" path="res://assets/signage/jackson/RailroadCrossing_Warning.png" id="RailroadCrossing_Warning"]
+[ext_resource type="PackedScene" path="res://assets/jackson_hero/JacksonArchitecture.tscn" id="JacksonArchitecture"]
+[ext_resource type="PackedScene" path="res://assets/jackson_hero/JacksonStreetProps.tscn" id="JacksonStreetProps"]
+[ext_resource type="PackedScene" path="res://assets/jackson_hero/JacksonVegetation.tscn" id="JacksonVegetation"]
 
 [sub_resource type="StandardMaterial3D" id="ShopFrame"]
 albedo_color = Color(0.21, 0.18, 0.14, 1)
@@ -741,6 +744,12 @@ material = SubResource("RailroadCrossing_Warning_paint")
 size = Vector2(1.52, 0.4433)
 
 [node name="DowntownStreetscape" type="Node3D"]
+
+[node name="JacksonArchitecture" parent="." instance=ExtResource("JacksonArchitecture")]
+
+[node name="JacksonStreetProps" parent="." instance=ExtResource("JacksonStreetProps")]
+
+[node name="JacksonVegetation" parent="." instance=ExtResource("JacksonVegetation")]
 
 [node name="JacksonStreetAntiques" type="Node3D" parent="."]
 position = Vector3(155.1788, 15.8876, 305.0518)

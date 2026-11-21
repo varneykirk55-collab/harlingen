@@ -2,10 +2,10 @@
 
 [resource]
 resource_name = "Cool Blue Architectural Glass"
-albedo_color = Color(0.08, 0.13, 0.17, 1)
-roughness = 0.14
-metallic = 0.10
-metallic_specular = 0.85
+albedo_color = Color(0.16, 0.24, 0.30, 1)
+roughness = 0.04
+metallic = 0.82
+metallic_specular = 0.95
 clearcoat_enabled = true
-clearcoat = 0.45
-clearcoat_roughness = 0.12
+clearcoat = 0.90
+clearcoat_roughness = 0.03

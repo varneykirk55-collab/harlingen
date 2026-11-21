@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=5 format=3]
 
-[ext_resource type="Texture2D" path="res://materials/polyhaven/brick_wall_006/brick_wall_006_diff_2k.jpg" id="1"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/beige_wall_001/beige_wall_001_diff_2k.jpg" id="1"]
 [ext_resource type="Texture2D" path="res://materials/polyhaven/brick_wall_006/brick_wall_006_nor_gl_2k.jpg" id="2"]
 [ext_resource type="Texture2D" path="res://materials/polyhaven/brick_wall_006/brick_wall_006_rough_2k.jpg" id="3"]
 [ext_resource type="Texture2D" path="res://materials/polyhaven/brick_wall_006/brick_wall_006_ao_2k.jpg" id="4"]
@@ -8,7 +8,7 @@
 [resource]
 texture_filter = 5
 resource_name = "Buff Brick"
-albedo_color = Color(1.0, 0.98, 0.94, 1)
+albedo_color = Color(0.88, 0.82, 0.72, 1)
 albedo_texture = ExtResource("1")
 metallic = 0.0
 metallic_specular = 0.38
