@@ -13,10 +13,15 @@ const LOOPING_ANIMS := [
 	&"FastRun",
 	&"Strafing",
 	&"WalkWithRifle",
+	&"RifleIdle",
+	&"StrafeLeft",
+	&"StrafeRight",
+	&"Fall",
 ]
 const ONESHOT_ANIMS := [
 	&"Punching",
 	&"Reloading",
+	&"Jump",
 ]
 const ALL_ANIM_STATES := [
 	"Idle",
@@ -26,7 +31,11 @@ const ALL_ANIM_STATES := [
 	"Punching",
 	"WalkWithRifle",
 	"Reloading",
+	"Jump",
+	"Fall",
 ]
+## Seconds airborne before the Fall loop takes over from Jump (keeps curbs/steps from triggering it).
+const FALL_AFTER_AIRTIME := 0.45
 
 @export_group("Movement")
 @export var walk_speed: float = 3.8
@@ -47,6 +56,7 @@ const ALL_ANIM_STATES := [
 @onready var visual_root: Node3D = $VisualRoot
 @onready var camera_pivot: PlayerCameraRig = $CameraPivot
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var rifle_attachment: Node3D = get_node_or_null("VisualRoot/RifleAttachment") as Node3D
 
 var _active: bool = false
 var _in_vehicle: bool = false
@@ -66,6 +76,8 @@ var _last_logical_state: String = "Idle"
 var _last_handled_event: InputEvent = null
 var _suppressed_poll_actions: Dictionary = {}
 var _mouse_capture_frame: int = -10
+var _jump_started: bool = false
+var _air_time: float = 0.0
 
 var _anim_player: AnimationPlayer = null
 var _state_playback: AnimationNodeStateMachinePlayback = null
@@ -83,6 +95,7 @@ func _ready() -> void:
 		camera_pivot.setup(self)
 
 	_setup_animation_tree()
+	_update_rifle_visibility(false)
 	set_active(false)
 	respawn()
 
@@ -299,6 +312,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	if _jump_requested and is_on_floor() and _action_state != "Punching":
 		velocity.y = jump_velocity
+		_jump_started = true
 	_jump_requested = false
 
 	move_and_slide()
@@ -444,12 +458,42 @@ func _update_animation_state(delta: float, horiz_speed: float, move_input: Vecto
 	_rifle_blend = lerpf(_rifle_blend, target_rifle, smooth_t)
 	animation_tree.set("parameters/RifleLocomotion/blend_position", _rifle_blend)
 
+	_update_rifle_visibility(is_strafing_held)
+
+	# Airborne: Jump one-shot on take-off, Fall loop for longer drops.
+	if is_on_floor():
+		_air_time = 0.0
+	else:
+		_air_time += delta
+	if _jump_started:
+		_jump_started = false
+		if _action_state == "":
+			_state_playback.travel("Jump")
+			_set_logical_state("Jump")
+			return
+	if not is_on_floor() and _action_state == "":
+		var node := String(_state_playback.get_current_node())
+		if node == "Jump":
+			var jump_done := _state_playback.get_current_play_position() >= _state_playback.get_current_length() - 0.05
+			if _air_time > FALL_AFTER_AIRTIME and (jump_done or velocity.y < -6.0):
+				_state_playback.travel("Fall")
+				_set_logical_state("Fall")
+			else:
+				_set_logical_state("Jump")
+			return
+		if node == "Fall" or _air_time > FALL_AFTER_AIRTIME:
+			if node != "Fall":
+				_state_playback.travel("Fall")
+			_set_logical_state("Fall")
+			return
+
 	if _action_state != "":
 		_set_logical_state(_action_state)
 		return
 
 	var lateral_strafing := is_strafing_held and horiz_speed > 0.25 and absf(move_input.x) > 0.15
 	if lateral_strafing:
+		animation_tree.set("parameters/Strafing/blend_position", -1.0 if move_input.x < 0.0 else 1.0)
 		if _state_playback.get_current_node() != "Strafing":
 			_state_playback.travel("Strafing")
 		_set_logical_state("Strafing")
@@ -466,6 +510,12 @@ func _update_animation_state(delta: float, horiz_speed: float, move_input: Vecto
 			_set_logical_state("Walking")
 		else:
 			_set_logical_state("FastRun")
+
+
+func _update_rifle_visibility(is_strafing_held: bool) -> void:
+	# The M4 is shown whenever a rifle animation is in use: rifle stance, strafing or reloading.
+	if rifle_attachment:
+		rifle_attachment.visible = _rifle_stance or is_strafing_held or _action_state == "Reloading"
 
 
 func _set_logical_state(state_name: String) -> void:
