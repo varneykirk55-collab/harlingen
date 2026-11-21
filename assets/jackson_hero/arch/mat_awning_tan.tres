@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Awning Tan"
+albedo_color = Color(0.680, 0.590, 0.450, 1)
+metallic = 0.00
+roughness = 0.88

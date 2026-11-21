@@ -6,10 +6,13 @@
 [ext_resource type="PackedScene" path="res://tiles/+00_+02/LandCover.glb" id="4"]
 [ext_resource type="PackedScene" path="res://tiles/+00_+02/Markings.glb" id="5"]
 [ext_resource type="PackedScene" path="res://tiles/+00_+02/Roads.glb" id="6"]
+[ext_resource type="PackedScene" path="res://tiles/+00_+02/Sidewalks.glb" id="sidewalks"]
 [ext_resource type="PackedScene" path="res://tiles/+00_+02/TerrainFar.glb" id="7"]
 [ext_resource type="PackedScene" path="res://tiles/+00_+02/TerrainMesh.glb" id="8"]
 [ext_resource type="PackedScene" path="res://tiles/+00_+02/Water.glb" id="9"]
+[ext_resource type="PackedScene" path="res://tiles/+00_+02/StreetEdges.glb" id="streetedges"]
 [ext_resource type="PackedScene" path="res://tiles/+00_+02/FacadeDetails.glb" id="facadedetails"]
+[ext_resource type="PackedScene" path="res://assets/signage/EdCareyStreetscape_00_02.tscn" id="streetscape"]
 
 [ext_resource type="PackedScene" path="res://tiles/+00_+02/StreetPaint.glb" id="streets_0"]
 [ext_resource type="PackedScene" path="res://tiles/+00_+02/StreetWear.glb" id="streets_1"]
@@ -31,12 +34,19 @@ visible = false
 
 [node name="Roads" parent="." instance=ExtResource("6")]
 
+[node name="Sidewalks" parent="." instance=ExtResource("sidewalks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
 [node name="TerrainFar" parent="." instance=ExtResource("7")]
 visible = false
 
 [node name="TerrainMesh" parent="." instance=ExtResource("8")]
 
 [node name="Water" parent="." instance=ExtResource("9")]
+
+[node name="EdCareyStreetscape_00_02" parent="." instance=ExtResource("streetscape")]
+
+[node name="StreetEdges" parent="." instance=ExtResource("streetedges")]
 
 [node name="FacadeDetails" parent="." instance=ExtResource("facadedetails")]
 

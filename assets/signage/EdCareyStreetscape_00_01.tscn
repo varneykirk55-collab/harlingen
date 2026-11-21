@@ -1,0 +1,965 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/AmericasBestValue.png" id="AmericasBestValue"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/BestWestern.png" id="BestWestern"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/CandlewoodSuites.png" id="CandlewoodSuites"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/CharlieClark.png" id="CharlieClark"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Dennys.png" id="Dennys"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/DiscountTire.png" id="DiscountTire"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/HarborFreight.png" id="HarborFreight"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/I69E_HighwayGuide.png" id="I69E_HighwayGuide"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/SevenElevenSouth.png" id="SevenElevenSouth"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Sonic.png" id="Sonic"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_NEdCarey_Loop499.png" id="Street_NEdCarey_Loop499"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_SEdCarey_FM801.png" id="Street_SEdCarey_FM801"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Street_SExpressway83.png" id="Street_SExpressway83"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/Stripes.png" id="Stripes"]
+[ext_resource type="Texture2D" path="res://assets/signage/ed_carey/TejanoMart.png" id="TejanoMart"]
+
+[sub_resource type="StandardMaterial3D" id="ShopFrame"]
+albedo_color = Color(0.20, 0.18, 0.15, 1)
+metallic = 0.15
+roughness = 0.65
+
+[sub_resource type="StandardMaterial3D" id="MonumentBaseMat"]
+albedo_color = Color(0.74, 0.70, 0.62, 1)
+metallic = 0.0
+roughness = 0.82
+
+[sub_resource type="StandardMaterial3D" id="MonumentBodyMat"]
+albedo_color = Color(0.24, 0.27, 0.31, 1)
+metallic = 0.12
+roughness = 0.62
+
+[sub_resource type="StandardMaterial3D" id="StreetFrame"]
+albedo_color = Color(0.15, 0.27, 0.23, 1)
+metallic = 0.0
+roughness = 0.68
+
+[sub_resource type="StandardMaterial3D" id="SignPole"]
+albedo_color = Color(0.46, 0.47, 0.45, 1)
+metallic = 0.54
+roughness = 0.68
+
+[sub_resource type="CylinderMesh" id="PoleMesh"]
+material = SubResource("SignPole")
+top_radius = 0.038
+bottom_radius = 0.044
+height = 2.91
+radial_segments = 7
+rings = 0
+
+[sub_resource type="CylinderMesh" id="PylonColumnMesh"]
+material = SubResource("SignPole")
+top_radius = 0.14
+bottom_radius = 0.17
+height = 4.20
+radial_segments = 10
+rings = 0
+
+[sub_resource type="BoxMesh" id="PylonPedestalMesh"]
+material = SubResource("MonumentBaseMat")
+size = Vector3(0.96, 0.65, 0.76)
+
+[sub_resource type="BoxMesh" id="MonumentPlinthMesh"]
+material = SubResource("MonumentBaseMat")
+size = Vector3(4.35, 0.55, 0.64)
+
+[sub_resource type="BoxMesh" id="MonumentCabinetMesh"]
+material = SubResource("MonumentBodyMat")
+size = Vector3(3.96, 1.24, 0.36)
+
+[sub_resource type="BoxMesh" id="MonumentCapMesh"]
+material = SubResource("MonumentBaseMat")
+size = Vector3(4.24, 0.14, 0.48)
+
+[sub_resource type="BoxMesh" id="PylonCabinetMesh"]
+material = SubResource("ShopFrame")
+size = Vector3(3.96, 1.22, 0.32)
+
+[sub_resource type="BoxMesh" id="StreetBacking"]
+material = SubResource("StreetFrame")
+size = Vector3(1.57, 0.45, 0.052)
+
+[sub_resource type="StandardMaterial3D" id="AmericasBestValue_paint"]
+albedo_texture = ExtResource("AmericasBestValue")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("AmericasBestValue")
+
+[sub_resource type="QuadMesh" id="AmericasBestValue_road_quad"]
+material = SubResource("AmericasBestValue_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="BestWestern_paint"]
+albedo_texture = ExtResource("BestWestern")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("BestWestern")
+
+[sub_resource type="QuadMesh" id="BestWestern_road_quad"]
+material = SubResource("BestWestern_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="CandlewoodSuites_paint"]
+albedo_texture = ExtResource("CandlewoodSuites")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("CandlewoodSuites")
+
+[sub_resource type="QuadMesh" id="CandlewoodSuites_road_quad"]
+material = SubResource("CandlewoodSuites_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="CharlieClark_paint"]
+albedo_texture = ExtResource("CharlieClark")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("CharlieClark")
+
+[sub_resource type="QuadMesh" id="CharlieClark_road_quad"]
+material = SubResource("CharlieClark_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Dennys_paint"]
+albedo_texture = ExtResource("Dennys")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Dennys")
+
+[sub_resource type="QuadMesh" id="Dennys_road_quad"]
+material = SubResource("Dennys_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="DiscountTire_paint"]
+albedo_texture = ExtResource("DiscountTire")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("DiscountTire")
+
+[sub_resource type="QuadMesh" id="DiscountTire_road_quad"]
+material = SubResource("DiscountTire_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="HarborFreight_paint"]
+albedo_texture = ExtResource("HarborFreight")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("HarborFreight")
+
+[sub_resource type="QuadMesh" id="HarborFreight_road_quad"]
+material = SubResource("HarborFreight_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="I69E_HighwayGuide_paint"]
+albedo_texture = ExtResource("I69E_HighwayGuide")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("I69E_HighwayGuide")
+
+[sub_resource type="QuadMesh" id="I69E_HighwayGuide_road_quad"]
+material = SubResource("I69E_HighwayGuide_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="SevenElevenSouth_paint"]
+albedo_texture = ExtResource("SevenElevenSouth")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("SevenElevenSouth")
+
+[sub_resource type="QuadMesh" id="SevenElevenSouth_road_quad"]
+material = SubResource("SevenElevenSouth_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Sonic_paint"]
+albedo_texture = ExtResource("Sonic")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Sonic")
+
+[sub_resource type="QuadMesh" id="Sonic_road_quad"]
+material = SubResource("Sonic_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="Street_NEdCarey_Loop499_paint"]
+albedo_texture = ExtResource("Street_NEdCarey_Loop499")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_NEdCarey_Loop499")
+
+[sub_resource type="QuadMesh" id="Street_NEdCarey_Loop499_quad"]
+material = SubResource("Street_NEdCarey_Loop499_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_SEdCarey_FM801_paint"]
+albedo_texture = ExtResource("Street_SEdCarey_FM801")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_SEdCarey_FM801")
+
+[sub_resource type="QuadMesh" id="Street_SEdCarey_FM801_quad"]
+material = SubResource("Street_SEdCarey_FM801_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Street_SExpressway83_paint"]
+albedo_texture = ExtResource("Street_SExpressway83")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Street_SExpressway83")
+
+[sub_resource type="QuadMesh" id="Street_SExpressway83_quad"]
+material = SubResource("Street_SExpressway83_paint")
+size = Vector2(1.52, 0.4433)
+
+[sub_resource type="StandardMaterial3D" id="Stripes_paint"]
+albedo_texture = ExtResource("Stripes")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("Stripes")
+
+[sub_resource type="QuadMesh" id="Stripes_road_quad"]
+material = SubResource("Stripes_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="StandardMaterial3D" id="TejanoMart_paint"]
+albedo_texture = ExtResource("TejanoMart")
+roughness = 0.58
+texture_filter = 5
+emission_enabled = true
+emission = Color(0.88, 0.84, 0.75, 1)
+emission_energy_multiplier = 0.14
+emission_texture = ExtResource("TejanoMart")
+
+[sub_resource type="QuadMesh" id="TejanoMart_road_quad"]
+material = SubResource("TejanoMart_paint")
+size = Vector2(3.84, 1.12)
+
+[sub_resource type="QuadMesh" id="Sonic_facade_quad"]
+material = SubResource("Sonic_paint")
+size = Vector2(3.9474, 1.1513)
+
+[sub_resource type="BoxMesh" id="Sonic_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(4.0274, 1.2313, 0.11)
+
+[sub_resource type="QuadMesh" id="CandlewoodSuites_facade_quad"]
+material = SubResource("CandlewoodSuites_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="CandlewoodSuites_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="BestWestern_facade_quad"]
+material = SubResource("BestWestern_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="BestWestern_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="CharlieClark_facade_quad"]
+material = SubResource("CharlieClark_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="CharlieClark_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="AmericasBestValue_facade_quad"]
+material = SubResource("AmericasBestValue_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="AmericasBestValue_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="HarborFreight_facade_quad"]
+material = SubResource("HarborFreight_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="HarborFreight_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="TejanoMart_facade_quad"]
+material = SubResource("TejanoMart_paint")
+size = Vector2(5.2289, 1.5251)
+
+[sub_resource type="BoxMesh" id="TejanoMart_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.3089, 1.6051, 0.11)
+
+[sub_resource type="QuadMesh" id="Stripes_facade_quad"]
+material = SubResource("Stripes_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="Stripes_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[sub_resource type="QuadMesh" id="Dennys_facade_quad"]
+material = SubResource("Dennys_paint")
+size = Vector2(5.1094, 1.4902)
+
+[sub_resource type="BoxMesh" id="Dennys_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.1894, 1.5702, 0.11)
+
+[sub_resource type="QuadMesh" id="DiscountTire_facade_quad"]
+material = SubResource("DiscountTire_paint")
+size = Vector2(8.2000, 2.3917)
+
+[sub_resource type="BoxMesh" id="DiscountTire_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(8.2800, 2.4717, 0.11)
+
+[sub_resource type="QuadMesh" id="SevenElevenSouth_facade_quad"]
+material = SubResource("SevenElevenSouth_paint")
+size = Vector2(5.8000, 1.6917)
+
+[sub_resource type="BoxMesh" id="SevenElevenSouth_facade_frame"]
+material = SubResource("ShopFrame")
+size = Vector3(5.8800, 1.7717, 0.11)
+
+[node name="EdCareyStreetscape_00_01" type="Node3D"]
+
+[node name="Sonic_Facade" type="Node3D" parent="."]
+position = Vector3(1967.2327, 16.2084, 1425.8808)
+rotation = Vector3(0, 1.105288, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Sonic_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Sonic_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Sonic_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Sonic_facade_quad")
+cast_shadow = 0
+
+[node name="Sonic_Pylon" type="Node3D" parent="."]
+position = Vector3(1983.8700, 12.0477, 1433.5947)
+rotation = Vector3(0, -0.524941, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Sonic_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Sonic_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Sonic_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Sonic_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Sonic_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Sonic_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Sonic_road_quad")
+cast_shadow = 0
+
+[node name="CandlewoodSuites_Facade" type="Node3D" parent="."]
+position = Vector3(1773.7680, 16.3999, 1494.4657)
+rotation = Vector3(0, 1.111792, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="CandlewoodSuites_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("CandlewoodSuites_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="CandlewoodSuites_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("CandlewoodSuites_facade_quad")
+cast_shadow = 0
+
+[node name="CandlewoodSuites_Pylon" type="Node3D" parent="."]
+position = Vector3(1906.2258, 12.2642, 1569.5983)
+rotation = Vector3(0, -0.510590, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="CandlewoodSuites_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="CandlewoodSuites_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="CandlewoodSuites_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="CandlewoodSuites_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("CandlewoodSuites_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="CandlewoodSuites_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("CandlewoodSuites_road_quad")
+cast_shadow = 0
+
+[node name="BestWestern_Facade" type="Node3D" parent="."]
+position = Vector3(1669.4969, 17.9471, 1585.8265)
+rotation = Vector3(0, 1.128279, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="BestWestern_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("BestWestern_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="BestWestern_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("BestWestern_facade_quad")
+cast_shadow = 0
+
+[node name="BestWestern_Pylon" type="Node3D" parent="."]
+position = Vector3(1842.7052, 12.4823, 1680.7349)
+rotation = Vector3(0, -0.526603, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="BestWestern_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="BestWestern_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="BestWestern_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="BestWestern_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("BestWestern_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="BestWestern_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("BestWestern_road_quad")
+cast_shadow = 0
+
+[node name="CharlieClark_Facade" type="Node3D" parent="."]
+position = Vector3(1828.6000, 16.9035, 1666.9472)
+rotation = Vector3(0, 1.097714, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="CharlieClark_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("CharlieClark_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="CharlieClark_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("CharlieClark_facade_quad")
+cast_shadow = 0
+
+[node name="CharlieClark_Pylon" type="Node3D" parent="."]
+position = Vector3(1846.3637, 12.4848, 1674.4419)
+rotation = Vector3(0, -0.526603, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="CharlieClark_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="CharlieClark_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="CharlieClark_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="CharlieClark_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("CharlieClark_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="CharlieClark_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("CharlieClark_road_quad")
+cast_shadow = 0
+
+[node name="AmericasBestValue_Facade" type="Node3D" parent="."]
+position = Vector3(1689.4624, 17.4853, 1700.9647)
+rotation = Vector3(0, 1.112719, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="AmericasBestValue_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("AmericasBestValue_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="AmericasBestValue_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("AmericasBestValue_facade_quad")
+cast_shadow = 0
+
+[node name="AmericasBestValue_Pylon" type="Node3D" parent="."]
+position = Vector3(1793.6053, 12.6322, 1765.1807)
+rotation = Vector3(0, -0.526987, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="AmericasBestValue_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="AmericasBestValue_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="AmericasBestValue_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="AmericasBestValue_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("AmericasBestValue_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="AmericasBestValue_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("AmericasBestValue_road_quad")
+cast_shadow = 0
+
+[node name="HarborFreight_Facade" type="Node3D" parent="."]
+position = Vector3(1789.7073, 17.7148, 1735.0069)
+rotation = Vector3(0, 1.053334, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="HarborFreight_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("HarborFreight_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="HarborFreight_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("HarborFreight_facade_quad")
+cast_shadow = 0
+
+[node name="HarborFreight_Pylon" type="Node3D" parent="."]
+position = Vector3(1809.5668, 12.5662, 1737.7288)
+rotation = Vector3(0, -0.526487, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="HarborFreight_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="HarborFreight_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="HarborFreight_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="HarborFreight_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("HarborFreight_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="HarborFreight_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("HarborFreight_road_quad")
+cast_shadow = 0
+
+[node name="TejanoMart_Facade" type="Node3D" parent="."]
+position = Vector3(1739.4219, 18.7857, 1783.5038)
+rotation = Vector3(0, 1.072253, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="TejanoMart_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("TejanoMart_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="TejanoMart_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("TejanoMart_facade_quad")
+cast_shadow = 0
+
+[node name="TejanoMart_Pylon" type="Node3D" parent="."]
+position = Vector3(1767.9014, 12.6677, 1809.3891)
+rotation = Vector3(0, -0.526569, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="TejanoMart_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="TejanoMart_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="TejanoMart_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="TejanoMart_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("TejanoMart_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="TejanoMart_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("TejanoMart_road_quad")
+cast_shadow = 0
+
+[node name="Stripes_Facade" type="Node3D" parent="."]
+position = Vector3(1824.2744, 18.5929, 1835.6172)
+rotation = Vector3(0, -2.204657, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Stripes_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Stripes_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Stripes_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Stripes_facade_quad")
+cast_shadow = 0
+
+[node name="Stripes_Pylon" type="Node3D" parent="."]
+position = Vector3(1791.2439, 12.7394, 1822.9585)
+rotation = Vector3(0, -0.526569, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Stripes_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Stripes_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Stripes_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Stripes_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Stripes_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Stripes_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Stripes_road_quad")
+cast_shadow = 0
+
+[node name="Dennys_Facade" type="Node3D" parent="."]
+position = Vector3(1894.3061, 16.3416, 1889.0232)
+rotation = Vector3(0, -2.242371, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="Dennys_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("Dennys_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="Dennys_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("Dennys_facade_quad")
+cast_shadow = 0
+
+[node name="Dennys_Pylon" type="Node3D" parent="."]
+position = Vector3(1783.0351, 12.7023, 1837.0755)
+rotation = Vector3(0, -0.526800, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="Dennys_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="Dennys_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="Dennys_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Dennys_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("Dennys_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Dennys_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Dennys_road_quad")
+cast_shadow = 0
+
+[node name="DiscountTire_Facade" type="Node3D" parent="."]
+position = Vector3(1976.0118, 16.4032, 1952.1158)
+rotation = Vector3(0, -2.249270, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="DiscountTire_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("DiscountTire_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="DiscountTire_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("DiscountTire_facade_quad")
+cast_shadow = 0
+
+[node name="DiscountTire_Pylon" type="Node3D" parent="."]
+position = Vector3(1971.5212, 12.4607, 1946.2216)
+rotation = Vector3(0, 2.611517, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="DiscountTire_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="DiscountTire_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="DiscountTire_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="DiscountTire_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("DiscountTire_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="DiscountTire_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("DiscountTire_road_quad")
+cast_shadow = 0
+
+[node name="SevenElevenSouth_Facade" type="Node3D" parent="."]
+position = Vector3(1737.3628, 17.4787, 1983.8851)
+rotation = Vector3(0, -2.219381, 0)
+
+[node name="Backing" type="MeshInstance3D" parent="SevenElevenSouth_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0000)
+mesh = SubResource("SevenElevenSouth_facade_frame")
+cast_shadow = 0
+
+[node name="Lettering" type="MeshInstance3D" parent="SevenElevenSouth_Facade"]
+position = Vector3(0.0000, 0.0000, 0.0580)
+mesh = SubResource("SevenElevenSouth_facade_quad")
+cast_shadow = 0
+
+[node name="SevenElevenSouth_Pylon" type="Node3D" parent="."]
+position = Vector3(1712.7622, 12.8997, 1964.7942)
+rotation = Vector3(0, -0.513230, 0)
+
+[node name="Pedestal" type="MeshInstance3D" parent="SevenElevenSouth_Pylon"]
+position = Vector3(0.0000, 0.3250, 0.0000)
+mesh = SubResource("PylonPedestalMesh")
+cast_shadow = 1
+
+[node name="Column" type="MeshInstance3D" parent="SevenElevenSouth_Pylon"]
+position = Vector3(0.0000, 2.4000, 0.0000)
+mesh = SubResource("PylonColumnMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="SevenElevenSouth_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.0000)
+mesh = SubResource("PylonCabinetMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="SevenElevenSouth_Pylon"]
+position = Vector3(0.0000, 4.9200, 0.1640)
+mesh = SubResource("SevenElevenSouth_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="SevenElevenSouth_Pylon"]
+position = Vector3(0.0000, 4.9200, -0.1640)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("SevenElevenSouth_road_quad")
+cast_shadow = 0
+
+[node name="I69E_HighwayGuide_Monument" type="Node3D" parent="."]
+position = Vector3(1765.7962, 12.8037, 1867.7392)
+rotation = Vector3(0, -0.489075, 0)
+
+[node name="Plinth" type="MeshInstance3D" parent="I69E_HighwayGuide_Monument"]
+position = Vector3(0.0000, 0.2750, 0.0000)
+mesh = SubResource("MonumentPlinthMesh")
+cast_shadow = 1
+
+[node name="Cabinet" type="MeshInstance3D" parent="I69E_HighwayGuide_Monument"]
+position = Vector3(0.0000, 1.1700, 0.0000)
+mesh = SubResource("MonumentCabinetMesh")
+cast_shadow = 1
+
+[node name="Cap" type="MeshInstance3D" parent="I69E_HighwayGuide_Monument"]
+position = Vector3(0.0000, 1.8600, 0.0000)
+mesh = SubResource("MonumentCapMesh")
+cast_shadow = 1
+
+[node name="LetteringFront" type="MeshInstance3D" parent="I69E_HighwayGuide_Monument"]
+position = Vector3(0.0000, 1.1700, 0.1840)
+mesh = SubResource("I69E_HighwayGuide_road_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="I69E_HighwayGuide_Monument"]
+position = Vector3(0.0000, 1.1700, -0.1840)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("I69E_HighwayGuide_road_quad")
+cast_shadow = 0
+
+[node name="Post_I69E_NorthFrontage" type="Node3D" parent="."]
+position = Vector3(1745.1247, 12.7183, 1852.3034)
+rotation = Vector3(0, -0.489075, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_I69E_NorthFrontage"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_I69E_NorthFrontage"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_I69E_NorthFrontage/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_I69E_NorthFrontage/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_NEdCarey_Loop499_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_I69E_NorthFrontage"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_I69E_NorthFrontage/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_SExpressway83_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_I69E_NorthFrontage/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_SExpressway83_quad")
+cast_shadow = 0
+
+[node name="Post_I69E_SouthFrontage" type="Node3D" parent="."]
+position = Vector3(1710.1090, 12.7872, 1917.5864)
+rotation = Vector3(0, -0.513451, 0)
+
+[node name="Post" type="MeshInstance3D" parent="Post_I69E_SouthFrontage"]
+position = Vector3(0.0000, 1.4550, 0.0000)
+mesh = SubResource("PoleMesh")
+cast_shadow = 0
+
+[node name="MainBlade" type="MeshInstance3D" parent="Post_I69E_SouthFrontage"]
+position = Vector3(0.0000, 2.7600, 0.0000)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_I69E_SouthFrontage/MainBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_I69E_SouthFrontage/MainBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_SEdCarey_FM801_quad")
+cast_shadow = 0
+
+[node name="CrossBlade" type="MeshInstance3D" parent="Post_I69E_SouthFrontage"]
+position = Vector3(0.0000, 3.2100, 0.0000)
+rotation = Vector3(0, 1.570796, 0)
+mesh = SubResource("StreetBacking")
+cast_shadow = 0
+
+[node name="LetteringFront" type="MeshInstance3D" parent="Post_I69E_SouthFrontage/CrossBlade"]
+position = Vector3(0.0000, 0.0000, 0.0290)
+mesh = SubResource("Street_SExpressway83_quad")
+cast_shadow = 0
+
+[node name="LetteringBack" type="MeshInstance3D" parent="Post_I69E_SouthFrontage/CrossBlade"]
+position = Vector3(0.0000, 0.0000, -0.0290)
+rotation = Vector3(0, 3.141593, 0)
+mesh = SubResource("Street_SExpressway83_quad")
+cast_shadow = 0

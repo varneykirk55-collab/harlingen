@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Awning Forest Green"
+albedo_color = Color(0.090, 0.230, 0.140, 1)
+metallic = 0.00
+roughness = 0.88
