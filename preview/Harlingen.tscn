@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3]
+[gd_scene load_steps=29 format=3]
 
 [ext_resource type="Script" path="res://preview/world.gd" id="1"]
 
@@ -31,6 +31,8 @@
 [ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/gravel_road_normal_roughness.png" id="15"]
 
 [ext_resource type="Texture2D" path="res://materials/polyhaven/terrain/macro_noise.png" id="16"]
+
+[ext_resource type="Script" path="res://scenes/ui/navigation/navigation.gd" id="navigation"]
 
 [sub_resource type="PanoramaSkyMaterial" id="SkyMat"]
 panorama = ExtResource("3")
@@ -236,3 +238,6 @@ label_settings = SubResource("Text")
 mouse_filter = 2
 
 [node name="GameHUD" parent="Overlay" instance=ExtResource("7")]
+
+[node name="Navigation" type="CanvasLayer" parent="."]
+script = ExtResource("navigation")

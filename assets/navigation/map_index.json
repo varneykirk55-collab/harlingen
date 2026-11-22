@@ -1,0 +1,225 @@
+{
+  "bounds": [
+    -6000,
+    -6000,
+    6000,
+    6000
+  ],
+  "markers": [
+    {
+      "id": "i2",
+      "label": "I-2 / US 83",
+      "category": "highway",
+      "x": -3172.147,
+      "z": 1012.547,
+      "source": "osm:way:97348008",
+      "detail": "Elevated mainline \u00b7 west approach"
+    },
+    {
+      "id": "i69",
+      "label": "I-69E / US 77",
+      "category": "highway",
+      "x": -1550.239,
+      "z": 1521.177,
+      "source": "osm:way:97347912",
+      "detail": "Elevated mainline \u00b7 downtown bypass"
+    },
+    {
+      "id": "flyover",
+      "label": "Big Split upper flyover",
+      "category": "highway",
+      "x": -1971.231,
+      "z": 483.221,
+      "source": "osm:way:97348013",
+      "detail": "Upper deck \u00b7 I-2 / I-69E"
+    },
+    {
+      "id": "ed-bridge",
+      "label": "Ed Carey \u00b7 Arroyo overpass",
+      "category": "highway",
+      "x": 3248.32,
+      "z": 1276.455,
+      "source": "osm:way:567766739",
+      "detail": "Loop 499 bridge \u00b7 Hugh Ramsey Nature Park"
+    },
+    {
+      "id": "big-split",
+      "label": "I-2 / I-69E interchange",
+      "category": "highway",
+      "x": -2286.67,
+      "z": 851.827,
+      "source": "osm:way:97348034",
+      "detail": "Big Split \u00b7 west-to-east flyover",
+      "deck_y": 17.94621
+    },
+    {
+      "id": "west-ramps",
+      "label": "West I-2 interchange ramps",
+      "category": "highway",
+      "x": -3040.032,
+      "z": 1063.561,
+      "source": "osm:way:97347944",
+      "detail": "Elevated connector \u00b7 west of Big Split",
+      "deck_y": 18.87498
+    },
+    {
+      "id": "south-ramps",
+      "label": "South I-69E interchange ramps",
+      "category": "highway",
+      "x": -118.916,
+      "z": 2543.59,
+      "source": "osm:way:97348004",
+      "detail": "Layer 2 overpass \u00b7 south bypass",
+      "deck_y": 18.10894
+    },
+    {
+      "id": "south-overpass",
+      "label": "I-69E south overpass",
+      "category": "highway",
+      "x": -322.748,
+      "z": 2224.919,
+      "source": "osm:way:97348021",
+      "detail": "Elevated mainline \u00b7 southern slip-road crossing",
+      "deck_y": 18.55358
+    },
+    {
+      "id": "jackson",
+      "label": "Jackson Street",
+      "category": "street",
+      "x": 205.0,
+      "z": 315.842,
+      "source": "osm:way:378423194",
+      "detail": "West Jackson Avenue"
+    },
+    {
+      "id": "ed-carey",
+      "label": "Ed Carey Drive",
+      "category": "street",
+      "x": 3024.388,
+      "z": 1667.639,
+      "source": "osm:way:898003496",
+      "detail": "North Ed Carey Drive"
+    },
+    {
+      "id": "osm:way:152478473",
+      "label": "Centennial Park",
+      "category": "landmark",
+      "x": 94.18,
+      "z": 376.45,
+      "source": "osm:way:152478473",
+      "detail": ""
+    },
+    {
+      "id": "osm:way:1196397348",
+      "label": "Harlingen Arts and Heritage Museum",
+      "category": "landmark",
+      "x": 3133.94,
+      "z": -2380.74,
+      "source": "osm:way:1196397348",
+      "detail": ""
+    },
+    {
+      "id": "city:parcel:9401",
+      "label": "Harlingen High School",
+      "category": "landmark",
+      "x": 1496.309,
+      "z": -1306.199,
+      "source": "city:parcel:9401",
+      "detail": ""
+    },
+    {
+      "id": "osm:way:498375780",
+      "label": "Harlingen High School South",
+      "category": "landmark",
+      "x": -2070.119,
+      "z": 2165.387,
+      "source": "osm:way:498375780",
+      "detail": ""
+    },
+    {
+      "id": "osm:relation:8486141",
+      "label": "Harlingen Municipal Auditorium",
+      "category": "landmark",
+      "x": -941.26,
+      "z": -477.31,
+      "source": "osm:relation:8486141",
+      "detail": ""
+    },
+    {
+      "id": "osm:way:473594612",
+      "label": "Hugh Ramsey Nature Park",
+      "category": "landmark",
+      "x": 3668.66,
+      "z": 964.15,
+      "source": "osm:way:473594612",
+      "detail": ""
+    },
+    {
+      "id": "thc:iwo-jima",
+      "label": "Iwo Jima Memorial",
+      "category": "landmark",
+      "x": 3045.454,
+      "z": -3042.267,
+      "source": "thc:iwo-jima",
+      "detail": ""
+    },
+    {
+      "id": "city:campus:mma",
+      "label": "Marine Military Academy",
+      "category": "landmark",
+      "x": 3052.818,
+      "z": -4158.148,
+      "source": "city:campus:mma",
+      "detail": ""
+    },
+    {
+      "id": "city:campus:tstc",
+      "label": "Texas State Technical College \u2013 Harlingen",
+      "category": "landmark",
+      "x": 3281.675,
+      "z": -2700.289,
+      "source": "city:campus:tstc",
+      "detail": ""
+    },
+    {
+      "id": "osm:way:690635467",
+      "label": "The Baxter Building",
+      "category": "landmark",
+      "x": 206.86,
+      "z": 348.75,
+      "source": "osm:way:690635467",
+      "detail": ""
+    },
+    {
+      "id": "osm:way:204281585",
+      "label": "Valle Vista Mall",
+      "category": "landmark",
+      "x": -1998.57,
+      "z": 1258.94,
+      "source": "osm:way:204281585",
+      "detail": ""
+    },
+    {
+      "id": "osm:way:545113289",
+      "label": "Valley Baptist Medical Center \u2013 Harlingen",
+      "category": "landmark",
+      "x": 2858.339,
+      "z": 2258.48,
+      "source": "osm:way:545113289",
+      "detail": ""
+    },
+    {
+      "id": "osm:way:224682707",
+      "label": "Valley International Airport",
+      "category": "landmark",
+      "x": 4465.53,
+      "z": -3876.13,
+      "source": "osm:way:224682707",
+      "detail": ""
+    }
+  ],
+  "road_ways": 7647,
+  "origin_epsg": 32614,
+  "origin_easting": 630000,
+  "origin_northing": 2898000
+}
