@@ -7,6 +7,7 @@ signal mode_changed(driving: bool)
 signal active_camera_changed(camera: Camera3D)
 
 @export var transition_duration: float = 0.35
+const MAX_TRANSITION_STEP_SEC: float = 0.025
 
 var player: Node3D = null
 var vehicle: Node3D = null
@@ -283,7 +284,7 @@ func _begin_camera_transition(start_xform: Transform3D, start_fov: float, to_dri
 
 
 func _update_camera_transition(delta: float) -> void:
-	_trans_elapsed += delta
+	_trans_elapsed += minf(delta, MAX_TRANSITION_STEP_SEC)
 	var raw_t := clampf(_trans_elapsed / maxf(transition_duration, 0.001), 0.0, 1.0)
 	var t := raw_t * raw_t * (3.0 - 2.0 * raw_t)
 

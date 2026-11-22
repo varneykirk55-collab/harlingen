@@ -14,6 +14,10 @@ var speed_multiplier := 1.0
 var _jump_requested := false
 
 func _ready() -> void:
+	floor_snap_length = 0.4
+	floor_max_angle = deg_to_rad(50.0)
+	floor_stop_on_slope = true
+	floor_constant_speed = true
 	set_physics_process(false)
 	respawn()
 

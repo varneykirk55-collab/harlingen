@@ -32,54 +32,54 @@ position = Vector3(0, 0.96, 0.05)
 shape = SubResource("CabinShape")
 
 [node name="WheelFL" type="VehicleWheel3D" parent="."]
-position = Vector3(-0.8513, 0.414, -1.3318)
+position = Vector3(-0.8513, 0.44, -1.3318)
 use_as_traction = true
 use_as_steering = true
 wheel_roll_influence = 0.08
 wheel_radius = 0.3261
-wheel_rest_length = 0.13
+wheel_rest_length = 0.16
 wheel_friction_slip = 3.8
-suspension_travel = 0.16
+suspension_travel = 0.18
 suspension_stiffness = 55.0
 suspension_max_force = 14000.0
 damping_compression = 7.5
 damping_relaxation = 8.5
 
 [node name="WheelFR" type="VehicleWheel3D" parent="."]
-position = Vector3(0.8514, 0.414, -1.3318)
+position = Vector3(0.8514, 0.44, -1.3318)
 use_as_traction = true
 use_as_steering = true
 wheel_roll_influence = 0.08
 wheel_radius = 0.3261
-wheel_rest_length = 0.13
+wheel_rest_length = 0.16
 wheel_friction_slip = 3.8
-suspension_travel = 0.16
+suspension_travel = 0.18
 suspension_stiffness = 55.0
 suspension_max_force = 14000.0
 damping_compression = 7.5
 damping_relaxation = 8.5
 
 [node name="WheelRL" type="VehicleWheel3D" parent="."]
-position = Vector3(-0.8672, 0.431, 1.3318)
+position = Vector3(-0.8672, 0.457, 1.3318)
 use_as_traction = true
 wheel_roll_influence = 0.08
 wheel_radius = 0.3433
-wheel_rest_length = 0.13
+wheel_rest_length = 0.16
 wheel_friction_slip = 3.6
-suspension_travel = 0.16
+suspension_travel = 0.18
 suspension_stiffness = 55.0
 suspension_max_force = 14000.0
 damping_compression = 7.5
 damping_relaxation = 8.5
 
 [node name="WheelRR" type="VehicleWheel3D" parent="."]
-position = Vector3(0.8673, 0.431, 1.3318)
+position = Vector3(0.8673, 0.457, 1.3318)
 use_as_traction = true
 wheel_roll_influence = 0.08
 wheel_radius = 0.3433
-wheel_rest_length = 0.13
+wheel_rest_length = 0.16
 wheel_friction_slip = 3.6
-suspension_travel = 0.16
+suspension_travel = 0.18
 suspension_stiffness = 55.0
 suspension_max_force = 14000.0
 damping_compression = 7.5

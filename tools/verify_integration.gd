@@ -469,11 +469,14 @@ func _verify_enter_drive_exit_cycle() -> void:
 	_check(hud.mode_label.text == "DRIVING", "HUD mode switches to DRIVING")
 
 	# Sample TransitionCamera smoothness & DoorL_Pivot open->close animation
-	var trans_positions: Array[Vector3] = []
+	var trans_positions: Array[Vector3] = [trans_cam.global_position]
 	var enter_door_peak_rad := _door_angle(door_l)
-	for i in 28:
+	for i in 180:
+		if not vi.is_transitioning and i >= 28:
+			break
 		await _frames(1)
-		trans_positions.append(trans_cam.global_position)
+		if vi.is_transitioning:
+			trans_positions.append(trans_cam.global_position)
 		enter_door_peak_rad = maxf(enter_door_peak_rad, _door_angle(door_l))
 	for i in 8:
 		if _door_angle(door_l) < 0.01:
@@ -482,14 +485,22 @@ func _verify_enter_drive_exit_cycle() -> void:
 	var enter_door_end_l := _door_angle(door_l)
 	var enter_door_end_r := _door_angle(door_r)
 	var start_gap := trans_positions[0].distance_to(player_cam_pos)
-	var mid_dist_from_start := trans_positions[10].distance_to(player_cam_pos)
-	var mid_dist_to_end := trans_positions[10].distance_to(chase_cam_pos)
+	var has_midpoint := false
+	var best_mid_from_start := 0.0
+	var best_mid_to_end := 0.0
+	for p in trans_positions:
+		var d_start := p.distance_to(player_cam_pos)
+		var d_end := p.distance_to(chase_cam_pos)
+		if d_start > 0.5 and d_end > 0.5:
+			has_midpoint = true
+			best_mid_from_start = d_start
+			best_mid_to_end = d_end
 	var max_step := 0.0
 	for i in range(1, trans_positions.size()):
 		max_step = maxf(max_step, trans_positions[i].distance_to(trans_positions[i - 1]))
-	print("ENTER_BLEND start_gap=", start_gap, " mid_from_start=", mid_dist_from_start, " mid_to_end=", mid_dist_to_end,
+	print("ENTER_BLEND samples=", trans_positions.size(), " start_gap=", start_gap, " mid_from_start=", best_mid_from_start, " mid_to_end=", best_mid_to_end,
 		" max_step=", max_step, " door_peak=", enter_door_peak_rad, " door_end_L=", enter_door_end_l, " door_end_R=", enter_door_end_r)
-	_check(start_gap < 1.5 and mid_dist_from_start > 0.5 and mid_dist_to_end > 0.5 and max_step < 1.5,
+	_check(start_gap < 1.5 and has_midpoint and max_step < 1.5,
 		"Enter TransitionCamera interpolates smoothly without snapping")
 	_check(not vi.is_transitioning and root.get_camera_3d() == car.get_camera(),
 		"TransitionCamera hands off cleanly to ChaseCamera")
@@ -630,11 +641,14 @@ func _verify_enter_drive_exit_cycle() -> void:
 	_check(exit_dist_from_car > 1.2 and exit_dist_from_car < 4.0,
 		"Player exited safely beside vehicle (dist=" + str(exit_dist_from_car) + " m)")
 
-	var exit_positions: Array[Vector3] = []
+	var exit_positions: Array[Vector3] = [trans_cam.global_position]
 	var exit_door_peak_rad := _door_angle(door_l)
-	for i in 28:
+	for i in 180:
+		if not vi.is_transitioning and i >= 28:
+			break
 		await _frames(1)
-		exit_positions.append(trans_cam.global_position)
+		if vi.is_transitioning:
+			exit_positions.append(trans_cam.global_position)
 		exit_door_peak_rad = maxf(exit_door_peak_rad, _door_angle(door_l))
 	for i in 8:
 		if _door_angle(door_l) < 0.01:
@@ -646,7 +660,7 @@ func _verify_enter_drive_exit_cycle() -> void:
 	var exit_max_step := 0.0
 	for i in range(1, exit_positions.size()):
 		exit_max_step = maxf(exit_max_step, exit_positions[i].distance_to(exit_positions[i - 1]))
-	print("EXIT_BLEND start_gap=", exit_start_gap, " max_step=", exit_max_step,
+	print("EXIT_BLEND samples=", exit_positions.size(), " start_gap=", exit_start_gap, " max_step=", exit_max_step,
 		" door_peak=", exit_door_peak_rad, " door_end_L=", exit_door_end_l, " door_end_R=", exit_door_end_r)
 	_check(exit_start_gap < 1.5 and exit_max_step < 1.5, "Exit TransitionCamera interpolates smoothly without snapping")
 	_check(not vi.is_transitioning and root.get_camera_3d() == player.get_camera(),

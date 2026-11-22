@@ -4,7 +4,7 @@ extends VehicleBody3D
 signal driver_state_changed(active: bool)
 
 @export_group("Driving")
-@export var max_engine_force := 4400.0
+@export var max_engine_force := 4800.0
 @export var reverse_engine_force := 2600.0
 @export var max_brake_force := 85.0
 @export var handbrake_force := 140.0
