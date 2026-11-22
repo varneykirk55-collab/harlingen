@@ -1,0 +1,11 @@
+﻿[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Citywide Storefront Glass"
+albedo_color = Color(0.11, 0.17, 0.22, 1)
+roughness = 0.06
+metallic = 0.76
+metallic_specular = 0.90
+clearcoat_enabled = true
+clearcoat = 0.82
+clearcoat_roughness = 0.05
