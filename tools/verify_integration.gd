@@ -358,9 +358,9 @@ func _verify_vehicle_spawn_and_driving() -> void:
 	_check(not vi.is_vehicle_paused() and not car.freeze, "Vehicle is active/unpaused in gameplay mode")
 	_check(car.global_basis.y.y > 0.99, "Vehicle upright (up.y=" + str(car.global_basis.y.y) + ")")
 
-	# Verify harlingen_car.glb structure & CarModel 1:1 scale
-	var glb := load("res://assets/vehicle/harlingen_car.glb") as PackedScene
-	_check(glb != null, "Load harlingen_car.glb PackedScene")
+	# Verify koenigsegg.glb structure & CarModel 1:1 scale
+	var glb := load("res://assets/vehicle/koenigsegg/koenigsegg.glb") as PackedScene
+	_check(glb != null, "Load koenigsegg.glb PackedScene")
 	if glb:
 		var glb_inst := glb.instantiate()
 		var glb_body := glb_inst.find_child("CarBody", true, false)
@@ -369,7 +369,7 @@ func _verify_vehicle_spawn_and_driving() -> void:
 		var glb_dr := glb_inst.find_child("DoorR_Pivot", true, false)
 		var glb_dr_mesh := glb_dr.find_child("DoorR_Mesh", true, false) if glb_dr else null
 		_check(glb_body != null and glb_dl != null and glb_dl_mesh != null and glb_dr != null and glb_dr_mesh != null,
-			"harlingen_car.glb has CarBody, DoorL_Pivot(DoorL_Mesh), DoorR_Pivot(DoorR_Mesh)")
+			"koenigsegg.glb has CarBody, DoorL_Pivot(DoorL_Mesh), DoorR_Pivot(DoorR_Mesh)")
 		glb_inst.free()
 
 	var car_model := car.get_node_or_null("CarModel") as Node3D
