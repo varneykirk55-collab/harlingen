@@ -2,15 +2,22 @@ extends Node3D
 ## One independent 2 km district scene with visible and collision layers.
 
 const DistrictSolids := preload("res://preview/district_solids.gd")
+const RoadSidewalkDetailerScript := preload("res://scripts/citywide/road_sidewalk_detailer.gd")
+const BuildingFacadeDetailerScript := preload("res://scripts/citywide/building_facade_detailer.gd")
+const VegetationPropsDetailerScript := preload("res://scripts/citywide/vegetation_props_detailer.gd")
+const VehiclesCommercialDetailerScript := preload("res://scripts/citywide/vehicles_commercial_detailer.gd")
 
 @export var tile_id: String
 static var kit_meshes: Dictionary = {}
+static var _atlas_tiles_cache: Dictionary = {}
+static var _atlas_loaded := false
 var _collision_enabled := false
 var _native_collision := false
 var _prop_placements: Dictionary = {}
 var _solids := DistrictSolids.new()
 var _collision_root: Node3D
 var _surface_shapes: Dictionary = {}
+var citywide_stats: Dictionary = {}
 
 func _ready() -> void:
 	for layer in ["StreetPaint", "StreetWear", "StreetWires"]:
@@ -37,6 +44,35 @@ func _ready() -> void:
 		var records: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
 		for kind: String in records:
 			_add_instances(kind, records[kind])
+	_apply_citywide_detailers()
+
+
+static func _get_tile_meta(target_tile_id: String) -> Dictionary:
+	if not _atlas_loaded:
+		_atlas_loaded = true
+		var atlas_path := "res://docs/HARLINGEN_ATLAS.json"
+		if FileAccess.file_exists(atlas_path):
+			var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(atlas_path))
+			if parsed is Dictionary:
+				var tiles_val: Variant = parsed.get("tiles", [])
+				if tiles_val is Array:
+					for entry: Variant in tiles_val:
+						if entry is Dictionary and entry.has("id"):
+							_atlas_tiles_cache[str(entry["id"])] = entry
+				elif tiles_val is Dictionary:
+					_atlas_tiles_cache = tiles_val
+	var meta: Variant = _atlas_tiles_cache.get(target_tile_id, {})
+	return meta if meta is Dictionary else {}
+
+
+func _apply_citywide_detailers() -> void:
+	var tile_meta: Dictionary = _get_tile_meta(tile_id)
+	citywide_stats = {
+		"roads_sidewalks": RoadSidewalkDetailerScript.apply_to_tile(self, tile_id, tile_meta),
+		"building_facades": BuildingFacadeDetailerScript.apply_to_tile(self, tile_id, tile_meta),
+		"vegetation_props": VegetationPropsDetailerScript.apply_to_tile(self, tile_id, tile_meta),
+		"vehicles_commercial": VehiclesCommercialDetailerScript.apply_to_tile(self, tile_id, tile_meta),
+	}
 
 func _add_street_furniture() -> void:
 	var path := "res://tiles/%s/StreetFurniture.json" % tile_id
@@ -121,7 +157,11 @@ func update_detail(use_native_ground: bool, near: bool, detailed_buildings: bool
 	if buildings:
 		buildings.visible = detailed_buildings
 		$BuildingsFar.visible = not detailed_buildings
-	for layer in ["Markings", "Sidewalks", "StreetEdges", "FacadeDetails", "StreetPaint", "StreetWear", "StreetWires", "StreetFurniture"]:
+	for layer in [
+		"Markings", "Sidewalks", "StreetEdges", "FacadeDetails",
+		"StreetPaint", "StreetWear", "StreetWires", "StreetFurniture",
+		"CitywideVegetationProps", "CitywideVehiclesCommercial", "CitywideStorefrontAccents"
+	]:
 		var node := get_node_or_null(layer) as Node3D
 		if node:
 			node.visible = near

@@ -1,0 +1,4001 @@
+{
+  "schema_version": "1.1.0",
+  "generated_at_utc": "2026-11-22T03:38:48Z",
+  "project_root": "C:\\Users\\aresg\\Projects\\harlingen-integration",
+  "coordinate_system": {
+    "epsg": 32614,
+    "origin_easting": 630000,
+    "origin_northing": 2898000,
+    "tile_size_m": 2000,
+    "local_extent_m": [
+      -6000,
+      -6000,
+      6000,
+      6000
+    ],
+    "vertical_datum": "USGS 3DEP service elevations, metres"
+  },
+  "citywide_totals": {
+    "tile_count": 36,
+    "buildings": 32343,
+    "prop_instances": 9074,
+    "tile_triangles": 12794440,
+    "curb_m": 369161.4,
+    "crosswalks": 8342,
+    "signals": 441,
+    "tiles_with_sidewalks": 23,
+    "tiles_with_legacy_bridges": 24,
+    "tiles_with_elevated_roads": 6,
+    "polyhaven_pbr_sets": 23,
+    "manifest_landmarks": 440
+  },
+  "city_generation_pipeline": {
+    "tools": [
+      "airport_correction.py",
+      "apply_geographic_audit.py",
+      "audit.py",
+      "bridge_profiles.py",
+      "bridge_validation.py",
+      "build.py",
+      "check_scene.gd",
+      "check_walker.gd",
+      "elevated_roads.py",
+      "extract.py",
+      "generate_atlas.py",
+      "geographic_sites.py",
+      "import_terrain.gd",
+      "iwo_jima.py",
+      "landmark.py",
+      "landmarks.py",
+      "mesh.py",
+      "read_overture.py",
+      "road_grade.py",
+      "street_detail.py",
+      "street_realism.py",
+      "vegetation.py",
+      "verify_bridge_clearance.gd",
+      "verify_geographic_audit.gd",
+      "verify_integration.gd",
+      "verify_restoration.gd"
+    ],
+    "runtime_preview": [
+      "preview/Harlingen.tscn",
+      "preview/world.gd",
+      "preview/tile.gd",
+      "preview/walker.gd"
+    ],
+    "gameplay_scripts": [
+      "scripts/citywide/building_facade_detailer.gd",
+      "scripts/citywide/road_sidewalk_detailer.gd",
+      "scripts/citywide/vegetation_props_detailer.gd",
+      "scripts/citywide/vehicles_commercial_detailer.gd",
+      "scripts/game/vehicle_interaction.gd",
+      "scripts/player/player_camera.gd",
+      "scripts/player/player_controller.gd",
+      "scripts/vehicle/vehicle_controller.gd"
+    ],
+    "gameplay_scenes": [
+      "scenes/player/PlayerCharacter.tscn",
+      "scenes/ui/GameHUD.tscn",
+      "scenes/vehicle/HarlingenVehicle.tscn"
+    ]
+  },
+  "citywide_detailing_systems": {
+    "integration_owner": {
+      "agent": "atlas-inventor",
+      "owns": [
+        "preview/tile.gd",
+        "tools/generate_atlas.py",
+        "docs/HARLINGEN_ATLAS.json",
+        "docs/HARLINGEN_DEVELOPMENT_ATLAS.md"
+      ]
+    },
+    "worker_b_roads_sidewalks": {
+      "agent": "roads-sidewalks",
+      "script": "scripts/citywide/road_sidewalk_detailer.gd",
+      "class_name": "RoadSidewalkDetailer",
+      "owns": [
+        "materials/citywide/roads/",
+        "scripts/citywide/road_sidewalk_detailer.gd"
+      ],
+      "material_count": 14
+    },
+    "worker_c_building_facades": {
+      "agent": "building-facades",
+      "script": "scripts/citywide/building_facade_detailer.gd",
+      "class_name": "BuildingFacadeDetailer",
+      "owns": [
+        "materials/citywide/facades/",
+        "scripts/citywide/building_facade_detailer.gd"
+      ],
+      "material_count": 30
+    },
+    "worker_d_vegetation_props": {
+      "agent": "vegetation-props",
+      "script": "scripts/citywide/vegetation_props_detailer.gd",
+      "class_name": "VegetationPropsDetailer",
+      "owns": [
+        "assets/citywide/props/",
+        "scripts/citywide/vegetation_props_detailer.gd"
+      ]
+    },
+    "worker_e_vehicles_commercial": {
+      "agent": "vehicles-commercial",
+      "script": "scripts/citywide/vehicles_commercial_detailer.gd",
+      "class_name": "VehiclesCommercialDetailer",
+      "owns": [
+        "assets/citywide/commercial/",
+        "docs/HARLINGEN_LANDMARKS.json",
+        "scripts/citywide/vehicles_commercial_detailer.gd"
+      ],
+      "material_count": 11
+    }
+  },
+  "assets_inventory": {
+    "prop_kit_glbs": [
+      "bench.glb",
+      "dry_grass.glb",
+      "mesquite.glb",
+      "palm.glb",
+      "scrub.glb",
+      "stop_sign.glb",
+      "street_sign.glb",
+      "streetlight.glb",
+      "traffic_signal.glb",
+      "utility_pole.glb"
+    ],
+    "jackson_hero": {
+      "scenes": [
+        "assets/jackson_hero/JacksonArchitecture.tscn",
+        "assets/jackson_hero/JacksonStreetProps.tscn",
+        "assets/jackson_hero/JacksonVegetation.tscn"
+      ],
+      "glbs": [
+        "assets/jackson_hero/arch/baxter_dressing.glb",
+        "assets/jackson_hero/arch/north_storefronts_dressing.glb",
+        "assets/jackson_hero/arch/planters_dressing.glb",
+        "assets/jackson_hero/props/asphalt_patch.glb",
+        "assets/jackson_hero/props/manhole_cover.glb",
+        "assets/jackson_hero/props/ornamental_streetlamp.glb",
+        "assets/jackson_hero/props/parked_pickup.glb",
+        "assets/jackson_hero/props/parked_sedan.glb",
+        "assets/jackson_hero/props/parked_suv.glb",
+        "assets/jackson_hero/props/parking_sign.glb",
+        "assets/jackson_hero/props/parking_stall_mark.glb",
+        "assets/jackson_hero/props/storm_drain.glb",
+        "assets/jackson_hero/props/street_planter.glb",
+        "assets/jackson_hero/props/trash_receptacle.glb",
+        "assets/jackson_hero/veg/crape_myrtle.glb",
+        "assets/jackson_hero/veg/washingtonia_palm.glb"
+      ],
+      "materials": [
+        "assets/jackson_hero/arch/mat_awning_burgundy.tres",
+        "assets/jackson_hero/arch/mat_awning_charcoal.tres",
+        "assets/jackson_hero/arch/mat_awning_green.tres",
+        "assets/jackson_hero/arch/mat_awning_tan.tres",
+        "assets/jackson_hero/arch/mat_beige_stucco.tres",
+        "assets/jackson_hero/arch/mat_brick_006.tres",
+        "assets/jackson_hero/arch/mat_concrete.tres",
+        "assets/jackson_hero/arch/mat_dark_mullion.tres",
+        "assets/jackson_hero/arch/mat_metal_plate.tres",
+        "assets/jackson_hero/arch/mat_red_brick.tres",
+        "assets/jackson_hero/arch/mat_sconce_glow.tres",
+        "assets/jackson_hero/arch/mat_warm_interior.tres",
+        "assets/jackson_hero/props/mat_asphalt_patch.tres",
+        "assets/jackson_hero/props/mat_cast_iron.tres",
+        "assets/jackson_hero/props/mat_manhole_iron.tres",
+        "assets/jackson_hero/props/mat_planter_concrete.tres",
+        "assets/jackson_hero/props/mat_shrub_leaf.tres"
+      ],
+      "scripts": [
+        "assets/jackson_hero/props/jackson_props_controller.gd"
+      ]
+    },
+    "landmarks": {
+      "scenes": [
+        "assets/landmarks/HarlingenMedicalCenter.tscn",
+        "assets/landmarks/RamseyTrailhead.tscn",
+        "assets/landmarks/StripesSunshine.tscn",
+        "assets/landmarks/ValeroLoop499.tscn"
+      ],
+      "glbs": [
+        "assets/landmarks/HarlingenMedicalCenter.glb",
+        "assets/landmarks/IwoJimaMemorial.glb",
+        "assets/landmarks/RamseyTrailhead.glb",
+        "assets/landmarks/StripesSunshine.glb",
+        "assets/landmarks/ValeroLoop499.glb"
+      ]
+    },
+    "street_realism_props": [
+      "assets/street_realism/bin.glb",
+      "assets/street_realism/hydrant.glb",
+      "assets/street_realism/light.glb",
+      "assets/street_realism/mailbox.glb",
+      "assets/street_realism/news.glb",
+      "assets/street_realism/pole.glb",
+      "assets/street_realism/signal0.glb",
+      "assets/street_realism/signal1.glb",
+      "assets/street_realism/speed25.glb",
+      "assets/street_realism/speed35.glb",
+      "assets/street_realism/speed45.glb"
+    ],
+    "signage_scenes": [
+      "assets/signage/DowntownStreetscape.tscn",
+      "assets/signage/EdCareyStreetscape_00_01.tscn",
+      "assets/signage/EdCareyStreetscape_00_02.tscn",
+      "assets/signage/EdCareyStreetscape_01_00.tscn",
+      "assets/signage/EdCareyStreetscape_01_01.tscn"
+    ],
+    "signage_texture_count": 116,
+    "gameplay_assets": {
+      "character": [
+        "assets/character/harlingen_character.glb"
+      ],
+      "vehicle": [
+        "assets/vehicle/harlingen_car.glb"
+      ],
+      "police_interceptor": [
+        "assets/police_interceptor/Sunshine_City_Police_Interceptor.glb"
+      ],
+      "weapons": [
+        "assets/weapons/m4/Modern_M4_LOD1.glb"
+      ]
+    }
+  },
+  "polyhaven_inventory": {
+    "pbr_sets": [
+      {
+        "id": "asphalt_01",
+        "resolution": "2K",
+        "path": "materials/polyhaven/asphalt_01/",
+        "map_count": 4,
+        "maps": [
+          "asphalt_01_ao_2k.jpg",
+          "asphalt_01_diff_2k.jpg",
+          "asphalt_01_nor_gl_2k.jpg",
+          "asphalt_01_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "asphalt_02",
+        "resolution": "2K",
+        "path": "materials/polyhaven/asphalt_02/",
+        "map_count": 4,
+        "maps": [
+          "asphalt_02_ao_2k.jpg",
+          "asphalt_02_diff_2k.jpg",
+          "asphalt_02_nor_gl_2k.jpg",
+          "asphalt_02_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "asphalt_04",
+        "resolution": "2K",
+        "path": "materials/polyhaven/asphalt_04/",
+        "map_count": 4,
+        "maps": [
+          "asphalt_04_ao_2k.jpg",
+          "asphalt_04_diff_2k.jpg",
+          "asphalt_04_nor_gl_2k.jpg",
+          "asphalt_04_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "asphalt_06",
+        "resolution": "1K",
+        "path": "materials/polyhaven/asphalt_06/",
+        "map_count": 4,
+        "maps": [
+          "asphalt_06_ao_1k.jpg",
+          "asphalt_06_diff_1k.jpg",
+          "asphalt_06_nor_gl_1k.jpg",
+          "asphalt_06_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "bark_brown_02",
+        "resolution": "1K",
+        "path": "materials/polyhaven/bark_brown_02/",
+        "map_count": 4,
+        "maps": [
+          "bark_brown_02_ao_1k.jpg",
+          "bark_brown_02_diff_1k.jpg",
+          "bark_brown_02_nor_gl_1k.jpg",
+          "bark_brown_02_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "beige_wall_001",
+        "resolution": "2K",
+        "path": "materials/polyhaven/beige_wall_001/",
+        "map_count": 4,
+        "maps": [
+          "beige_wall_001_ao_2k.jpg",
+          "beige_wall_001_diff_2k.jpg",
+          "beige_wall_001_nor_gl_2k.jpg",
+          "beige_wall_001_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "brick_wall_006",
+        "resolution": "2K",
+        "path": "materials/polyhaven/brick_wall_006/",
+        "map_count": 4,
+        "maps": [
+          "brick_wall_006_ao_2k.jpg",
+          "brick_wall_006_diff_2k.jpg",
+          "brick_wall_006_nor_gl_2k.jpg",
+          "brick_wall_006_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "brown_mud_dry",
+        "resolution": "2K",
+        "path": "materials/polyhaven/brown_mud_dry/",
+        "map_count": 4,
+        "maps": [
+          "brown_mud_dry_ao_2k.jpg",
+          "brown_mud_dry_diff_2k.jpg",
+          "brown_mud_dry_nor_gl_2k.jpg",
+          "brown_mud_dry_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "concrete_floor_worn_001",
+        "resolution": "2K",
+        "path": "materials/polyhaven/concrete_floor_worn_001/",
+        "map_count": 4,
+        "maps": [
+          "concrete_floor_worn_001_ao_2k.jpg",
+          "concrete_floor_worn_001_diff_2k.jpg",
+          "concrete_floor_worn_001_nor_gl_2k.jpg",
+          "concrete_floor_worn_001_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "concrete_pavement",
+        "resolution": "2K",
+        "path": "materials/polyhaven/concrete_pavement/",
+        "map_count": 4,
+        "maps": [
+          "concrete_pavement_ao_2k.jpg",
+          "concrete_pavement_diff_2k.jpg",
+          "concrete_pavement_nor_gl_2k.jpg",
+          "concrete_pavement_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "concrete_wall_007",
+        "resolution": "1K",
+        "path": "materials/polyhaven/concrete_wall_007/",
+        "map_count": 4,
+        "maps": [
+          "concrete_wall_007_ao_1k.jpg",
+          "concrete_wall_007_diff_1k.jpg",
+          "concrete_wall_007_nor_gl_1k.jpg",
+          "concrete_wall_007_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "corrugated_iron",
+        "resolution": "1K",
+        "path": "materials/polyhaven/corrugated_iron/",
+        "map_count": 4,
+        "maps": [
+          "corrugated_iron_ao_1k.jpg",
+          "corrugated_iron_diff_1k.jpg",
+          "corrugated_iron_nor_gl_1k.jpg",
+          "corrugated_iron_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "gravel_road",
+        "resolution": "2K",
+        "path": "materials/polyhaven/gravel_road/",
+        "map_count": 4,
+        "maps": [
+          "gravel_road_ao_2k.jpg",
+          "gravel_road_diff_2k.jpg",
+          "gravel_road_nor_gl_2k.jpg",
+          "gravel_road_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "grey_roof_01",
+        "resolution": "1K",
+        "path": "materials/polyhaven/grey_roof_01/",
+        "map_count": 4,
+        "maps": [
+          "grey_roof_01_ao_1k.jpg",
+          "grey_roof_01_diff_1k.jpg",
+          "grey_roof_01_nor_gl_1k.jpg",
+          "grey_roof_01_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "leafy_grass",
+        "resolution": "2K",
+        "path": "materials/polyhaven/leafy_grass/",
+        "map_count": 4,
+        "maps": [
+          "leafy_grass_ao_2k.jpg",
+          "leafy_grass_diff_2k.jpg",
+          "leafy_grass_nor_gl_2k.jpg",
+          "leafy_grass_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "metal_plate_02",
+        "resolution": "1K",
+        "path": "materials/polyhaven/metal_plate_02/",
+        "map_count": 4,
+        "maps": [
+          "metal_plate_02_ao_1k.jpg",
+          "metal_plate_02_diff_1k.jpg",
+          "metal_plate_02_nor_gl_1k.jpg",
+          "metal_plate_02_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "painted_plaster_wall",
+        "resolution": "1K",
+        "path": "materials/polyhaven/painted_plaster_wall/",
+        "map_count": 4,
+        "maps": [
+          "painted_plaster_wall_ao_1k.jpg",
+          "painted_plaster_wall_diff_1k.jpg",
+          "painted_plaster_wall_nor_gl_1k.jpg",
+          "painted_plaster_wall_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "red_brick_03",
+        "resolution": "2K",
+        "path": "materials/polyhaven/red_brick_03/",
+        "map_count": 4,
+        "maps": [
+          "red_brick_03_ao_2k.jpg",
+          "red_brick_03_diff_2k.jpg",
+          "red_brick_03_nor_gl_2k.jpg",
+          "red_brick_03_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "rough_block_wall",
+        "resolution": "1K",
+        "path": "materials/polyhaven/rough_block_wall/",
+        "map_count": 4,
+        "maps": [
+          "rough_block_wall_ao_1k.jpg",
+          "rough_block_wall_diff_1k.jpg",
+          "rough_block_wall_nor_gl_1k.jpg",
+          "rough_block_wall_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "rough_wood",
+        "resolution": "1K",
+        "path": "materials/polyhaven/rough_wood/",
+        "map_count": 4,
+        "maps": [
+          "rough_wood_ao_1k.jpg",
+          "rough_wood_diff_1k.jpg",
+          "rough_wood_nor_gl_1k.jpg",
+          "rough_wood_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "rusty_metal_02",
+        "resolution": "1K",
+        "path": "materials/polyhaven/rusty_metal_02/",
+        "map_count": 4,
+        "maps": [
+          "rusty_metal_02_ao_1k.jpg",
+          "rusty_metal_02_diff_1k.jpg",
+          "rusty_metal_02_nor_gl_1k.jpg",
+          "rusty_metal_02_rough_1k.jpg"
+        ]
+      },
+      {
+        "id": "sandstone_blocks_05",
+        "resolution": "2K",
+        "path": "materials/polyhaven/sandstone_blocks_05/",
+        "map_count": 4,
+        "maps": [
+          "sandstone_blocks_05_ao_2k.jpg",
+          "sandstone_blocks_05_diff_2k.jpg",
+          "sandstone_blocks_05_nor_gl_2k.jpg",
+          "sandstone_blocks_05_rough_2k.jpg"
+        ]
+      },
+      {
+        "id": "withered_grass",
+        "resolution": "2K",
+        "path": "materials/polyhaven/withered_grass/",
+        "map_count": 4,
+        "maps": [
+          "withered_grass_ao_2k.jpg",
+          "withered_grass_diff_2k.jpg",
+          "withered_grass_nor_gl_2k.jpg",
+          "withered_grass_rough_2k.jpg"
+        ]
+      }
+    ],
+    "terrain_packed": [
+      {
+        "file": "brown_mud_dry_albedo_height.png",
+        "path": "materials/polyhaven/terrain/brown_mud_dry_albedo_height.png",
+        "size_mb": 14.27
+      },
+      {
+        "file": "brown_mud_dry_normal_roughness.png",
+        "path": "materials/polyhaven/terrain/brown_mud_dry_normal_roughness.png",
+        "size_mb": 10.98
+      },
+      {
+        "file": "gravel_road_albedo_height.png",
+        "path": "materials/polyhaven/terrain/gravel_road_albedo_height.png",
+        "size_mb": 8.55
+      },
+      {
+        "file": "gravel_road_normal_roughness.png",
+        "path": "materials/polyhaven/terrain/gravel_road_normal_roughness.png",
+        "size_mb": 8.6
+      },
+      {
+        "file": "leafy_grass_albedo_height.png",
+        "path": "materials/polyhaven/terrain/leafy_grass_albedo_height.png",
+        "size_mb": 14.04
+      },
+      {
+        "file": "leafy_grass_normal_roughness.png",
+        "path": "materials/polyhaven/terrain/leafy_grass_normal_roughness.png",
+        "size_mb": 12.41
+      },
+      {
+        "file": "macro_noise.png",
+        "path": "materials/polyhaven/terrain/macro_noise.png",
+        "size_mb": 0.11
+      },
+      {
+        "file": "withered_grass_albedo_height.png",
+        "path": "materials/polyhaven/terrain/withered_grass_albedo_height.png",
+        "size_mb": 13.83
+      },
+      {
+        "file": "withered_grass_normal_roughness.png",
+        "path": "materials/polyhaven/terrain/withered_grass_normal_roughness.png",
+        "size_mb": 13.84
+      }
+    ],
+    "hdris": [
+      {
+        "id": "kloofendal_48d_partly_cloudy_puresky_2k",
+        "path": "materials/polyhaven/hdri/kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+        "size_mb": 5.45
+      }
+    ]
+  },
+  "harlingen_landmarks": {
+    "geographic_sites": [
+      {
+        "id": "osm:way:545113289",
+        "name": "Valley Baptist Medical Center \u2013 Harlingen",
+        "kind": "site",
+        "tile": "+01_+01",
+        "x": 2956.2,
+        "z": 2260.9
+      },
+      {
+        "id": "city:parcel:9401",
+        "name": "Harlingen High School",
+        "kind": "site",
+        "tile": "+00_-01",
+        "x": 1298.3,
+        "z": -1365.6
+      },
+      {
+        "id": "osm:way:498375780",
+        "name": "Harlingen High School South",
+        "kind": "site",
+        "tile": "-01_+01",
+        "x": -1921.7,
+        "z": 2049.8
+      },
+      {
+        "id": "city:campus:mma",
+        "name": "Marine Military Academy",
+        "kind": "site",
+        "tile": "+01_-03",
+        "x": 3006.8,
+        "z": -4015.3
+      },
+      {
+        "id": "city:campus:tstc",
+        "name": "Texas State Technical College \u2013 Harlingen",
+        "kind": "site",
+        "tile": "+01_-02",
+        "x": 2978.9,
+        "z": -2881.7
+      },
+      {
+        "id": "thc:iwo-jima",
+        "name": "Iwo Jima Memorial",
+        "kind": "poi",
+        "tile": "+01_-02",
+        "x": 3045.5,
+        "z": -3042.3
+      }
+    ],
+    "fuel_sites_osm": [
+      {
+        "id": "osm:way:548911784",
+        "name": "Exxon",
+        "tile": "-01_-01",
+        "x": -367.9,
+        "z": -529.9
+      },
+      {
+        "id": "osm:way:498135173",
+        "name": "Valero",
+        "tile": "-02_-02",
+        "x": -2040.5,
+        "z": -3381.7
+      },
+      {
+        "id": "osm:way:498415453",
+        "name": "Valero",
+        "tile": "-01_+00",
+        "x": -1809.2,
+        "z": 645.1
+      },
+      {
+        "id": "osm:way:498415454",
+        "name": "Valero",
+        "tile": "-01_+00",
+        "x": -1789.7,
+        "z": 704.5
+      },
+      {
+        "id": "osm:way:504042392",
+        "name": "Sam's Club",
+        "tile": "-02_-01",
+        "x": -2291.9,
+        "z": -192.2
+      },
+      {
+        "id": "osm:way:618096089",
+        "name": "Exxon",
+        "tile": "-03_+00",
+        "x": -5872.9,
+        "z": 946.1
+      },
+      {
+        "id": "osm:way:542325801",
+        "name": "Valero",
+        "tile": "+00_-01",
+        "x": 998.4,
+        "z": -1095.4
+      },
+      {
+        "id": "osm:way:257033685",
+        "name": "H-E-B Fuel",
+        "tile": "+00_+00",
+        "x": 1696.8,
+        "z": 1619.7
+      },
+      {
+        "id": "osm:way:498340832",
+        "name": "H-E-B Fuel",
+        "tile": "+01_-01",
+        "x": 2180.0,
+        "z": -809.1
+      },
+      {
+        "id": "osm:way:908266854",
+        "name": "Circle K",
+        "tile": "+01_+02",
+        "x": 3179.3,
+        "z": 4930.6
+      }
+    ],
+    "target_landmark_hits": {
+      "church": [
+        {
+          "id": "osm:relation:7844329",
+          "name": "First Church of the Nazarene",
+          "tile": "+00_-01",
+          "x": 903.0,
+          "z": -1982.4,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:relation:7483525",
+          "name": "First Christian Church",
+          "tile": "+00_+00",
+          "x": 1683.7,
+          "z": 674.9,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:relation:7783027",
+          "name": "First Baptist Church",
+          "tile": "+00_+00",
+          "x": 838.2,
+          "z": 331.1,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:relation:9395755",
+          "name": "Grace Lutheran Church",
+          "tile": "+00_+00",
+          "x": 1348.1,
+          "z": 255.5,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:749082646",
+          "name": "Queen of Peace Catholic Church",
+          "tile": "-01_-01",
+          "x": -77.4,
+          "z": -1379.8,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:832319549",
+          "name": "Templo Fe Esperanza y Amor Assembly of God Church",
+          "tile": "-01_-01",
+          "x": -1718.1,
+          "z": -520.3,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1299332226",
+          "name": "Grace Baptist Church",
+          "tile": "-01_-01",
+          "x": -1832.6,
+          "z": -1458.6,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:551505067",
+          "name": "Primera Iglesia Bautista",
+          "tile": "-01_+00",
+          "x": -28.2,
+          "z": 977.9,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:551505081",
+          "name": "Second Presbyterian Church",
+          "tile": "-01_+00",
+          "x": -556.9,
+          "z": 1395.2,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:562047385",
+          "name": "The United Methodist Church District Office",
+          "tile": "-01_+00",
+          "x": -1737.4,
+          "z": 612.3,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:612362987",
+          "name": "Church's Chicken",
+          "tile": "-01_+00",
+          "x": -609.5,
+          "z": 699.3,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1299332211",
+          "name": "Corinth Missionary Baptist Church",
+          "tile": "-01_+00",
+          "x": -790.8,
+          "z": 1044.6,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1299332212",
+          "name": "Lutheran Church Our Redeemer",
+          "tile": "-01_+00",
+          "x": -891.9,
+          "z": 1536.9,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1299332221",
+          "name": "El Buen Samaritano Methodist Church",
+          "tile": "-01_+00",
+          "x": -515.6,
+          "z": 1541.6,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1299332224",
+          "name": "Our Lady of the Assumption Catholic Church",
+          "tile": "-01_+00",
+          "x": -1063.9,
+          "z": 1284.7,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1498930672",
+          "name": "Immaculate Heart of Mary Catholic Church",
+          "tile": "-01_+00",
+          "x": -30.5,
+          "z": 700.6,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:498135172",
+          "name": "Church's Chicken",
+          "tile": "-02_-02",
+          "x": -2082.8,
+          "z": -3471.3,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:951847964",
+          "name": "Harlingen Seventh Day Adventist Church",
+          "tile": "-02_-02",
+          "x": -2598.2,
+          "z": -3298.0,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:564137271",
+          "name": "First Baptist Church of Combes",
+          "tile": "-02_-03",
+          "x": -3224.5,
+          "z": -5776.3,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:498330426",
+          "name": "Church's Chicken",
+          "tile": "+00_-01",
+          "x": 1593.1,
+          "z": -610.7,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:498340826",
+          "name": "Saint Paul Lutheran Church",
+          "tile": "+01_-01",
+          "x": 2032.1,
+          "z": -343.5,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:528566190",
+          "name": "Wesley United Methodist Church",
+          "tile": "+00_-01",
+          "x": 1743.9,
+          "z": -710.2,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:549412548",
+          "name": "North 7th Street Church of Christ",
+          "tile": "+00_-02",
+          "x": 922.1,
+          "z": -2068.3,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:497905427",
+          "name": "Covenant Church",
+          "tile": "+00_-02",
+          "x": 837.9,
+          "z": -2566.3,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:517796433",
+          "name": "Christian Fellowship Church",
+          "tile": "+00_-02",
+          "x": 1324.2,
+          "z": -2868.7,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1299332227",
+          "name": "Harlingen Seventh-day Adventist Church",
+          "tile": "+00_-02",
+          "x": 983.6,
+          "z": -3468.5,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:551505079",
+          "name": "Central Baptist Church",
+          "tile": "+00_+00",
+          "x": 256.7,
+          "z": 977.4,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:562611837",
+          "name": "First United Methodist Church of Harlingen",
+          "tile": "+00_+00",
+          "x": 624.3,
+          "z": 506.9,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:749082974",
+          "name": "Saint Anthony Catholic Church",
+          "tile": "+00_+00",
+          "x": 1402.6,
+          "z": 352.0,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:749082714",
+          "name": "First Church of God",
+          "tile": "+01_-01",
+          "x": 2663.6,
+          "z": -1609.1,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:585472130",
+          "name": "The Church of Jesus Christ of Latter-day Saints",
+          "tile": "+01_+01",
+          "x": 3237.9,
+          "z": 2080.8,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:502734859",
+          "name": "Church's Chicken",
+          "tile": "+01_+01",
+          "x": 2348.1,
+          "z": 2300.8,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:node:5223279009",
+          "name": "First United Methodist Church of Harlingen",
+          "tile": "+00_+00",
+          "x": 651.1,
+          "z": 528.0,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "611a4105-f7db-4f5e-abaa-39ebdb6f6e7c",
+          "name": "First Baptist Church of Combes",
+          "tile": "-02_-03",
+          "x": -3223.4,
+          "z": -5776.3,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "d99c9f91-556b-4c9b-bbaa-7778e5934360",
+          "name": "Church's Chicken",
+          "tile": "-02_-02",
+          "x": -2080.7,
+          "z": -3471.4,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "41cb9135-9029-486a-9490-4535238bfe75",
+          "name": "Harlingen Seventh Day Adventist Church",
+          "tile": "-02_-02",
+          "x": -2596.4,
+          "z": -3298.1,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "9a43e6e5-4240-46a4-9027-556fde0f70ec",
+          "name": "Grace Baptist Church",
+          "tile": "-01_-01",
+          "x": -1828.8,
+          "z": -1458.7,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "bf01ca87-8bb0-4bbf-bc21-389f157a531d",
+          "name": "Templo Fe Esperanza y Amor Assembly of God Church",
+          "tile": "-01_-01",
+          "x": -1716.8,
+          "z": -520.2,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "f1b52195-f1c0-4533-9091-bb549ec92dcd",
+          "name": "The United Methodist Church District Office",
+          "tile": "-01_+00",
+          "x": -1735.5,
+          "z": 611.9,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "893899fd-9fa6-4157-a3af-6e5cc232fef0",
+          "name": "Our Lady of the Assumption Catholic Church",
+          "tile": "-01_+00",
+          "x": -1063.5,
+          "z": 1285.0,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "fa06a33b-afd1-4ccd-8cc7-363691bc59aa",
+          "name": "Lutheran Church Our Redeemer",
+          "tile": "-01_+00",
+          "x": -888.9,
+          "z": 1536.8,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "198184de-fd48-41ae-84f1-debf70cb15ee",
+          "name": "Church's Chicken",
+          "tile": "+01_+01",
+          "x": 2350.2,
+          "z": 2298.9,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "d6eff82a-f338-4bbc-a879-5b1bc06f974f",
+          "name": "El Buen Samaritano Methodist Church",
+          "tile": "-01_+00",
+          "x": -516.2,
+          "z": 1541.6,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "694ed14a-8a3d-4cd6-9b6c-2ca864baa55f",
+          "name": "Second Presbyterian Church",
+          "tile": "-01_+00",
+          "x": -555.7,
+          "z": 1395.2,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "85248864-cee4-4ba7-9bd8-41ed7f138c78",
+          "name": "Primera Iglesia Bautista",
+          "tile": "-01_+00",
+          "x": -24.7,
+          "z": 977.8,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "2840413c-b040-4fa0-bab3-7c9cc060d164",
+          "name": "Immaculate Heart of Mary Catholic Church",
+          "tile": "-01_+00",
+          "x": -30.5,
+          "z": 700.4,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "d28d3348-9275-42a6-bcb3-0e5aa0b8b029",
+          "name": "Church's Chicken",
+          "tile": "-01_+00",
+          "x": -609.4,
+          "z": 699.3,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "0324c546-79e4-4239-8368-22331a92144b",
+          "name": "Corinth Missionary Baptist Church",
+          "tile": "-01_+00",
+          "x": -790.1,
+          "z": 1044.6,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "302bee3f-ad9c-4d49-ba28-9cf1b14f91c2",
+          "name": "Queen of Peace Catholic Church",
+          "tile": "-01_-01",
+          "x": -77.4,
+          "z": -1382.6,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "c3fad8f8-b438-40c4-9633-6a2cdec63f18",
+          "name": "First Baptist Church",
+          "tile": "+00_+00",
+          "x": 808.0,
+          "z": 393.1,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "3a078a8c-50bc-4b1c-ba26-134fe0613de0",
+          "name": "First United Methodist Church of Harlingen",
+          "tile": "+00_+00",
+          "x": 624.5,
+          "z": 506.9,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "e9edd11b-bf7d-4dc6-bf4c-684160988d0a",
+          "name": "Central Baptist Church",
+          "tile": "+00_+00",
+          "x": 256.7,
+          "z": 978.5,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "32fd85e3-1495-45f5-8d2c-a7cdd2e8217c",
+          "name": "Grace Lutheran Church",
+          "tile": "+00_+00",
+          "x": 1354.6,
+          "z": 274.3,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "e147e5ed-8c9b-4a80-9d22-cb3a8a0eb264",
+          "name": "Saint Anthony Catholic Church",
+          "tile": "+00_+00",
+          "x": 1402.6,
+          "z": 355.4,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "6110b257-587f-4d56-ab82-2de919b27e5d",
+          "name": "First Christian Church",
+          "tile": "+00_+00",
+          "x": 1680.8,
+          "z": 724.0,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "c75d18b2-f8e3-47ce-b725-716cacd23586",
+          "name": "The Church of Jesus Christ of Latter-day Saints",
+          "tile": "+01_+01",
+          "x": 3238.8,
+          "z": 2079.5,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "d0ee4fe9-9b19-4023-8b72-e1cadabac89c",
+          "name": "First Church of God",
+          "tile": "+01_-01",
+          "x": 2661.9,
+          "z": -1605.8,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "15c8f3c6-2c54-4239-8b84-d6713b15360c",
+          "name": "Saint Paul Lutheran Church",
+          "tile": "+01_-01",
+          "x": 2032.1,
+          "z": -344.2,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "4f75ee1f-55e5-4bc8-8f43-921e4d71afaf",
+          "name": "Wesley United Methodist Church",
+          "tile": "+00_-01",
+          "x": 1743.5,
+          "z": -710.1,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "059d905c-b440-4205-8a08-699e8e6f6c7c",
+          "name": "Church's Chicken",
+          "tile": "+00_-01",
+          "x": 1596.9,
+          "z": -610.8,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "4b474116-1110-497b-976a-231a7d3d0525",
+          "name": "Christian Fellowship Church",
+          "tile": "+00_-02",
+          "x": 1325.3,
+          "z": -2868.7,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "81d34bf7-2975-40c6-aa55-72559240464c",
+          "name": "Harlingen Seventh-day Adventist Church",
+          "tile": "+00_-02",
+          "x": 989.2,
+          "z": -3468.6,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "5e69c2c3-67b6-4c8a-afa0-16ede4a3818f",
+          "name": "North 7th Street Church of Christ",
+          "tile": "+00_-02",
+          "x": 926.4,
+          "z": -2068.4,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "1031c415-b271-414f-b335-404f3b3e4857",
+          "name": "First Church of the Nazarene",
+          "tile": "+00_-01",
+          "x": 880.6,
+          "z": -1932.3,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "76f26a95-6c2d-48c6-a9a0-8cb0f4d309fb",
+          "name": "Covenant Church",
+          "tile": "+00_-02",
+          "x": 844.8,
+          "z": -2566.4,
+          "source": "overture_local.geojson.gz"
+        }
+      ],
+      "police": [
+        {
+          "id": "osm:way:612093862",
+          "name": "Harlingen Police Departmant",
+          "tile": "-01_-01",
+          "x": -674.3,
+          "z": -520.6,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1281329072",
+          "name": "San Benito Police Department",
+          "tile": "+02_+02",
+          "x": 5512.1,
+          "z": 4581.3,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "a9ba1516-e051-49d7-95bf-79bc047546d3",
+          "name": "San Benito Police Department",
+          "tile": "+02_+02",
+          "x": 5514.2,
+          "z": 4582.9,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "ea2ac8b6-6deb-4ac9-b2ba-4bd79b0c8296",
+          "name": "Harlingen Police Departmant",
+          "tile": "-01_-01",
+          "x": -674.1,
+          "z": -520.6,
+          "source": "overture_local.geojson.gz"
+        }
+      ],
+      "whataburger": [
+        {
+          "id": "osm:way:264519412",
+          "name": "Whataburger",
+          "tile": "-01_+00",
+          "x": -1431.4,
+          "z": 655.8,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:152484845",
+          "name": "Whataburger",
+          "tile": "+00_+00",
+          "x": 1951.3,
+          "z": 553.8,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:266236539",
+          "name": "Whataburger",
+          "tile": "+01_+01",
+          "x": 2035.7,
+          "z": 3295.5,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "1b42d445-83ab-4595-bb2e-a96ad2b2a1c3",
+          "name": "Whataburger",
+          "tile": "-01_+00",
+          "x": -1429.7,
+          "z": 655.8,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "352cbe05-53ae-4322-b4ea-6700cbcb3d35",
+          "name": "Whataburger",
+          "tile": "+01_+01",
+          "x": 2039.9,
+          "z": 3297.6,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "b77d373b-01c7-435d-a786-3509b621e4d3",
+          "name": "Whataburger",
+          "tile": "+00_+00",
+          "x": 1955.7,
+          "z": 553.9,
+          "source": "overture_local.geojson.gz"
+        }
+      ],
+      "walmart": [
+        {
+          "id": "osm:way:415162585",
+          "name": "Walmart Supercenter",
+          "tile": "-01_+00",
+          "x": -1781.0,
+          "z": 1712.5,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "8e50e93a-2130-4528-ae9d-24027f9c1695",
+          "name": "Walmart Supercenter",
+          "tile": "-01_+00",
+          "x": -1779.8,
+          "z": 1712.2,
+          "source": "overture_local.geojson.gz"
+        }
+      ],
+      "heb": [
+        {
+          "id": "osm:way:498461345",
+          "name": "H-E-B",
+          "tile": "-01_+00",
+          "x": -1444.4,
+          "z": 1327.1,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:257033685",
+          "name": "H-E-B Fuel",
+          "tile": "+00_+00",
+          "x": 1696.8,
+          "z": 1619.7,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:257033711",
+          "name": "H-E-B",
+          "tile": "+00_+00",
+          "x": 1745.5,
+          "z": 1534.1,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:415163472",
+          "name": "H-E-B",
+          "tile": "+01_-01",
+          "x": 2137.1,
+          "z": -919.7,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:498340832",
+          "name": "H-E-B Fuel",
+          "tile": "+01_-01",
+          "x": 2180.0,
+          "z": -809.1,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "9219650f-db56-4247-87de-67be564463ba",
+          "name": "H-E-B",
+          "tile": "-01_+00",
+          "x": -1450.9,
+          "z": 1324.4,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "78e559b8-4c5f-4f99-a778-3455197aea44",
+          "name": "H-E-B Car Wash",
+          "tile": "-01_+00",
+          "x": -1572.9,
+          "z": 1293.0,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "fbf2439f-8f96-48c6-9663-97d17e5f3262",
+          "name": "H-E-B Fuel",
+          "tile": "-01_+00",
+          "x": -1582.9,
+          "z": 1322.4,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "9ceba308-fb29-4857-8b55-db862e167149",
+          "name": "H-E-B Fuel",
+          "tile": "+00_+00",
+          "x": 1697.7,
+          "z": 1619.9,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "48a2a9b3-805c-4e14-a328-eadcc32abd6e",
+          "name": "H-E-B",
+          "tile": "+00_+00",
+          "x": 1746.1,
+          "z": 1534.9,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "c5765b1f-1782-4dda-8b47-31c8688d07c8",
+          "name": "H-E-B Fuel",
+          "tile": "+01_-01",
+          "x": 2181.1,
+          "z": -808.5,
+          "source": "overture_local.geojson.gz"
+        },
+        {
+          "id": "8cdd75cb-f68f-4f0c-a302-35a51c20cd02",
+          "name": "H-E-B",
+          "tile": "+01_-01",
+          "x": 2144.8,
+          "z": -919.9,
+          "source": "overture_local.geojson.gz"
+        }
+      ],
+      "heart_clinic": [
+        {
+          "id": "osm:way:1498930672",
+          "name": "Immaculate Heart of Mary Catholic Church",
+          "tile": "-01_+00",
+          "x": -30.5,
+          "z": 700.6,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "2840413c-b040-4fa0-bab3-7c9cc060d164",
+          "name": "Immaculate Heart of Mary Catholic Church",
+          "tile": "-01_+00",
+          "x": -30.5,
+          "z": 700.4,
+          "source": "overture_local.geojson.gz"
+        }
+      ],
+      "mckelvey": [
+        {
+          "id": "osm:way:473700109",
+          "name": "McKelvey Park",
+          "tile": "+01_+00",
+          "x": 2093.8,
+          "z": 1803.8,
+          "source": "osm_local.geojson.gz"
+        }
+      ],
+      "iwo_jima": [
+        {
+          "id": "osm:way:20767849",
+          "name": "Iwo Jima Boulevard",
+          "tile": "+01_-02",
+          "x": 3214.2,
+          "z": -3166.8,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:20774661",
+          "name": "Iwo Jima Boulevard",
+          "tile": "+01_-02",
+          "x": 3062.3,
+          "z": -3147.0,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:568038124",
+          "name": "Iwo Jima Boulevard",
+          "tile": "+01_-02",
+          "x": 2893.9,
+          "z": -3155.3,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1160248863",
+          "name": "Iwo Jima Boulevard",
+          "tile": "+01_-02",
+          "x": 2906.8,
+          "z": -3155.7,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1160248864",
+          "name": "Iwo Jima Boulevard",
+          "tile": "+01_-02",
+          "x": 2877.8,
+          "z": -3154.6,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1227344179",
+          "name": "Iwo Jima Boulevard",
+          "tile": "+01_-02",
+          "x": 2959.4,
+          "z": -3162.0,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1565241687",
+          "name": "Iwo Jima Boulevard",
+          "tile": "+01_-02",
+          "x": 3317.1,
+          "z": -3118.0,
+          "source": "osm_local.geojson.gz"
+        },
+        {
+          "id": "osm:way:1565241688",
+          "name": "Iwo Jima Boulevard",
+          "tile": "+01_-02",
+          "x": 3326.6,
+          "z": -3167.9,
+          "source": "osm_local.geojson.gz"
+        }
+      ]
+    },
+    "verified_registry_summary": {
+      "category_counts": {
+        "ed_carey_corridor_church": 3,
+        "gas_station": 20,
+        "harlingen_police_dept": 1,
+        "heb": 3,
+        "iwo_jima_memorial": 1,
+        "mckelvey_park": 1,
+        "medical_clinic": 5,
+        "railroad_crossing": 83,
+        "valley_baptist_medical_center": 1,
+        "walmart": 1,
+        "whataburger": 3
+      },
+      "coordinate_system": {
+        "epsg": 32614,
+        "formula": "x = easting - 630000; z = 2898000 - northing",
+        "origin_easting": 630000,
+        "origin_northing": 2898000,
+        "tile_size_m": 2000
+      },
+      "landmarks": 122,
+      "modeling_gaps_summary": {
+        "custom_modeled": [
+          "Iwo Jima Memorial (assets/landmarks/IwoJimaMemorial.glb)",
+          "Harlingen Medical Center (assets/landmarks/HarlingenMedicalCenter.tscn)",
+          "Stripes Sunshine (assets/landmarks/StripesSunshine.tscn)",
+          "Valero Loop 499 (assets/landmarks/ValeroLoop499.tscn)",
+          "Ramsey Trailhead (assets/landmarks/RamseyTrailhead.tscn)"
+        ],
+        "generic_extrusion_gaps": [
+          "Whataburger (3 locations): generic building footprints, no custom A-frame/orange-white signage",
+          "Walmart Supercenter: generic building footprint, no custom Walmart facade/signage",
+          "H-E-B (3 locations) & H-E-B Fuel (2 locations): generic footprints, no custom H-E-B signage",
+          "Valley Baptist Medical Center: authoritative campus boundary in geographic_sites.geojson, generic building extrusions",
+          "Harlingen Police Department: generic building footprint, no custom civic facade/signage",
+          "McKelvey Park: landcover polygon only, no custom park signage/pavilion",
+          "Ed Carey Dr corridor churches: generic building footprints, no custom steeples/signage",
+          "Gas stations (except Stripes Sunshine & Valero Loop 499): generic canopies/buildings",
+          "Railroad crossings: grade intersections derived from rail x road geometry, no custom crossbuck/gate props"
+        ],
+        "not_present_in_osm_snapshot": [
+          "Standalone named Heart Clinics on Ed Carey Dr (e.g. Valley Heart / Cardiology) are not tagged as separate named POIs in osm_local.geojson.gz; nearby VA Health Care Center, Su Clinica Familiar, and UT Health RGV Surgical Specialty are documented."
+        ]
+      },
+      "schema_version": "1.0.0",
+      "sources": 4
+    }
+  },
+  "tiles": [
+    {
+      "id": "-03_-03",
+      "origin_local_xz": [
+        -6000,
+        -6000
+      ],
+      "buildings": 262,
+      "instances": 0,
+      "total_triangles": 125042,
+      "glb_disk_mb": 5.11,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 665.9,
+      "crosswalks": 24,
+      "signals": 0,
+      "layers_triangles": {
+        "BuildingCollision": 4422,
+        "Buildings": 10248,
+        "BuildingsFar": 4386,
+        "GroundCollision": 20000,
+        "Markings": 248,
+        "Roads": 3507,
+        "Sidewalks": 122,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 1271,
+        "StreetEdges": 1186,
+        "FacadeDetails": 6520,
+        "StreetPaint": 7410,
+        "StreetWear": 1816,
+        "StreetWires": 9300,
+        "StreetRampCollision": 206
+      },
+      "street_details": {
+        "curb_metres": 665.9,
+        "slab_joints": 105,
+        "new_crosswalks": 0,
+        "entrances": 262,
+        "window_frames": 390
+      },
+      "street_furniture": {
+        "light": 20,
+        "hydrant": 5,
+        "speed25": 92,
+        "mailbox": 22,
+        "pole": 170,
+        "speed35": 18,
+        "news": 18
+      },
+      "prop_instances": {},
+      "external_scenes": [],
+      "source_counts": {},
+      "manifest_landmark_count": 0
+    },
+    {
+      "id": "-02_-03",
+      "origin_local_xz": [
+        -4000,
+        -6000
+      ],
+      "buildings": 914,
+      "instances": 126,
+      "total_triangles": 237685,
+      "glb_disk_mb": 11.17,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 4478.2,
+      "crosswalks": 181,
+      "signals": 2,
+      "layers_triangles": {
+        "BridgeCollision": 66,
+        "Bridges": 66,
+        "BuildingCollision": 13842,
+        "Buildings": 29964,
+        "BuildingsFar": 13684,
+        "GroundCollision": 20000,
+        "LandCover": 279,
+        "Markings": 833,
+        "Roads": 11282,
+        "Sidewalks": 926,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 1754,
+        "Water": 1567,
+        "StreetEdges": 9594,
+        "FacadeDetails": 21250,
+        "StreetPaint": 23212,
+        "StreetWear": 11064,
+        "StreetWires": 22320,
+        "StreetRampCollision": 1582
+      },
+      "street_details": {
+        "curb_metres": 4478.2,
+        "slab_joints": 833,
+        "new_crosswalks": 0,
+        "entrances": 914,
+        "window_frames": 1211
+      },
+      "street_furniture": {
+        "light": 95,
+        "hydrant": 32,
+        "signal0": 2,
+        "pole": 454,
+        "speed25": 199,
+        "mailbox": 56,
+        "speed35": 28,
+        "news": 75,
+        "speed45": 24
+      },
+      "prop_instances": {
+        "palm": 89,
+        "traffic_signal": 2,
+        "street_sign": 3,
+        "utility_pole": 32
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "railway_ways": 1,
+        "buildings_osm": 19,
+        "named_pois": 3,
+        "parking_lots": 1
+      },
+      "manifest_landmark_count": 7
+    },
+    {
+      "id": "-01_-03",
+      "origin_local_xz": [
+        -2000,
+        -6000
+      ],
+      "buildings": 689,
+      "instances": 289,
+      "total_triangles": 183587,
+      "glb_disk_mb": 8.31,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 0.0,
+      "crosswalks": 146,
+      "signals": 0,
+      "layers_triangles": {
+        "BridgeCollision": 26,
+        "Bridges": 26,
+        "BuildingCollision": 10923,
+        "Buildings": 23381,
+        "BuildingsFar": 10825,
+        "GroundCollision": 20000,
+        "LandCover": 997,
+        "Roads": 7016,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 4391,
+        "FacadeDetails": 16050,
+        "StreetPaint": 13284,
+        "StreetWear": 6502,
+        "StreetWires": 14520,
+        "StreetRampCollision": 1246
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 690,
+        "window_frames": 915
+      },
+      "street_furniture": {
+        "hydrant": 24,
+        "light": 24,
+        "speed25": 140,
+        "pole": 298,
+        "mailbox": 42,
+        "speed35": 22,
+        "news": 22
+      },
+      "prop_instances": {
+        "scrub": 82,
+        "palm": 159,
+        "utility_pole": 48
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 57
+      },
+      "manifest_landmark_count": 1
+    },
+    {
+      "id": "+00_-03",
+      "origin_local_xz": [
+        0,
+        -6000
+      ],
+      "buildings": 312,
+      "instances": 625,
+      "total_triangles": 135356,
+      "glb_disk_mb": 5.64,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 0.0,
+      "crosswalks": 38,
+      "signals": 0,
+      "layers_triangles": {
+        "BridgeCollision": 22,
+        "Bridges": 22,
+        "BuildingCollision": 5625,
+        "Buildings": 12287,
+        "BuildingsFar": 5562,
+        "GroundCollision": 20000,
+        "LandCover": 576,
+        "Roads": 4026,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 3336,
+        "FacadeDetails": 7790,
+        "StreetPaint": 8866,
+        "StreetWear": 1500,
+        "StreetWires": 11040,
+        "StreetRampCollision": 304
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 312,
+        "window_frames": 467
+      },
+      "street_furniture": {
+        "light": 27,
+        "hydrant": 7,
+        "speed25": 108,
+        "mailbox": 32,
+        "pole": 199,
+        "speed35": 20,
+        "news": 21
+      },
+      "prop_instances": {
+        "scrub": 245,
+        "palm": 347,
+        "utility_pole": 33
+      },
+      "external_scenes": [],
+      "source_counts": {},
+      "manifest_landmark_count": 3
+    },
+    {
+      "id": "+01_-03",
+      "origin_local_xz": [
+        2000,
+        -6000
+      ],
+      "buildings": 85,
+      "instances": 386,
+      "total_triangles": 101265,
+      "glb_disk_mb": 3.58,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 0.0,
+      "crosswalks": 19,
+      "signals": 4,
+      "layers_triangles": {
+        "BridgeCollision": 24,
+        "Bridges": 24,
+        "BuildingCollision": 1328,
+        "Buildings": 2576,
+        "BuildingsFar": 1322,
+        "GroundCollision": 20000,
+        "LandCover": 537,
+        "Markings": 36,
+        "Roads": 2208,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 876,
+        "Water": 2588,
+        "FacadeDetails": 2020,
+        "StreetPaint": 5422,
+        "StreetWear": 788,
+        "StreetWires": 6960,
+        "StreetRampCollision": 156
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 85,
+        "window_frames": 117
+      },
+      "street_furniture": {
+        "hydrant": 6,
+        "light": 48,
+        "signal0": 2,
+        "signal1": 2,
+        "speed25": 26,
+        "mailbox": 7,
+        "pole": 129,
+        "speed35": 48,
+        "news": 43
+      },
+      "prop_instances": {
+        "scrub": 115,
+        "palm": 271
+      },
+      "external_scenes": [],
+      "source_counts": {},
+      "manifest_landmark_count": 1
+    },
+    {
+      "id": "+02_-03",
+      "origin_local_xz": [
+        4000,
+        -6000
+      ],
+      "buildings": 85,
+      "instances": 111,
+      "total_triangles": 94520,
+      "glb_disk_mb": 3.24,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 0.0,
+      "crosswalks": 8,
+      "signals": 0,
+      "layers_triangles": {
+        "BuildingCollision": 1386,
+        "Buildings": 3020,
+        "BuildingsFar": 1374,
+        "GroundCollision": 20000,
+        "LandCover": 380,
+        "Markings": 8,
+        "Roads": 1224,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 960,
+        "Water": 3056,
+        "FacadeDetails": 2140,
+        "StreetPaint": 2974,
+        "StreetWear": 414,
+        "StreetWires": 3120,
+        "StreetRampCollision": 64
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 85,
+        "window_frames": 129
+      },
+      "street_furniture": {
+        "light": 24,
+        "hydrant": 2,
+        "speed35": 20,
+        "news": 22,
+        "pole": 58,
+        "speed25": 16,
+        "mailbox": 4
+      },
+      "prop_instances": {
+        "palm": 111
+      },
+      "external_scenes": [],
+      "source_counts": {},
+      "manifest_landmark_count": 0
+    },
+    {
+      "id": "-03_-02",
+      "origin_local_xz": [
+        -6000,
+        -4000
+      ],
+      "buildings": 1102,
+      "instances": 83,
+      "total_triangles": 241788,
+      "glb_disk_mb": 11.68,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 910.3,
+      "crosswalks": 208,
+      "signals": 4,
+      "layers_triangles": {
+        "BuildingCollision": 17129,
+        "Buildings": 38289,
+        "BuildingsFar": 16968,
+        "GroundCollision": 20000,
+        "LandCover": 144,
+        "Roads": 7252,
+        "Sidewalks": 198,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 1718,
+        "Water": 1420,
+        "StreetEdges": 1804,
+        "FacadeDetails": 27080,
+        "StreetPaint": 20574,
+        "StreetWear": 10790,
+        "StreetWires": 22320,
+        "StreetRampCollision": 1702
+      },
+      "street_details": {
+        "curb_metres": 910.3,
+        "slab_joints": 162,
+        "new_crosswalks": 0,
+        "entrances": 1102,
+        "window_frames": 1606
+      },
+      "street_furniture": {
+        "hydrant": 34,
+        "light": 71,
+        "signal0": 2,
+        "signal1": 2,
+        "speed25": 239,
+        "mailbox": 61,
+        "pole": 445,
+        "speed35": 41,
+        "news": 51
+      },
+      "prop_instances": {
+        "palm": 28,
+        "utility_pole": 55
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 5,
+        "railway_ways": 1,
+        "named_pois": 1,
+        "parking_lots": 4
+      },
+      "manifest_landmark_count": 1
+    },
+    {
+      "id": "-02_-02",
+      "origin_local_xz": [
+        -4000,
+        -4000
+      ],
+      "buildings": 654,
+      "instances": 55,
+      "total_triangles": 212782,
+      "glb_disk_mb": 9.87,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 586.0,
+      "crosswalks": 205,
+      "signals": 11,
+      "layers_triangles": {
+        "BridgeCollision": 467,
+        "Bridges": 467,
+        "BuildingCollision": 11569,
+        "Buildings": 24871,
+        "BuildingsFar": 11135,
+        "GroundCollision": 20000,
+        "LandCover": 93,
+        "Markings": 904,
+        "Roads": 10654,
+        "Sidewalks": 235,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 3685,
+        "Water": 2310,
+        "StreetEdges": 1616,
+        "FacadeDetails": 16110,
+        "StreetPaint": 22148,
+        "StreetWear": 9144,
+        "StreetWires": 21300,
+        "StreetRampCollision": 1674
+      },
+      "street_details": {
+        "curb_metres": 586.0,
+        "slab_joints": 104,
+        "new_crosswalks": 2,
+        "entrances": 654,
+        "window_frames": 962
+      },
+      "street_furniture": {
+        "light": 75,
+        "hydrant": 27,
+        "signal0": 6,
+        "signal1": 5,
+        "pole": 386,
+        "speed25": 177,
+        "speed45": 22,
+        "news": 55,
+        "mailbox": 45,
+        "speed35": 23,
+        "bin": 2
+      },
+      "prop_instances": {
+        "utility_pole": 54,
+        "traffic_signal": 0,
+        "street_sign": 1
+      },
+      "external_scenes": [
+        "res://assets/landmarks/ValeroLoop499.tscn"
+      ],
+      "source_counts": {
+        "buildings_osm": 289,
+        "named_pois": 7,
+        "railway_ways": 4
+      },
+      "manifest_landmark_count": 7
+    },
+    {
+      "id": "-01_-02",
+      "origin_local_xz": [
+        -2000,
+        -4000
+      ],
+      "buildings": 1222,
+      "instances": 193,
+      "total_triangles": 300363,
+      "glb_disk_mb": 14.67,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 2544.2,
+      "crosswalks": 293,
+      "signals": 13,
+      "layers_triangles": {
+        "BridgeCollision": 64,
+        "Bridges": 64,
+        "BuildingCollision": 26295,
+        "Buildings": 48699,
+        "BuildingsFar": 23149,
+        "GroundCollision": 20000,
+        "LandCover": 815,
+        "Markings": 35,
+        "Roads": 10946,
+        "Sidewalks": 1067,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 4721,
+        "Water": 2688,
+        "StreetEdges": 7584,
+        "FacadeDetails": 27410,
+        "StreetPaint": 25934,
+        "StreetWear": 15602,
+        "StreetWires": 28440,
+        "StreetRampCollision": 2450
+      },
+      "street_details": {
+        "curb_metres": 2544.2,
+        "slab_joints": 460,
+        "new_crosswalks": 0,
+        "entrances": 1222,
+        "window_frames": 1519
+      },
+      "street_furniture": {
+        "hydrant": 48,
+        "signal0": 6,
+        "signal1": 7,
+        "light": 98,
+        "speed25": 240,
+        "pole": 539,
+        "mailbox": 63,
+        "news": 75,
+        "speed45": 35,
+        "speed35": 17
+      },
+      "prop_instances": {
+        "scrub": 8,
+        "palm": 82,
+        "utility_pole": 99,
+        "traffic_signal": 0,
+        "street_sign": 2,
+        "stop_sign": 2
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 445,
+        "railway_ways": 9,
+        "named_pois": 2
+      },
+      "manifest_landmark_count": 2
+    },
+    {
+      "id": "+00_-02",
+      "origin_local_xz": [
+        0,
+        -4000
+      ],
+      "buildings": 1605,
+      "instances": 308,
+      "total_triangles": 446747,
+      "glb_disk_mb": 22.96,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 4148.5,
+      "crosswalks": 447,
+      "signals": 24,
+      "layers_triangles": {
+        "BridgeCollision": 16,
+        "Bridges": 16,
+        "BuildingCollision": 54662,
+        "Buildings": 91470,
+        "BuildingsFar": 47359,
+        "GroundCollision": 20000,
+        "LandCover": 913,
+        "Markings": 179,
+        "Roads": 17540,
+        "Sidewalks": 1158,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 1911,
+        "StreetEdges": 9921,
+        "FacadeDetails": 42590,
+        "StreetPaint": 39550,
+        "StreetWear": 26334,
+        "StreetWires": 35040,
+        "StreetRampCollision": 3688
+      },
+      "street_details": {
+        "curb_metres": 4148.5,
+        "slab_joints": 780,
+        "new_crosswalks": 0,
+        "entrances": 1856,
+        "window_frames": 2403
+      },
+      "street_furniture": {
+        "light": 129,
+        "hydrant": 66,
+        "signal0": 12,
+        "signal1": 12,
+        "speed25": 298,
+        "pole": 692,
+        "mailbox": 75,
+        "speed45": 21,
+        "news": 94,
+        "speed35": 45,
+        "bin": 5
+      },
+      "prop_instances": {
+        "utility_pole": 158,
+        "streetlight": 1,
+        "bench": 1,
+        "traffic_signal": 0,
+        "street_sign": 4,
+        "stop_sign": 8,
+        "palm": 136
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 1407,
+        "named_pois": 10,
+        "parking_lots": 11
+      },
+      "manifest_landmark_count": 10
+    },
+    {
+      "id": "+01_-02",
+      "origin_local_xz": [
+        2000,
+        -4000
+      ],
+      "buildings": 516,
+      "instances": 247,
+      "total_triangles": 295574,
+      "glb_disk_mb": 13.77,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 12668.2,
+      "crosswalks": 295,
+      "signals": 29,
+      "layers_triangles": {
+        "BridgeCollision": 22,
+        "Bridges": 22,
+        "BuildingCollision": 14118,
+        "Buildings": 35514,
+        "BuildingsFar": 12210,
+        "GroundCollision": 20000,
+        "LandCover": 2698,
+        "Markings": 257,
+        "Roads": 15238,
+        "Sidewalks": 3000,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 1547,
+        "Water": 997,
+        "StreetEdges": 27219,
+        "FacadeDetails": 12680,
+        "StreetPaint": 36616,
+        "StreetWear": 28540,
+        "StreetWires": 27900,
+        "StreetRampCollision": 2596
+      },
+      "street_details": {
+        "curb_metres": 12668.2,
+        "slab_joints": 2271,
+        "new_crosswalks": 0,
+        "entrances": 545,
+        "window_frames": 723
+      },
+      "street_furniture": {
+        "signal0": 16,
+        "light": 120,
+        "hydrant": 39,
+        "signal1": 13,
+        "speed45": 24,
+        "news": 109,
+        "pole": 524,
+        "speed35": 54,
+        "speed25": 201,
+        "mailbox": 54
+      },
+      "prop_instances": {
+        "palm": 206,
+        "utility_pole": 19,
+        "stop_sign": 3,
+        "streetlight": 13,
+        "traffic_signal": 0,
+        "street_sign": 6
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 214,
+        "named_pois": 54,
+        "parking_lots": 26
+      },
+      "manifest_landmark_count": 51
+    },
+    {
+      "id": "+02_-02",
+      "origin_local_xz": [
+        4000,
+        -4000
+      ],
+      "buildings": 18,
+      "instances": 207,
+      "total_triangles": 96372,
+      "glb_disk_mb": 3.29,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 0.0,
+      "crosswalks": 22,
+      "signals": 0,
+      "layers_triangles": {
+        "BuildingCollision": 268,
+        "Buildings": 1710,
+        "BuildingsFar": 262,
+        "GroundCollision": 20000,
+        "LandCover": 1240,
+        "Markings": 94,
+        "Roads": 2800,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 2926,
+        "Water": 1876,
+        "FacadeDetails": 360,
+        "StreetPaint": 5064,
+        "StreetWear": 1236,
+        "StreetWires": 3960,
+        "StreetRampCollision": 176
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 18,
+        "window_frames": 18
+      },
+      "street_furniture": {
+        "hydrant": 2,
+        "speed25": 60,
+        "mailbox": 18,
+        "pole": 80
+      },
+      "prop_instances": {
+        "palm": 207
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 17,
+        "named_pois": 1,
+        "parking_lots": 4
+      },
+      "manifest_landmark_count": 3
+    },
+    {
+      "id": "-03_-01",
+      "origin_local_xz": [
+        -6000,
+        -2000
+      ],
+      "buildings": 1512,
+      "instances": 163,
+      "total_triangles": 311417,
+      "glb_disk_mb": 15.77,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 15.3,
+      "crosswalks": 429,
+      "signals": 4,
+      "layers_triangles": {
+        "BuildingCollision": 25131,
+        "Buildings": 58069,
+        "BuildingsFar": 24782,
+        "GroundCollision": 20000,
+        "LandCover": 489,
+        "Markings": 12,
+        "Roads": 11772,
+        "Sidewalks": 14,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 2968,
+        "StreetEdges": 108,
+        "FacadeDetails": 35810,
+        "StreetPaint": 31512,
+        "StreetWear": 19022,
+        "StreetWires": 23820,
+        "StreetRampCollision": 3508
+      },
+      "street_details": {
+        "curb_metres": 15.3,
+        "slab_joints": 2,
+        "new_crosswalks": 0,
+        "entrances": 1512,
+        "window_frames": 2069
+      },
+      "street_furniture": {
+        "hydrant": 58,
+        "light": 81,
+        "signal0": 2,
+        "signal1": 2,
+        "mailbox": 87,
+        "pole": 568,
+        "speed25": 283,
+        "speed35": 51,
+        "news": 57
+      },
+      "prop_instances": {
+        "palm": 162,
+        "traffic_signal": 0,
+        "street_sign": 1
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "named_pois": 5,
+        "buildings_osm": 46
+      },
+      "manifest_landmark_count": 4
+    },
+    {
+      "id": "-02_-01",
+      "origin_local_xz": [
+        -4000,
+        -2000
+      ],
+      "buildings": 934,
+      "instances": 204,
+      "total_triangles": 290485,
+      "glb_disk_mb": 14.53,
+      "has_sidewalks": true,
+      "has_elevated_roads": true,
+      "has_legacy_bridges": true,
+      "curb_m": 1930.6,
+      "crosswalks": 273,
+      "signals": 0,
+      "layers_triangles": {
+        "BridgeCollision": 87,
+        "Bridges": 87,
+        "BuildingCollision": 17397,
+        "Buildings": 42803,
+        "BuildingsFar": 16278,
+        "GroundCollision": 20000,
+        "LandCover": 1026,
+        "Markings": 1060,
+        "Roads": 14142,
+        "Sidewalks": 433,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 1389,
+        "Water": 2105,
+        "StreetEdges": 4118,
+        "FacadeDetails": 20740,
+        "ElevatedRoads": 15334,
+        "ElevatedCollision": 9340,
+        "StreetPaint": 29952,
+        "StreetWear": 16508,
+        "StreetWires": 21060,
+        "StreetRampCollision": 2226
+      },
+      "street_details": {
+        "curb_metres": 1930.6,
+        "slab_joints": 347,
+        "new_crosswalks": 5,
+        "entrances": 934,
+        "window_frames": 1140
+      },
+      "street_furniture": {
+        "hydrant": 49,
+        "light": 82,
+        "speed25": 187,
+        "pole": 457,
+        "mailbox": 54,
+        "speed35": 62,
+        "news": 67
+      },
+      "prop_instances": {
+        "palm": 189,
+        "traffic_signal": 2,
+        "street_sign": 2,
+        "utility_pole": 11
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "railway_ways": 4,
+        "buildings_osm": 203,
+        "named_pois": 9,
+        "parking_lots": 11
+      },
+      "manifest_landmark_count": 8
+    },
+    {
+      "id": "-01_-01",
+      "origin_local_xz": [
+        -2000,
+        -2000
+      ],
+      "buildings": 1603,
+      "instances": 553,
+      "total_triangles": 420804,
+      "glb_disk_mb": 20.76,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 19605.7,
+      "crosswalks": 343,
+      "signals": 5,
+      "layers_triangles": {
+        "BuildingCollision": 25725,
+        "Buildings": 64145,
+        "BuildingsFar": 24746,
+        "GroundCollision": 20000,
+        "LandCover": 1334,
+        "Markings": 4,
+        "Roads": 16894,
+        "Sidewalks": 4238,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 19749,
+        "Water": 856,
+        "StreetEdges": 39443,
+        "FacadeDetails": 39340,
+        "StreetPaint": 38448,
+        "StreetWear": 40494,
+        "StreetWires": 28080,
+        "StreetRampCollision": 2908
+      },
+      "street_details": {
+        "curb_metres": 19605.7,
+        "slab_joints": 3582,
+        "new_crosswalks": 2,
+        "entrances": 1603,
+        "window_frames": 2331
+      },
+      "street_furniture": {
+        "light": 141,
+        "hydrant": 61,
+        "signal0": 3,
+        "signal1": 2,
+        "speed25": 259,
+        "mailbox": 61,
+        "pole": 574,
+        "speed35": 88,
+        "news": 105,
+        "speed45": 6,
+        "bin": 1
+      },
+      "prop_instances": {
+        "scrub": 60,
+        "palm": 420,
+        "streetlight": 49,
+        "utility_pole": 22,
+        "stop_sign": 2
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "named_pois": 14,
+        "buildings_osm": 425,
+        "parking_lots": 11,
+        "railway_ways": 23
+      },
+      "manifest_landmark_count": 14
+    },
+    {
+      "id": "+00_-01",
+      "origin_local_xz": [
+        0,
+        -2000
+      ],
+      "buildings": 2298,
+      "instances": 536,
+      "total_triangles": 675183,
+      "glb_disk_mb": 33.87,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 52939.0,
+      "crosswalks": 656,
+      "signals": 33,
+      "layers_triangles": {
+        "BuildingCollision": 46633,
+        "Buildings": 101457,
+        "BuildingsFar": 43685,
+        "GroundCollision": 20000,
+        "LandCover": 1141,
+        "Markings": 65,
+        "Roads": 28373,
+        "Sidewalks": 10582,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 1820,
+        "Water": 711,
+        "StreetEdges": 101776,
+        "FacadeDetails": 59080,
+        "StreetPaint": 62626,
+        "StreetWear": 93190,
+        "StreetWires": 44280,
+        "StreetRampCollision": 5364
+      },
+      "street_details": {
+        "curb_metres": 52939.0,
+        "slab_joints": 9995,
+        "new_crosswalks": 8,
+        "entrances": 2301,
+        "window_frames": 3612
+      },
+      "street_furniture": {
+        "light": 197,
+        "hydrant": 117,
+        "signal0": 15,
+        "signal1": 18,
+        "pole": 915,
+        "speed25": 410,
+        "mailbox": 105,
+        "speed35": 102,
+        "news": 136,
+        "speed45": 19,
+        "bin": 2
+      },
+      "prop_instances": {
+        "palm": 254,
+        "streetlight": 222,
+        "utility_pole": 47,
+        "stop_sign": 2,
+        "traffic_signal": 1,
+        "street_sign": 10
+      },
+      "external_scenes": [
+        "res://assets/landmarks/StripesSunshine.tscn"
+      ],
+      "source_counts": {
+        "buildings_osm": 1061,
+        "named_pois": 22,
+        "parking_lots": 23
+      },
+      "manifest_landmark_count": 23
+    },
+    {
+      "id": "+01_-01",
+      "origin_local_xz": [
+        2000,
+        -2000
+      ],
+      "buildings": 1353,
+      "instances": 496,
+      "total_triangles": 353931,
+      "glb_disk_mb": 17.69,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 7113.2,
+      "crosswalks": 298,
+      "signals": 33,
+      "layers_triangles": {
+        "BuildingCollision": 22501,
+        "Buildings": 61259,
+        "BuildingsFar": 22153,
+        "GroundCollision": 20000,
+        "LandCover": 912,
+        "Markings": 28,
+        "Roads": 19933,
+        "Sidewalks": 1816,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 1714,
+        "Water": 2386,
+        "StreetEdges": 15749,
+        "FacadeDetails": 36580,
+        "StreetPaint": 41340,
+        "StreetWear": 22444,
+        "StreetWires": 28080,
+        "StreetRampCollision": 2636
+      },
+      "street_details": {
+        "curb_metres": 7113.2,
+        "slab_joints": 1552,
+        "new_crosswalks": 4,
+        "entrances": 1353,
+        "window_frames": 2305
+      },
+      "street_furniture": {
+        "light": 169,
+        "hydrant": 63,
+        "signal0": 17,
+        "signal1": 16,
+        "pole": 569,
+        "speed25": 201,
+        "mailbox": 51,
+        "speed35": 82,
+        "news": 133,
+        "speed45": 23,
+        "bin": 1
+      },
+      "prop_instances": {
+        "palm": 396,
+        "utility_pole": 77,
+        "streetlight": 13,
+        "traffic_signal": 0,
+        "street_sign": 7,
+        "stop_sign": 1,
+        "bench": 2
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 175,
+        "named_pois": 13,
+        "parking_lots": 5,
+        "railway_ways": 2
+      },
+      "manifest_landmark_count": 24
+    },
+    {
+      "id": "+02_-01",
+      "origin_local_xz": [
+        4000,
+        -2000
+      ],
+      "buildings": 91,
+      "instances": 52,
+      "total_triangles": 113665,
+      "glb_disk_mb": 4.25,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 0.0,
+      "crosswalks": 47,
+      "signals": 0,
+      "layers_triangles": {
+        "BuildingCollision": 1689,
+        "Buildings": 5387,
+        "BuildingsFar": 1656,
+        "GroundCollision": 20000,
+        "LandCover": 943,
+        "Roads": 4981,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 1427,
+        "Water": 1394,
+        "FacadeDetails": 2550,
+        "StreetPaint": 7360,
+        "StreetWear": 2136,
+        "StreetWires": 9360,
+        "StreetRampCollision": 382
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 91,
+        "window_frames": 164
+      },
+      "street_furniture": {
+        "hydrant": 10,
+        "speed25": 112,
+        "mailbox": 23,
+        "pole": 169
+      },
+      "prop_instances": {
+        "palm": 52
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "railway_ways": 1,
+        "buildings_osm": 7
+      },
+      "manifest_landmark_count": 2
+    },
+    {
+      "id": "-03_+00",
+      "origin_local_xz": [
+        -6000,
+        0
+      ],
+      "buildings": 1093,
+      "instances": 165,
+      "total_triangles": 286928,
+      "glb_disk_mb": 14.1,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 1207.5,
+      "crosswalks": 365,
+      "signals": 11,
+      "layers_triangles": {
+        "BridgeCollision": 126,
+        "Bridges": 126,
+        "BuildingCollision": 18504,
+        "Buildings": 43666,
+        "BuildingsFar": 18209,
+        "GroundCollision": 20000,
+        "LandCover": 212,
+        "Markings": 1126,
+        "Roads": 15682,
+        "Sidewalks": 303,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 1587,
+        "Water": 2737,
+        "StreetEdges": 2862,
+        "FacadeDetails": 26950,
+        "StreetPaint": 31974,
+        "StreetWear": 18538,
+        "StreetWires": 26820,
+        "StreetRampCollision": 3106
+      },
+      "street_details": {
+        "curb_metres": 1207.5,
+        "slab_joints": 215,
+        "new_crosswalks": 0,
+        "entrances": 1093,
+        "window_frames": 1602
+      },
+      "street_furniture": {
+        "light": 86,
+        "hydrant": 58,
+        "signal0": 6,
+        "signal1": 5,
+        "speed35": 40,
+        "news": 70,
+        "pole": 570,
+        "speed25": 225,
+        "mailbox": 64,
+        "speed45": 21
+      },
+      "prop_instances": {
+        "palm": 130,
+        "traffic_signal": 2,
+        "street_sign": 4,
+        "streetlight": 29
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "railway_ways": 1,
+        "buildings_osm": 13,
+        "named_pois": 6,
+        "parking_lots": 2
+      },
+      "manifest_landmark_count": 6
+    },
+    {
+      "id": "-02_+00",
+      "origin_local_xz": [
+        -4000,
+        0
+      ],
+      "buildings": 815,
+      "instances": 189,
+      "total_triangles": 501934,
+      "glb_disk_mb": 26.64,
+      "has_sidewalks": true,
+      "has_elevated_roads": true,
+      "has_legacy_bridges": true,
+      "curb_m": 7159.9,
+      "crosswalks": 259,
+      "signals": 17,
+      "layers_triangles": {
+        "BridgeCollision": 36,
+        "Bridges": 36,
+        "BuildingCollision": 13684,
+        "Buildings": 37328,
+        "BuildingsFar": 13461,
+        "GroundCollision": 20000,
+        "LandCover": 1167,
+        "Markings": 918,
+        "Roads": 23656,
+        "Sidewalks": 1627,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 1625,
+        "Water": 793,
+        "StreetEdges": 14625,
+        "FacadeDetails": 19780,
+        "ElevatedRoads": 123972,
+        "ElevatedCollision": 74950,
+        "StreetPaint": 48114,
+        "StreetWear": 25272,
+        "StreetWires": 24240,
+        "StreetRampCollision": 2250
+      },
+      "street_details": {
+        "curb_metres": 7159.9,
+        "slab_joints": 1212,
+        "new_crosswalks": 8,
+        "entrances": 817,
+        "window_frames": 1161
+      },
+      "street_furniture": {
+        "signal0": 8,
+        "light": 166,
+        "signal1": 9,
+        "hydrant": 45,
+        "news": 134,
+        "speed35": 81,
+        "pole": 462,
+        "speed45": 22,
+        "speed25": 142,
+        "mailbox": 44,
+        "bin": 1
+      },
+      "prop_instances": {
+        "traffic_signal": 17,
+        "street_sign": 22,
+        "utility_pole": 16,
+        "streetlight": 12,
+        "stop_sign": 4,
+        "palm": 118
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 65,
+        "named_pois": 25,
+        "parking_lots": 4
+      },
+      "manifest_landmark_count": 28
+    },
+    {
+      "id": "-01_+00",
+      "origin_local_xz": [
+        -2000,
+        0
+      ],
+      "buildings": 1993,
+      "instances": 655,
+      "total_triangles": 869363,
+      "glb_disk_mb": 45.14,
+      "has_sidewalks": true,
+      "has_elevated_roads": true,
+      "has_legacy_bridges": false,
+      "curb_m": 69873.6,
+      "crosswalks": 580,
+      "signals": 46,
+      "layers_triangles": {
+        "BuildingCollision": 30910,
+        "Buildings": 85554,
+        "BuildingsFar": 30427,
+        "GroundCollision": 20000,
+        "LandCover": 1078,
+        "Markings": 836,
+        "Roads": 30152,
+        "Sidewalks": 13272,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 2319,
+        "Water": 1239,
+        "StreetEdges": 132172,
+        "FacadeDetails": 48370,
+        "ElevatedRoads": 122926,
+        "ElevatedCollision": 76616,
+        "StreetPaint": 64588,
+        "StreetWear": 113728,
+        "StreetWires": 36420,
+        "StreetRampCollision": 4356
+      },
+      "street_details": {
+        "curb_metres": 69873.6,
+        "slab_joints": 13739,
+        "new_crosswalks": 33,
+        "entrances": 1995,
+        "window_frames": 2842
+      },
+      "street_furniture": {
+        "hydrant": 106,
+        "signal0": 23,
+        "light": 201,
+        "signal1": 23,
+        "speed25": 311,
+        "mailbox": 75,
+        "pole": 749,
+        "speed35": 91,
+        "news": 128,
+        "bin": 6
+      },
+      "prop_instances": {
+        "palm": 331,
+        "streetlight": 285,
+        "traffic_signal": 9,
+        "street_sign": 19,
+        "utility_pole": 8,
+        "bench": 3
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 313,
+        "named_pois": 57,
+        "parking_lots": 13,
+        "railway_ways": 2
+      },
+      "manifest_landmark_count": 59
+    },
+    {
+      "id": "+00_+00",
+      "origin_local_xz": [
+        0,
+        0
+      ],
+      "buildings": 2649,
+      "instances": 1234,
+      "total_triangles": 1290612,
+      "glb_disk_mb": 94.42,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 157302.5,
+      "crosswalks": 956,
+      "signals": 127,
+      "layers_triangles": {
+        "BridgeCollision": 111,
+        "Bridges": 111,
+        "BuildingCollision": 39575,
+        "Buildings": 106805,
+        "BuildingsFar": 38660,
+        "GroundCollision": 20000,
+        "LandCover": 928,
+        "Landmarks": 2150,
+        "Markings": 41,
+        "Roads": 116657,
+        "Sidewalks": 57105,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 2278,
+        "Water": 1013,
+        "StreetEdges": 297924,
+        "FacadeDetails": 185672,
+        "StreetPaint": 78854,
+        "StreetWear": 232320,
+        "StreetWires": 49020,
+        "StreetRampCollision": 6988
+      },
+      "street_details": {
+        "curb_metres": 157302.5,
+        "slab_joints": 29835,
+        "new_crosswalks": 286,
+        "entrances": 2654,
+        "window_frames": 14926
+      },
+      "street_furniture": {
+        "signal0": 67,
+        "hydrant": 155,
+        "light": 232,
+        "signal1": 60,
+        "speed35": 110,
+        "news": 163,
+        "pole": 1044,
+        "speed25": 405,
+        "mailbox": 125,
+        "speed45": 19,
+        "bin": 26
+      },
+      "prop_instances": {
+        "palm": 518,
+        "streetlight": 673,
+        "traffic_signal": 0,
+        "street_sign": 27,
+        "stop_sign": 3,
+        "dry_grass": 13
+      },
+      "external_scenes": [
+        "res://assets/signage/DowntownStreetscape.tscn"
+      ],
+      "source_counts": {
+        "buildings_osm": 288,
+        "named_pois": 73,
+        "parking_lots": 25,
+        "railway_ways": 1
+      },
+      "manifest_landmark_count": 86
+    },
+    {
+      "id": "+01_+00",
+      "origin_local_xz": [
+        2000,
+        0
+      ],
+      "buildings": 1836,
+      "instances": 300,
+      "total_triangles": 935189,
+      "glb_disk_mb": 44.26,
+      "has_sidewalks": true,
+      "has_elevated_roads": true,
+      "has_legacy_bridges": true,
+      "curb_m": 5959.0,
+      "crosswalks": 428,
+      "signals": 9,
+      "layers_triangles": {
+        "BridgeCollision": 75,
+        "Bridges": 75,
+        "BuildingCollision": 30841,
+        "Buildings": 86283,
+        "BuildingsFar": 30340,
+        "GroundCollision": 20000,
+        "LandCover": 340,
+        "Markings": 35,
+        "Roads": 153777,
+        "Sidewalks": 2283,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 3505,
+        "StreetEdges": 20883,
+        "FacadeDetails": 414020,
+        "ElevatedRoads": 9360,
+        "ElevatedCollision": 2872,
+        "StreetPaint": 44848,
+        "StreetWear": 26084,
+        "StreetWires": 31500,
+        "StreetRampCollision": 3668
+      },
+      "street_details": {
+        "curb_metres": 5959.0,
+        "slab_joints": 1215,
+        "new_crosswalks": 0,
+        "entrances": 1836,
+        "window_frames": 3030
+      },
+      "street_furniture": {
+        "light": 94,
+        "hydrant": 58,
+        "signal1": 3,
+        "signal0": 6,
+        "speed25": 317,
+        "mailbox": 109,
+        "pole": 668,
+        "speed35": 35,
+        "news": 70,
+        "speed45": 22
+      },
+      "prop_instances": {
+        "palm": 261,
+        "streetlight": 4,
+        "utility_pole": 22,
+        "traffic_signal": 0,
+        "street_sign": 2,
+        "bench": 11
+      },
+      "external_scenes": [
+        "res://assets/landmarks/RamseyTrailhead.tscn",
+        "res://assets/signage/EdCareyStreetscape_01_00.tscn"
+      ],
+      "source_counts": {
+        "buildings_osm": 138,
+        "named_pois": 8,
+        "parking_lots": 1
+      },
+      "manifest_landmark_count": 15
+    },
+    {
+      "id": "+02_+00",
+      "origin_local_xz": [
+        4000,
+        0
+      ],
+      "buildings": 469,
+      "instances": 332,
+      "total_triangles": 192485,
+      "glb_disk_mb": 8.94,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 1088.6,
+      "crosswalks": 133,
+      "signals": 0,
+      "layers_triangles": {
+        "BridgeCollision": 40,
+        "Bridges": 40,
+        "BuildingCollision": 9125,
+        "Buildings": 30941,
+        "BuildingsFar": 8984,
+        "GroundCollision": 20000,
+        "LandCover": 1003,
+        "Roads": 10561,
+        "Sidewalks": 283,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 3666,
+        "StreetEdges": 2486,
+        "FacadeDetails": 12660,
+        "StreetPaint": 16502,
+        "StreetWear": 8284,
+        "StreetWires": 12360,
+        "StreetRampCollision": 1150
+      },
+      "street_details": {
+        "curb_metres": 1088.6,
+        "slab_joints": 203,
+        "new_crosswalks": 0,
+        "entrances": 469,
+        "window_frames": 797
+      },
+      "street_furniture": {
+        "hydrant": 17,
+        "light": 33,
+        "speed25": 128,
+        "mailbox": 43,
+        "pole": 250,
+        "speed35": 25,
+        "news": 27
+      },
+      "prop_instances": {
+        "palm": 323,
+        "utility_pole": 9
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "named_pois": 2,
+        "buildings_osm": 28,
+        "parking_lots": 3
+      },
+      "manifest_landmark_count": 3
+    },
+    {
+      "id": "-03_+01",
+      "origin_local_xz": [
+        -6000,
+        2000
+      ],
+      "buildings": 885,
+      "instances": 0,
+      "total_triangles": 226710,
+      "glb_disk_mb": 10.91,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 588.6,
+      "crosswalks": 190,
+      "signals": 2,
+      "layers_triangles": {
+        "BridgeCollision": 40,
+        "Bridges": 40,
+        "BuildingCollision": 16021,
+        "Buildings": 37109,
+        "BuildingsFar": 15851,
+        "GroundCollision": 20000,
+        "LandCover": 268,
+        "Markings": 12,
+        "Roads": 7295,
+        "Sidewalks": 141,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 2129,
+        "StreetEdges": 1310,
+        "FacadeDetails": 22080,
+        "StreetPaint": 18176,
+        "StreetWear": 8978,
+        "StreetWires": 21300,
+        "StreetRampCollision": 1560
+      },
+      "street_details": {
+        "curb_metres": 588.6,
+        "slab_joints": 103,
+        "new_crosswalks": 0,
+        "entrances": 886,
+        "window_frames": 1322
+      },
+      "street_furniture": {
+        "hydrant": 26,
+        "light": 39,
+        "signal0": 1,
+        "signal1": 1,
+        "speed25": 221,
+        "mailbox": 72,
+        "pole": 419,
+        "speed35": 28,
+        "news": 27,
+        "speed45": 1
+      },
+      "prop_instances": {},
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 1
+      },
+      "manifest_landmark_count": 0
+    },
+    {
+      "id": "-02_+01",
+      "origin_local_xz": [
+        -4000,
+        2000
+      ],
+      "buildings": 734,
+      "instances": 197,
+      "total_triangles": 205618,
+      "glb_disk_mb": 9.6,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 0.0,
+      "crosswalks": 180,
+      "signals": 12,
+      "layers_triangles": {
+        "BridgeCollision": 24,
+        "Bridges": 24,
+        "BuildingCollision": 12299,
+        "Buildings": 27937,
+        "BuildingsFar": 12162,
+        "GroundCollision": 20000,
+        "LandCover": 932,
+        "Markings": 8,
+        "Roads": 8030,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 100,
+        "Water": 2756,
+        "FacadeDetails": 18960,
+        "StreetPaint": 18644,
+        "StreetWear": 8620,
+        "StreetWires": 19260,
+        "StreetRampCollision": 1462
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 734,
+        "window_frames": 1162
+      },
+      "street_furniture": {
+        "light": 76,
+        "hydrant": 30,
+        "signal0": 6,
+        "signal1": 6,
+        "speed25": 195,
+        "pole": 388,
+        "mailbox": 62,
+        "speed35": 46,
+        "news": 53
+      },
+      "prop_instances": {
+        "palm": 184,
+        "utility_pole": 12,
+        "bench": 1
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 4,
+        "named_pois": 2,
+        "parking_lots": 6
+      },
+      "manifest_landmark_count": 3
+    },
+    {
+      "id": "-01_+01",
+      "origin_local_xz": [
+        -2000,
+        2000
+      ],
+      "buildings": 1005,
+      "instances": 523,
+      "total_triangles": 300658,
+      "glb_disk_mb": 15.13,
+      "has_sidewalks": true,
+      "has_elevated_roads": true,
+      "has_legacy_bridges": true,
+      "curb_m": 1737.4,
+      "crosswalks": 185,
+      "signals": 2,
+      "layers_triangles": {
+        "BridgeCollision": 116,
+        "Bridges": 116,
+        "BuildingCollision": 14859,
+        "Buildings": 35735,
+        "BuildingsFar": 14688,
+        "GroundCollision": 20000,
+        "LandCover": 985,
+        "Markings": 222,
+        "Roads": 15397,
+        "Sidewalks": 345,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 4673,
+        "StreetEdges": 3618,
+        "FacadeDetails": 25970,
+        "ElevatedRoads": 38670,
+        "ElevatedCollision": 24838,
+        "StreetPaint": 20056,
+        "StreetWear": 11316,
+        "StreetWires": 13140,
+        "StreetRampCollision": 1514
+      },
+      "street_details": {
+        "curb_metres": 1737.4,
+        "slab_joints": 297,
+        "new_crosswalks": 3,
+        "entrances": 1007,
+        "window_frames": 1590
+      },
+      "street_furniture": {
+        "hydrant": 26,
+        "light": 36,
+        "signal0": 1,
+        "signal1": 1,
+        "speed25": 152,
+        "mailbox": 39,
+        "pole": 291,
+        "speed35": 32,
+        "news": 29
+      },
+      "prop_instances": {
+        "palm": 468,
+        "scrub": 29,
+        "streetlight": 8,
+        "utility_pole": 8,
+        "traffic_signal": 5,
+        "street_sign": 5
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 84,
+        "parking_lots": 12,
+        "named_pois": 3
+      },
+      "manifest_landmark_count": 5
+    },
+    {
+      "id": "+00_+01",
+      "origin_local_xz": [
+        0,
+        2000
+      ],
+      "buildings": 1597,
+      "instances": 413,
+      "total_triangles": 721915,
+      "glb_disk_mb": 32.84,
+      "has_sidewalks": true,
+      "has_elevated_roads": true,
+      "has_legacy_bridges": true,
+      "curb_m": 12393.1,
+      "crosswalks": 211,
+      "signals": 4,
+      "layers_triangles": {
+        "BridgeCollision": 1322,
+        "Bridges": 1530,
+        "BuildingCollision": 23834,
+        "Buildings": 64740,
+        "BuildingsFar": 23492,
+        "GroundCollision": 20000,
+        "LandCover": 758,
+        "Markings": 1311,
+        "Roads": 222520,
+        "Sidewalks": 3000,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 516,
+        "Water": 2004,
+        "StreetEdges": 31192,
+        "FacadeDetails": 169070,
+        "ElevatedRoads": 13664,
+        "ElevatedCollision": 9540,
+        "StreetPaint": 34802,
+        "StreetWear": 23114,
+        "StreetWires": 19260,
+        "StreetRampCollision": 1846
+      },
+      "street_details": {
+        "curb_metres": 12393.1,
+        "slab_joints": 2156,
+        "new_crosswalks": 0,
+        "entrances": 1599,
+        "window_frames": 2520
+      },
+      "street_furniture": {
+        "light": 59,
+        "hydrant": 35,
+        "signal0": 2,
+        "signal1": 2,
+        "speed25": 237,
+        "pole": 429,
+        "mailbox": 60,
+        "speed35": 48,
+        "news": 44,
+        "speed45": 7,
+        "bin": 1
+      },
+      "prop_instances": {
+        "palm": 367,
+        "scrub": 36,
+        "traffic_signal": 4,
+        "street_sign": 4,
+        "bench": 2
+      },
+      "external_scenes": [
+        "res://assets/signage/EdCareyStreetscape_00_01.tscn"
+      ],
+      "source_counts": {
+        "buildings_osm": 70,
+        "named_pois": 20,
+        "railway_ways": 1,
+        "parking_lots": 2
+      },
+      "manifest_landmark_count": 20
+    },
+    {
+      "id": "+01_+01",
+      "origin_local_xz": [
+        2000,
+        2000
+      ],
+      "buildings": 795,
+      "instances": 46,
+      "total_triangles": 1066980,
+      "glb_disk_mb": 49.08,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 4246.1,
+      "crosswalks": 230,
+      "signals": 22,
+      "layers_triangles": {
+        "BridgeCollision": 134,
+        "Bridges": 134,
+        "BuildingCollision": 17510,
+        "Buildings": 57328,
+        "BuildingsFar": 16271,
+        "GroundCollision": 20000,
+        "LandCover": 1024,
+        "Markings": 8,
+        "Roads": 132098,
+        "Sidewalks": 2818,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 2268,
+        "Water": 2775,
+        "StreetEdges": 25396,
+        "FacadeDetails": 635806,
+        "StreetPaint": 56224,
+        "StreetWear": 19624,
+        "StreetWires": 21180,
+        "StreetRampCollision": 1982
+      },
+      "street_details": {
+        "curb_metres": 4246.1,
+        "slab_joints": 690,
+        "new_crosswalks": 0,
+        "entrances": 796,
+        "window_frames": 1288
+      },
+      "street_furniture": {
+        "light": 118,
+        "hydrant": 46,
+        "signal0": 14,
+        "signal1": 8,
+        "speed25": 164,
+        "mailbox": 59,
+        "pole": 439,
+        "speed35": 48,
+        "news": 99,
+        "speed45": 41,
+        "bin": 1
+      },
+      "prop_instances": {
+        "utility_pole": 30,
+        "traffic_signal": 0,
+        "street_sign": 6,
+        "streetlight": 1,
+        "palm": 9
+      },
+      "external_scenes": [
+        "res://assets/signage/EdCareyStreetscape_01_01.tscn"
+      ],
+      "source_counts": {
+        "buildings_osm": 171,
+        "parking_lots": 20,
+        "named_pois": 36,
+        "railway_ways": 3
+      },
+      "manifest_landmark_count": 37
+    },
+    {
+      "id": "+02_+01",
+      "origin_local_xz": [
+        4000,
+        2000
+      ],
+      "buildings": 298,
+      "instances": 40,
+      "total_triangles": 167021,
+      "glb_disk_mb": 7.43,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 0.0,
+      "crosswalks": 128,
+      "signals": 9,
+      "layers_triangles": {
+        "BridgeCollision": 18,
+        "Bridges": 18,
+        "BuildingCollision": 6744,
+        "Buildings": 18626,
+        "BuildingsFar": 5943,
+        "GroundCollision": 20000,
+        "LandCover": 467,
+        "Roads": 8169,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 4650,
+        "FacadeDetails": 7770,
+        "StreetPaint": 18244,
+        "StreetWear": 5714,
+        "StreetWires": 15180,
+        "StreetRampCollision": 1078
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 298,
+        "window_frames": 479
+      },
+      "street_furniture": {
+        "light": 85,
+        "hydrant": 26,
+        "signal0": 4,
+        "signal1": 5,
+        "speed35": 69,
+        "news": 70,
+        "pole": 307,
+        "speed25": 120,
+        "mailbox": 34,
+        "speed45": 8
+      },
+      "prop_instances": {
+        "palm": 18,
+        "utility_pole": 20,
+        "traffic_signal": 0,
+        "street_sign": 2
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 31
+      },
+      "manifest_landmark_count": 0
+    },
+    {
+      "id": "-03_+02",
+      "origin_local_xz": [
+        -6000,
+        4000
+      ],
+      "buildings": 326,
+      "instances": 0,
+      "total_triangles": 132595,
+      "glb_disk_mb": 5.52,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 0.0,
+      "crosswalks": 37,
+      "signals": 0,
+      "layers_triangles": {
+        "BridgeCollision": 20,
+        "Bridges": 20,
+        "BuildingCollision": 5325,
+        "Buildings": 11445,
+        "BuildingsFar": 5307,
+        "GroundCollision": 20000,
+        "LandCover": 187,
+        "Roads": 4057,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 2872,
+        "FacadeDetails": 8170,
+        "StreetPaint": 8640,
+        "StreetWear": 1652,
+        "StreetWires": 10200,
+        "StreetRampCollision": 300
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 326,
+        "window_frames": 491
+      },
+      "street_furniture": {
+        "hydrant": 4,
+        "speed25": 125,
+        "mailbox": 35,
+        "pole": 192
+      },
+      "prop_instances": {},
+      "external_scenes": [],
+      "source_counts": {},
+      "manifest_landmark_count": 0
+    },
+    {
+      "id": "-02_+02",
+      "origin_local_xz": [
+        -4000,
+        4000
+      ],
+      "buildings": 201,
+      "instances": 6,
+      "total_triangles": 114644,
+      "glb_disk_mb": 4.47,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 0.0,
+      "crosswalks": 67,
+      "signals": 0,
+      "layers_triangles": {
+        "BridgeCollision": 24,
+        "Bridges": 24,
+        "BuildingCollision": 3601,
+        "Buildings": 8209,
+        "BuildingsFar": 3541,
+        "GroundCollision": 20000,
+        "LandCover": 264,
+        "Roads": 3259,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 2720,
+        "FacadeDetails": 4960,
+        "StreetPaint": 5544,
+        "StreetWear": 2896,
+        "StreetWires": 4620,
+        "StreetRampCollision": 582
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 201,
+        "window_frames": 295
+      },
+      "street_furniture": {
+        "hydrant": 12,
+        "speed25": 67,
+        "pole": 105,
+        "mailbox": 16
+      },
+      "prop_instances": {
+        "utility_pole": 6
+      },
+      "external_scenes": [],
+      "source_counts": {},
+      "manifest_landmark_count": 0
+    },
+    {
+      "id": "-01_+02",
+      "origin_local_xz": [
+        -2000,
+        4000
+      ],
+      "buildings": 234,
+      "instances": 73,
+      "total_triangles": 127216,
+      "glb_disk_mb": 5.26,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 0.0,
+      "crosswalks": 26,
+      "signals": 4,
+      "layers_triangles": {
+        "BridgeCollision": 76,
+        "Bridges": 76,
+        "BuildingCollision": 3956,
+        "Buildings": 10710,
+        "BuildingsFar": 3926,
+        "GroundCollision": 20000,
+        "LandCover": 166,
+        "Roads": 4510,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 2104,
+        "FacadeDetails": 6070,
+        "StreetPaint": 9842,
+        "StreetWear": 1208,
+        "StreetWires": 9960,
+        "StreetRampCollision": 212
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 234,
+        "window_frames": 373
+      },
+      "street_furniture": {
+        "light": 80,
+        "hydrant": 7,
+        "signal0": 2,
+        "signal1": 2,
+        "news": 74,
+        "pole": 186,
+        "speed35": 69,
+        "speed25": 37,
+        "mailbox": 11
+      },
+      "prop_instances": {
+        "scrub": 22,
+        "palm": 39,
+        "utility_pole": 11,
+        "traffic_signal": 0,
+        "street_sign": 1
+      },
+      "external_scenes": [],
+      "source_counts": {},
+      "manifest_landmark_count": 1
+    },
+    {
+      "id": "+00_+02",
+      "origin_local_xz": [
+        0,
+        4000
+      ],
+      "buildings": 566,
+      "instances": 158,
+      "total_triangles": 592648,
+      "glb_disk_mb": 26.58,
+      "has_sidewalks": true,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 0.0,
+      "crosswalks": 144,
+      "signals": 0,
+      "layers_triangles": {
+        "BuildingCollision": 9542,
+        "Buildings": 27330,
+        "BuildingsFar": 9404,
+        "GroundCollision": 20000,
+        "LandCover": 303,
+        "Markings": 130,
+        "Roads": 68650,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Water": 4185,
+        "FacadeDetails": 335222,
+        "StreetPaint": 16744,
+        "StreetWear": 7548,
+        "StreetWires": 14520,
+        "StreetRampCollision": 1198,
+        "Sidewalks": 2254,
+        "StreetEdges": 21218
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 566,
+        "window_frames": 860
+      },
+      "street_furniture": {
+        "light": 49,
+        "hydrant": 24,
+        "speed25": 150,
+        "mailbox": 38,
+        "pole": 304,
+        "speed35": 28,
+        "news": 35
+      },
+      "prop_instances": {
+        "palm": 108,
+        "scrub": 35,
+        "utility_pole": 15
+      },
+      "external_scenes": [
+        "res://assets/signage/EdCareyStreetscape_00_02.tscn"
+      ],
+      "source_counts": {
+        "buildings_osm": 6,
+        "named_pois": 3,
+        "parking_lots": 2
+      },
+      "manifest_landmark_count": 2
+    },
+    {
+      "id": "+01_+02",
+      "origin_local_xz": [
+        2000,
+        4000
+      ],
+      "buildings": 625,
+      "instances": 22,
+      "total_triangles": 184859,
+      "glb_disk_mb": 8.59,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": true,
+      "curb_m": 0.0,
+      "crosswalks": 92,
+      "signals": 3,
+      "layers_triangles": {
+        "BridgeCollision": 92,
+        "Bridges": 92,
+        "BuildingCollision": 9045,
+        "Buildings": 24885,
+        "BuildingsFar": 8946,
+        "GroundCollision": 20000,
+        "LandCover": 13,
+        "Markings": 1770,
+        "Roads": 12074,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 342,
+        "Water": 3416,
+        "FacadeDetails": 15090,
+        "StreetPaint": 17546,
+        "StreetWear": 4096,
+        "StreetWires": 12300,
+        "StreetRampCollision": 752
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 625,
+        "window_frames": 889
+      },
+      "street_furniture": {
+        "hydrant": 14,
+        "signal0": 2,
+        "light": 41,
+        "signal1": 1,
+        "news": 39,
+        "pole": 239,
+        "speed25": 99,
+        "mailbox": 26,
+        "speed45": 12,
+        "speed35": 22,
+        "bin": 1
+      },
+      "prop_instances": {
+        "utility_pole": 17,
+        "traffic_signal": 2,
+        "street_sign": 3
+      },
+      "external_scenes": [
+        "res://assets/landmarks/HarlingenMedicalCenter.tscn"
+      ],
+      "source_counts": {
+        "buildings_osm": 14,
+        "named_pois": 6
+      },
+      "manifest_landmark_count": 6
+    },
+    {
+      "id": "+02_+02",
+      "origin_local_xz": [
+        4000,
+        4000
+      ],
+      "buildings": 967,
+      "instances": 87,
+      "total_triangles": 240499,
+      "glb_disk_mb": 11.76,
+      "has_sidewalks": false,
+      "has_elevated_roads": false,
+      "has_legacy_bridges": false,
+      "curb_m": 0.0,
+      "crosswalks": 199,
+      "signals": 11,
+      "layers_triangles": {
+        "BuildingCollision": 14354,
+        "Buildings": 40224,
+        "BuildingsFar": 14238,
+        "GroundCollision": 20000,
+        "LandCover": 486,
+        "Markings": 350,
+        "Roads": 12851,
+        "TerrainFar": 3200,
+        "TerrainMesh": 51200,
+        "Transport": 2080,
+        "Water": 3446,
+        "FacadeDetails": 22270,
+        "StreetPaint": 26448,
+        "StreetWear": 10456,
+        "StreetWires": 17280,
+        "StreetRampCollision": 1616
+      },
+      "street_details": {
+        "curb_metres": 0,
+        "slab_joints": 0,
+        "new_crosswalks": 0,
+        "entrances": 967,
+        "window_frames": 1260
+      },
+      "street_furniture": {
+        "hydrant": 36,
+        "light": 79,
+        "signal0": 6,
+        "signal1": 5,
+        "speed25": 158,
+        "pole": 369,
+        "speed45": 20,
+        "news": 57,
+        "mailbox": 52,
+        "speed35": 42
+      },
+      "prop_instances": {
+        "utility_pole": 83,
+        "traffic_signal": 0,
+        "street_sign": 3,
+        "palm": 1
+      },
+      "external_scenes": [],
+      "source_counts": {
+        "buildings_osm": 24,
+        "railway_ways": 3,
+        "named_pois": 5,
+        "parking_lots": 11
+      },
+      "manifest_landmark_count": 8
+    }
+  ]
+}
