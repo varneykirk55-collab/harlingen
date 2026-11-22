@@ -1,0 +1,30 @@
+﻿[gd_resource type="ShaderMaterial" load_steps=10 format=3]
+
+[ext_resource type="Shader" path="res://materials/shaders/facade_finish.gdshader" id="shader"]
+[ext_resource type="Texture2D" path="res://materials/textures/facades_city_albedo.jpg" id="facade_albedo"]
+[ext_resource type="Texture2D" path="res://materials/textures/facades_normal.png" id="facade_normal"]
+[ext_resource type="Texture2D" path="res://materials/textures/facades_city_ao.png" id="facade_occlusion"]
+[ext_resource type="Texture2D" path="res://materials/textures/facade_glazing.png" id="glazing"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/rusty_metal_02/rusty_metal_02_diff_1k.jpg" id="detail_albedo"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/rusty_metal_02/rusty_metal_02_nor_gl_1k.jpg" id="detail_normal"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/rusty_metal_02/rusty_metal_02_rough_1k.jpg" id="detail_roughness"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/rusty_metal_02/rusty_metal_02_ao_1k.jpg" id="detail_ao"]
+
+[resource]
+shader = ExtResource("shader")
+shader_parameter/facade_albedo = ExtResource("facade_albedo")
+shader_parameter/facade_normal = ExtResource("facade_normal")
+shader_parameter/facade_occlusion = ExtResource("facade_occlusion")
+shader_parameter/glazing = ExtResource("glazing")
+shader_parameter/wall_tint = Color(0.90, 0.86, 0.83, 1)
+shader_parameter/wall_roughness = 0.72
+shader_parameter/wall_normal_strength = 0.50
+shader_parameter/detail_albedo = ExtResource("detail_albedo")
+shader_parameter/detail_normal = ExtResource("detail_normal")
+shader_parameter/detail_roughness = ExtResource("detail_roughness")
+shader_parameter/detail_ao = ExtResource("detail_ao")
+shader_parameter/detail_scale = 0.42
+shader_parameter/detail_albedo_strength = 0.36
+shader_parameter/detail_normal_strength = 0.55
+shader_parameter/detail_roughness_strength = 0.42
+shader_parameter/detail_ao_strength = 0.52

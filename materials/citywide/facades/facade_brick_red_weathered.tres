@@ -1,0 +1,30 @@
+﻿[gd_resource type="ShaderMaterial" load_steps=10 format=3]
+
+[ext_resource type="Shader" path="res://materials/shaders/facade_finish.gdshader" id="shader"]
+[ext_resource type="Texture2D" path="res://materials/textures/facades_city_albedo.jpg" id="facade_albedo"]
+[ext_resource type="Texture2D" path="res://materials/textures/facades_normal.png" id="facade_normal"]
+[ext_resource type="Texture2D" path="res://materials/textures/facades_city_ao.png" id="facade_occlusion"]
+[ext_resource type="Texture2D" path="res://materials/textures/facade_glazing.png" id="glazing"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/red_brick_03/red_brick_03_diff_2k.jpg" id="detail_albedo"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/red_brick_03/red_brick_03_nor_gl_2k.jpg" id="detail_normal"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/red_brick_03/red_brick_03_rough_2k.jpg" id="detail_roughness"]
+[ext_resource type="Texture2D" path="res://materials/polyhaven/red_brick_03/red_brick_03_ao_2k.jpg" id="detail_ao"]
+
+[resource]
+shader = ExtResource("shader")
+shader_parameter/facade_albedo = ExtResource("facade_albedo")
+shader_parameter/facade_normal = ExtResource("facade_normal")
+shader_parameter/facade_occlusion = ExtResource("facade_occlusion")
+shader_parameter/glazing = ExtResource("glazing")
+shader_parameter/wall_tint = Color(1.02, 0.95, 0.91, 1)
+shader_parameter/wall_roughness = 0.85
+shader_parameter/wall_normal_strength = 0.48
+shader_parameter/detail_albedo = ExtResource("detail_albedo")
+shader_parameter/detail_normal = ExtResource("detail_normal")
+shader_parameter/detail_roughness = ExtResource("detail_roughness")
+shader_parameter/detail_ao = ExtResource("detail_ao")
+shader_parameter/detail_scale = 0.44
+shader_parameter/detail_albedo_strength = 0.34
+shader_parameter/detail_normal_strength = 0.52
+shader_parameter/detail_roughness_strength = 0.42
+shader_parameter/detail_ao_strength = 0.52
