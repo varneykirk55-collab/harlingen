@@ -59,7 +59,7 @@ var _door_l_pivot: Node3D = null
 var _door_r_pivot: Node3D = null
 var _driver_door_open := false
 var _door_tween: Tween = null
-var _wheel_meshes: Array = []
+var _wheel_meshes: Array[Node3D] = []
 
 
 func _ready() -> void:
@@ -340,7 +340,27 @@ func _unhandled_input(event: InputEvent) -> void:
 		handle_input(event)
 
 
+func _align_wheel_meshes_to_contact() -> void:
+	var up := global_basis.y.normalized()
+	for mesh in _wheel_meshes:
+		var wheel := mesh.get_parent() as VehicleWheel3D
+		var normal := wheel.get_contact_normal()
+		var alignment := normal.dot(up)
+		if not wheel.is_in_contact() or alignment < 0.6:
+			mesh.position = Vector3.ZERO
+			continue
+		# Godot shortens the displayed wheel's contact radius under spring load.
+		# Resolve the visible tire against its contact plane without moving the hub
+		# sideways, changing spring forces, or interfering with spin and steering.
+		var axle := wheel.global_basis.x.normalized()
+		var support_radius := wheel.wheel_radius * sqrt(maxf(0.0, 1.0 - pow(normal.dot(axle), 2.0)))
+		var separation := normal.dot(wheel.global_position - wheel.get_contact_point())
+		var offset := clampf((support_radius - separation) / alignment, -0.06, 0.07)
+		mesh.position = wheel.global_basis.inverse() * (up * offset)
+
+
 func _process(delta: float) -> void:
+	_align_wheel_meshes_to_contact()
 	if not driver_active:
 		return
 	var cam_delta := _read_camera_stick_and_actions()

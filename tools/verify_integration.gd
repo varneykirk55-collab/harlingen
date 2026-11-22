@@ -157,15 +157,13 @@ func _verify_player_spawn_and_pose() -> void:
 	_check(root.get_camera_3d() == player.get_camera(), "PlayerCamera is active on startup")
 	_check(player.is_on_floor(), "PlayerCharacter spawns grounded (is_on_floor=true)")
 
-	var space := root.world_3d.direct_space_state
-	var ground_hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
-		player.global_position + Vector3(0, 1.0, 0),
-		player.global_position - Vector3(0, 2.0, 0),
-		1
-	))
-	var ground_y: float = ground_hit.position.y if not ground_hit.is_empty() else -999.0
-	var foot_offset: float = player.global_position.y - ground_y
-	_check(absf(foot_offset) < 0.08, "Player feet grounded cleanly (offset=" + str(foot_offset) + " m)")
+	# The capsule can be supported by the edge of a curb even when a center
+	# ray reaches the lower street. Verify the actual capsule's floor clearance.
+	var support := KinematicCollision3D.new()
+	var grounded_cleanly := player.test_move(player.global_transform, Vector3.DOWN * 0.08,
+		support, player.safe_margin)
+	_check(grounded_cleanly and support.get_normal().y >= cos(player.floor_max_angle),
+		"Player capsule is supported by a walkable surface within 0.08 m")
 
 	var vr: Node3D = player.visual_root
 	var fwd: Vector3 = -vr.global_basis.z
@@ -402,8 +400,11 @@ func _verify_vehicle_spawn_and_driving() -> void:
 		var w_node := pair[0] as VehicleWheel3D
 		var m_name: String = pair[1]
 		var w_mesh := w_node.get_node_or_null(m_name) as Node3D if w_node else null
-		var local_ok := w_mesh != null and w_mesh.position.length() < 0.001 and w_mesh.rotation.length() < 0.001 and w_mesh.scale.is_equal_approx(Vector3.ONE)
-		_check(local_ok, m_name + " parented under " + (w_node.name if w_node else "null") + " at local (0,0,0) scale (1,1,1)")
+		var local_ok := w_mesh != null and w_mesh.rotation.length() < 0.001 and w_mesh.scale.is_equal_approx(Vector3.ONE)
+		if local_ok:
+			var offset := w_mesh.global_position - w_node.global_position
+			local_ok = offset.length() <= 0.071 and offset.cross(car.global_basis.y).length() < 0.001
+		_check(local_ok, m_name + " spins at the hub with only a small vertical contact offset")
 
 	var contacts := [
 		car.wheel_fl.is_in_contact(),
@@ -497,7 +498,12 @@ func _verify_enter_drive_exit_cycle() -> void:
 	_check(enter_door_end_l < 0.01 and enter_door_end_r < 0.01 and not car.is_driver_door_open(),
 		"Doors close flush to Vector3.ZERO when seated/driving (L=" + str(enter_door_end_l) + ", R=" + str(enter_door_end_r) + ")")
 
-	# Accelerate forward (W) > 2.0 m/s and verify wheel spin (rotation.x + RPM)
+	# Align the acceleration test with Jackson instead of driving at the opposite curb.
+	var lane_direction := Vector3(-1.0, 0.0, 0.02).normalized()
+	car.global_transform = Transform3D(Basis.looking_at(lane_direction), Vector3(225, car.global_position.y + 0.07, 315.4))
+	car.linear_velocity = Vector3.ZERO
+	car.angular_velocity = Vector3.ZERO
+	await _frames(25)
 	var car_start: Vector3 = car.global_position
 	var wheels := [car.wheel_fl, car.wheel_fr, car.wheel_rl, car.wheel_rr]
 	_key_ev(KEY_W, true)
@@ -515,8 +521,8 @@ func _verify_enter_drive_exit_cycle() -> void:
 	var fwd_speed: float = car.get_forward_speed_mps()
 	print("DRIVE_ACCEL speed=", accel_speed, " fwd=", fwd_speed, " fwd_spin=", fwd_spin, " fwd_rpm=", fwd_rpms,
 		" hud_speed=", hud.speed_label.text, " prompt=", hud.prompt_label.text)
-	_check(fwd_speed > 8.0 and car.global_position.z < car_start.z - 5.0,
-		"Vehicle accelerates forward along -Z (fwd_speed=" + str(fwd_speed) + ")")
+	_check(fwd_speed > 8.0 and (car.global_position - car_start).dot(lane_direction) > 5.0,
+		"Vehicle accelerates along Jackson Street (fwd_speed=" + str(fwd_speed) + ")")
 	_check(fwd_spin[0] > 0.5 and fwd_spin[1] > 0.5 and fwd_spin[2] > 0.5 and fwd_spin[3] > 0.5,
 		"All 4 wheels physically spin (rotation.x changes) during forward acceleration (spin=" + str(fwd_spin) + ")")
 	_check(absf(fwd_rpms[0]) > 10.0 and absf(fwd_rpms[1]) > 10.0 and absf(fwd_rpms[2]) > 10.0 and absf(fwd_rpms[3]) > 10.0,
