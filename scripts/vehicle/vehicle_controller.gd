@@ -4,24 +4,24 @@ extends VehicleBody3D
 signal driver_state_changed(active: bool)
 
 @export_group("Driving")
-@export var max_engine_force := 3600.0
-@export var reverse_engine_force := 2400.0
+@export var max_engine_force := 4400.0
+@export var reverse_engine_force := 2600.0
 @export var max_brake_force := 85.0
 @export var handbrake_force := 140.0
-@export var max_forward_speed_mps := 40.0
+@export var max_forward_speed_mps := 48.0
 @export var max_reverse_speed_mps := 14.0
 @export var low_speed_steer_rad := 0.42
 @export var high_speed_steer_rad := 0.13
 @export var steer_speed_reference := 30.0
 @export var steer_response := 5.5
-@export var downforce_per_mps := 18.0
-@export var anti_roll_stiffness := 1800.0
+@export var downforce_per_mps := 24.0
+@export var anti_roll_stiffness := 2200.0
 
-const DRIVER_DOOR_OPEN_EULER := Vector3(-0.53190, -0.86218, -0.66973)
-const PASSENGER_DOOR_OPEN_EULER := Vector3(-0.53190, 0.86218, 0.66973)
+const DRIVER_DOOR_OPEN_EULER := Vector3(-0.67157, -1.14177, 0.01195)
+const PASSENGER_DOOR_OPEN_EULER := Vector3(-0.67157, 1.14177, -0.01195)
 
 @export_group("Camera")
-@export var pivot_offset := Vector3(0.0, 1.38, 0.25)
+@export var pivot_offset := Vector3(0.0, 1.25, 0.15)
 @export var mouse_sensitivity := 0.0024
 @export var stick_sensitivity := 2.4
 @export var stick_deadzone := 0.2
